@@ -1,0 +1,23 @@
+.share button {
+    height: 37px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding-left: 0.55rem;
+    padding-right: 0.55rem;
+}
+.share button:hover {
+    background-color: #77b5ea;
+    color: #fff;
+}
+.add-socials.disabled i {
+    color: #ccc;
+}
+
+.control {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-submit button{
+	margin-left: 10px;	
+}

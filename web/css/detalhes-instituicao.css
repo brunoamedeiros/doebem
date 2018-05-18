@@ -1,0 +1,35 @@
+.descricao {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.tabs {
+    padding-top: 15px;
+}
+.tab-content {
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-top: 0;
+}
+.conheca {
+    padding-top: 10px;
+}
+.conheca > button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.items {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.contribua {
+    padding-bottom: 25px;
+}
+.contribua button {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.contribua button:hover {
+    cursor: pointer;
+    background-color: #ccc;
+}

@@ -7,8 +7,6 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Instituicao */
 
 $this->title = $model->id_instituicao;
-$this->params['breadcrumbs'][] = ['label' => 'Instituicaos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="instituicao-view">
 
