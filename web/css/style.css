@@ -51,7 +51,8 @@ body {
 
 /*style page*/
 
-body .home-banner {
+body .home-banner,
+.gradient-bg {
 	background: #4facfe;
 	background: -moz-linear-gradient(left, #4facfe 0%, #00e3ee 100%) !important;
 	background: -webkit-linear-gradient(left, #4facfe 0%, #00e3ee 100%) !important;

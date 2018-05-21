@@ -9,89 +9,23 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Projeto Doe Bem';
 ?>
-<div class="home-banner">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="index.html">
-			<img src="../../public/imagens/logo.png" alt="">
+<div class="jumbotron jumbotron-fluid gradient-bg">
+	<div class="container text-center">
+		<h1 class="display-4 style-main-text style-color-white">
+			<b>
+				Nos ajude a continuar <br>ajudando
+			</b>
+		</h1>
+
+		<p class="lead style-color-white">
+			"Aquele que tem caridade no coração, sempre <br>tem algo para dar"
+		</p>
+
+		<a href="#intituicoes-parceiras">
+			<button type="button" class="btn btn-primary style-btn-primary rounded-50 center">
+				Conheça as instituições
+			</button>
 		</a>
-
-		<button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">
-						Home<span class="sr-only">(current)</span>
-					</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="#">Instituições parceiras</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="#">Sobre nós</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="#">Time</a>
-				</li>
-			</ul>
-
-        <?php $form = ActiveForm::begin([
-            'id' => 'login-form',
-            'layout' => 'horizontal',
-            'class' => 'form-inline',
-            'fieldConfig' => [
-                'template' => "<div class=\"mx-sm-0 mb-2\">{input}</div>",
-            ],
-        ]); ?>
-
-				<?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-				<?= $form->field($model, 'password')->passwordInput() ?>
-
-				<?= Html::submitButton('Entrar', ['class' => 'btn btn-primary mb-2 style-btn-primary animation-style', 'name' => 'login-button']) ?>
-			
-
-        <?php ActiveForm::end(); ?>
-
-
-			<form class="form-inline logar">
-				<div class="form-group mx-sm-0 mb-2">
-					<label for="login" class="sr-only">Email</label>
-					<input type="text" class="form-control" id="login" placeholder="Login">
-				</div>
-
-				<div class="form-group mx-sm-2 mb-2">
-					<label for="senha" class="sr-only">Senha</label>
-					<input type="password" class="form-control" id="senha" placeholder="Senha">
-				</div>
-
-
-			</form>
-		</div>
-	</nav>
-
-	<div class="jumbotron jumbotron-fluid">
-		<div class="container text-center">
-			<h1 class="display-4 style-main-text style-color-white">
-				<b>
-					Nos ajude a coninuar <br>ajudando
-				</b>
-			</h1>
-
-			<p class="lead style-color-white">
-				"Aquele que tem caridade no coração, sempre <br>tem algo para dar
-			</p>
-
-			<a href="#intituicoes-parceiras">
-				<button type="button" class="btn btn-primary style-btn-primary rounded-50 center">
-					Connhça as intituições
-				</button>
-			</a>
-		</div>
 	</div>
 </div>
 

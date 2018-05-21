@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "instituicao".
  *
- * @property int $id_instituicao
+ * @property integer $id_instituicao
  * @property string $nome
  * @property string $cnpj
  * @property string $descricao
@@ -20,7 +20,7 @@ use Yii;
  * @property string $senha
  * @property string $imagem
  * @property string $video
- * @property int $perfil
+ * @property integer $perfil
  * @property string $vinculo_api
  *
  * @property Doacao[] $doacaos
@@ -42,7 +42,7 @@ class Instituicao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'cnpj', 'descricao', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'login', 'senha', 'imagem', 'video', 'perfil', 'vinculo_api'], 'required'],
+            [['nome', 'cnpj', 'descricao', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'login', 'senha', 'imagem'], 'required'],
             [['descricao'], 'string'],
             [['perfil'], 'integer'],
             [['nome', 'cnpj', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'login', 'senha', 'imagem', 'video', 'vinculo_api'], 'string', 'max' => 255],
@@ -86,6 +86,6 @@ class Instituicao extends \yii\db\ActiveRecord
      */
     public function getInstituicaoRedeSocial()
     {
-        return $this->hasMany(InstituicaoRedeSocial::className(), ['id_instituicao' => 'id_instituicao']);
+        return $this->hasOne(InstituicaoRedeSocial::className(), ['id_instituicao' => 'id_instituicao']);
     }
 }
