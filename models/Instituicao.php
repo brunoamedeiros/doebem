@@ -86,6 +86,6 @@ class Instituicao extends \yii\db\ActiveRecord
      */
     public function getInstituicaoRedeSocial()
     {
-        return $this->hasOne(InstituicaoRedeSocial::className(), ['id_instituicao' => 'id_instituicao']);
+        return $this->hasMany(InstituicaoRedeSocial::className(), ['id_instituicao' => 'id_instituicao']);
     }
 }

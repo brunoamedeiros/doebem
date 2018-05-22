@@ -74,6 +74,8 @@ class InstituicaoController extends Controller
             $model->login = $login;
             $model->senha = Yii::$app->getSecurity()->generateRandomString(8);
 
+            $model->save();
+
             $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
 
             foreach ($redesSociais as $key => $value) {
@@ -86,9 +88,7 @@ class InstituicaoController extends Controller
               $sociais->save();
             }
 
-            if($model->save()) {
-              return $this->redirect(['index', 'id' => $model->id_instituicao]);
-            }
+            return $this->redirect(['index', 'id' => $model->id_instituicao]);
         }
 
         return $this->render('create', [
@@ -112,9 +112,9 @@ class InstituicaoController extends Controller
 
             $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
 
-
             foreach ($redesSociais as $key => $value) {
               $sociais = new InstituicaoRedeSocial();
+              $sociais->load($post);
 
               $sociais->id_instituicao = $model->id_instituicao;
               $sociais->nome = $key;
@@ -142,6 +142,13 @@ class InstituicaoController extends Controller
      */
     public function actionDelete($id)
     {
+
+        $socials = $this->findModel($id)->getInstituicaoRedeSocial();
+
+        foreach ($socials->all() as $social) {
+          $social->delete();
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
