@@ -42,7 +42,7 @@ class Instituicao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'cnpj', 'descricao', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'login', 'senha', 'imagem'], 'required'],
+            [['nome', 'cnpj', 'descricao', 'email', 'telefone', 'endereco', 'bairro', 'cep'], 'required'],
             [['descricao'], 'string'],
             [['perfil'], 'integer'],
             [['nome', 'cnpj', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'login', 'senha', 'imagem', 'video', 'vinculo_api'], 'string', 'max' => 255],

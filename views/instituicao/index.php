@@ -49,8 +49,31 @@ $this->title = 'Instituições';
             //'video',
             //'perfil',
             //'vinculo_api',
-
-              ['class' => 'yii\grid\ActionColumn'],
+	          [
+	          		'class' => 'yii\grid\ActionColumn',
+		            'template' => '{view} {update} {delete}',
+                'buttons' => [
+                		'view' => function($url, $model) {
+                      return Html::a('<i class="material-icons">remove_red_eye</i>',
+		                      ['view', 'id' => $model->id_instituicao], ['class' => '']);
+                    },
+                    'update' => function($url, $model) {
+                      return Html::a('<i class="material-icons">mode_edit</i>',
+                          ['update', 'id' => $model->id_instituicao], ['class' => '']);
+                    },
+		                'delete' => function($url, $model) {
+                      return Html::a('<i class="material-icons">delete</i>',
+		                      ['delete', 'id' => $model->id_instituicao],
+		                      [
+                          'class' => '',
+                          'data' => [
+                              'confirm' => 'Are you sure you want to delete this item?',
+                              'method' => 'post',
+                          ],
+                      ]);
+                    }
+                ]
+	          ],
           ],
       ]); ?>
 	</div>

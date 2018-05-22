@@ -38,7 +38,7 @@ $modelLogin = $this->params['modelLogin'];
 
 		<?php if (!Yii::$app->user->isGuest): ?>
 			<div class="float-right style-color-white">
-            <?= Yii::$app->user->identity->username; ?>
+           Olá, <?= Yii::$app->user->identity->username; ?>
 			</div>
 
 				<?=

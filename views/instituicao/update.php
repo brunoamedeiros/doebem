@@ -5,17 +5,20 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Instituicao */
 
-$this->title = 'Update Instituicao: {nameAttribute}';
-$this->params['breadcrumbs'][] = ['label' => 'Instituicaos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_instituicao, 'url' => ['view', 'id' => $model->id_instituicao]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Editar Instituição';
 ?>
-<div class="instituicao-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<main class="col-lg-10 content mx-auto">
+	<div class="row align-items-center">
+		<div class="col-sm-11">
+			<h3 class="style-text-primary style-color-blue-02">
+        <?= Html::encode($this->title) ?>
+			</h3>
+		</div>
+	</div>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+  <?= $this->render('_form', [
+      'model' => $model,
+  ]) ?>
 
-</div>
+</main>

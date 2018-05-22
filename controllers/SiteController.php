@@ -67,7 +67,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->goBack('index.php?r=doacao/index');
         }
 
         $model->password = '';
@@ -90,7 +90,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->goBack('index.php?r=doacao/index');
         }
 
         $model->password = '';
