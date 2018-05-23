@@ -77,6 +77,7 @@ $modelLogin = $this->params['modelLogin'];
 					</li>
 				</ul>
 
+        <?php /*
 	      <?php $form = ActiveForm::begin([
 	          'id' => 'login-form',
 	          'layout' => 'horizontal',
@@ -104,6 +105,8 @@ $modelLogin = $this->params['modelLogin'];
         <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary mb-2 style-btn-primary animation-style', 'name' => 'login-button']) ?>
 
         <?php ActiveForm::end(); ?>
+
+ */ ?>
 			<?php endif; ?>
 
 	</nav>

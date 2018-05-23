@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Instituicao;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,6 +62,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $instituicoes = Instituicao::find()->all();
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -74,6 +77,7 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'model' => $model,
+            'instituicoes' => $instituicoes
         ]);
     }
 

@@ -125,7 +125,7 @@ use yii\widgets\ActiveForm;
 
 				<div class="form-group col-lg-6">
 					<div class="form-group col-lg-6 float-left">
-            <?= $form->field($model, 'imagem')->fileInput(['accept' => 'image/*']) ?>
+            <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
 					</div>
 
 					<div class="col-5 float-left p0 d-none">

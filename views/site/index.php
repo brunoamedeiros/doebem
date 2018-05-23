@@ -35,7 +35,7 @@ $this->title = 'Projeto Doe Bem';
 			<div class="passos col-12 mx-auto">
 				<div class="passo-quadro col-lg-4 col-sm-4">
 					<div class="passo-quadro__content">
-						<img src="../../public/imagens/img-conheca.png" alt="">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/img-conheca.png" alt="">
 						<p class="style-color-yellow-02 passo-titlo">Conheça</p>
 						<p>Loren ispun dolor met sit amet,consectutur adipising elit</p>
 					</div>
@@ -43,7 +43,7 @@ $this->title = 'Projeto Doe Bem';
 
 				<div class="passo-quadro col-lg-4 col-sm-4">
 					<div class="passo-quadro__content">
-						<img src="../../public/imagens/voluntarie-se.png" alt="img-01">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/voluntarie-se.png" alt="img-01">
 						<p class="style-color-green-02 passo-titlo">Conheça</p>
 						<p>Loren ispun dolor met sit amet,consectutur adipising elit</p>
 					</div>
@@ -51,7 +51,7 @@ $this->title = 'Projeto Doe Bem';
 
 				<div class="passo-quadro col-lg-4 col-sm-4">
 					<div class="passo-quadro__content">
-						<img src="../public/imagens/doe.png" alt="img-01">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/doe.png" alt="img-01">
 						<p class="style-color-pink-02 passo-titlo">Conheça</p>
 						<p>Loren ispun dolor met sit amet,consectutur adipising elit</p>
 					</div>
@@ -65,33 +65,35 @@ $this->title = 'Projeto Doe Bem';
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet magna sagittis, posuere tellus vitae, laoreet turpis. Integer sollicitudin ut est a pretium.
 				</p>
 
-				<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">
-					<div class="instituicao-content">
-						<img src="../../public/imagens/instituicao-03.png" class="img-fluid" alt="...">
-						<p class="style-color-blue-03">Integer scelerisque</p>
-						<a href="visualizar-instituicao.html" style="display: block">
-							<button type="button" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">
-								Conheça-nos
-							</button>
-						</a>
-					</div>
-				</div>
+        <?php foreach ($instituicoes as $instituicao): ?>
+          <div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">
+            <div class="instituicao-content">
+              <img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" class="img-fluid" alt="...">
+              <p class="style-color-blue-03"><?= $instituicao->nome ?></p>
+              <a href="visualizar-instituicao.html" style="display: block">
+                <a href="<?= \yii\helpers\Url::to(['instituicao/visualizar', 'id' => $instituicao->id_instituicao]) ?>" type="button" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">
+                  Conheça-nos
+                </a>
+              </a>
+            </div>
+          </div>
+        <?php endforeach; ?>
 
-				<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">
-					<div class="instituicao-content">
-						<img src="../../public/imagens/instituicao-01.png" class="img-fluid" alt="...">
-						<p class="style-color-blue-03">Loren Ipsun Dollor</p>
-						<button type="button" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">Conheça-nos</button>
-					</div>
-				</div>
-
-				<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">
-					<div class="instituicao-content">
-						<img src="../../public/imagens/instituicao-02.png" class="img-fluid" alt="insituicao">
-						<p class="style-color-blue-03">volutpat purus</p>
-						<button type="button" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">Conheça-nos</button>
-					</div>
-				</div>
+<!--				<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">-->
+<!--					<div class="instituicao-content">-->
+<!--						<img src="--><?//= Yii::getAlias('@web') ?><!--/imagens/instituicao-01.png" class="img-fluid" alt="...">-->
+<!--						<p class="style-color-blue-03">Loren Ipsun Dollor</p>-->
+<!--						<button type="button" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">Conheça-nos</button>-->
+<!--					</div>-->
+<!--				</div>-->
+<!---->
+<!--				<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">-->
+<!--					<div class="instituicao-content">-->
+<!--						<img src="--><?//= Yii::getAlias('@web') ?><!--/imagens/instituicao-02.png" class="img-fluid" alt="insituicao">-->
+<!--						<p class="style-color-blue-03">volutpat purus</p>-->
+<!--						<button type="button" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">Conheça-nos</button>-->
+<!--					</div>-->
+<!--				</div>-->
 			</div>
 		</div>
 
@@ -108,28 +110,28 @@ $this->title = 'Projeto Doe Bem';
 			<div class="sobre-nos__imagens col-lg-6 float-right">
 				<div class="row">
 					<div class="col-4 sobre-nos__imagens-content">
-						<img src="../../public/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
 					</div>
 
 					<div class="col-4 sobre-nos__imagens-content">
-						<img src="../../public/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
 					</div>
 
 					<div class="col-4 sobre-nos__imagens-content">
-						<img src="../../public/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-4 sobre-nos__imagens-content">
-						<img src="../../public/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
 					</div>
 
 					<div class="col-4 sobre-nos__imagens-content">
-						<img src="../../public/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
 					</div>
 
 					<div class="col-4 sobre-nos__imagens-content">
-						<img src="../../public/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
+						<img src="<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png" class="rounded float-left col-12" alt="...">
 					</div>
 				</div>
 			</div>
@@ -145,7 +147,7 @@ $this->title = 'Projeto Doe Bem';
 
 			<div class="row">
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
@@ -162,7 +164,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
@@ -179,7 +181,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 <col-sm-6></col-sm-6> col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
@@ -196,7 +198,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
@@ -215,7 +217,7 @@ $this->title = 'Projeto Doe Bem';
 
 			<div class="row">
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
@@ -232,7 +234,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
@@ -249,7 +251,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
@@ -266,7 +268,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('../public/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
 						<div class="time-img">
 						</div>
 
