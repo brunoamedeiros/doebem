@@ -104,31 +104,80 @@ $this->title = 'Doacoes';
 	</div>
 </div>
 
-<div class="doacao-index">
+<main class="container p-3">
+	<div class="col-lg-10 content mx-auto">
+		<div class="row mt-3">
+			<div class="col-10">
+				<h3 class="style-text-primary style-color-blue-02">
+          <?= Html::encode($this->title) ?>
+				</h3>
+			</div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+			<div class="col-2">
+
+			</div>
+		</div>
+
+		<div class="row justify-content-between mt-3 margin-top-50 col-12">
+			<div class="col-lg-10 col-md-10 col-sm-12 float-left">
+				<h4 class="style-text-primary style-color-blue-03 margin-bottom-20">
+					Minhas Doações
+				</h4>
+			</div>
+
+			<div class="col-lg-2 col-md-2 col-sm-12 p0">
+        <?= Html::a('Adicionar nova', ['create'], ['class' => 'btn style-btn-line radius-5 btn-sm float-right']) ?>
+			</div>
+		</div>
+
     <?php Pjax::begin(); ?>
-
-    <p>
-        <?= Html::a('Create Doacao', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+        'options' => [
+            'class'=>'col-sm-12 table-responsive p0'
+        ],
+        'tableOptions' => [
+            'class' => 'table table-sm mt-3 table-striped',
+        ],
 
+        'columns' => [
             'id_doacao',
             'id_instituicao',
             'titulo',
             'descricao:ntext',
             'data_publicacao',
-            //'imagem_perfil',
-            //'video',
-            //'imagem_capa:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
+          //'imagem_perfil',
+          //'video',
+          //'imagem_capa:ntext',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete}',
+                'buttons' => [
+                    'view' => function($url, $model) {
+                      return Html::a('<i class="material-icons">remove_red_eye</i>',
+                          ['view', 'id' => $model->id_doacao], ['class' => '']);
+                    },
+                    'update' => function($url, $model) {
+                      return Html::a('<i class="material-icons">mode_edit</i>',
+                          ['update', 'id' => $model->id_doacao], ['class' => '']);
+                    },
+                    'delete' => function($url, $model) {
+                      return Html::a('<i class="material-icons">delete</i>',
+                          ['delete', 'id' => $model->id_doacao],
+                          [
+                              'class' => '',
+                              'data' => [
+                                  'confirm' => 'Are you sure you want to delete this item?',
+                                  'method' => 'post',
+                              ],
+                          ]);
+                    }
+                ]
+            ],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
-</div>
+	</div>
+
+  <?php Pjax::end(); ?>
+</main>
