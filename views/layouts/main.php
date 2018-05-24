@@ -14,7 +14,6 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
-$modelLogin = $this->params['modelLogin'];
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -38,7 +37,7 @@ $modelLogin = $this->params['modelLogin'];
 
 		<?php if (!Yii::$app->user->isGuest): ?>
 			<div class="float-right style-color-white">
-           Olá, <?= Yii::$app->user->identity->username; ?>
+           Olá, <?= Yii::$app->user->identity->nome; ?>
 			</div>
 
 				<?=
@@ -77,10 +76,12 @@ $modelLogin = $this->params['modelLogin'];
 					</li>
 				</ul>
 
-        <?php /*
-	      <?php $form = ActiveForm::begin([
+        <?= \app\widgets\Login\Login::widget() ?>
+
+	      <?php /* $form = ActiveForm::begin([
 	          'id' => 'login-form',
 	          'layout' => 'horizontal',
+	          'action' => \yii\helpers\Url::to(['site/login']),
 	          'options' => [
 	              'class' => 'form-inline logar',
 	          ],
@@ -104,9 +105,8 @@ $modelLogin = $this->params['modelLogin'];
 
         <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary mb-2 style-btn-primary animation-style', 'name' => 'login-button']) ?>
 
-        <?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); */ ?>
 
- */ ?>
 			<?php endif; ?>
 
 	</nav>
