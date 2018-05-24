@@ -154,6 +154,12 @@ class InstituicaoController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionVisualizar($id) {
+        $instituicao = Instituicao::findOne($id);
+
+        return $this->render('visualizar', ['instituicao' => $instituicao]);
+    }
+
     /**
      * Finds the Instituicao model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
