@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Instituicao;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,7 +62,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $instituicoes = Instituicao::find()->all();
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack('index.php?r=doacao/index');
+        }
+
+        $model->password = '';
+
+        return $this->render('index', [
+            'model' => $model,
+            'instituicoes' => $instituicoes
+        ]);
     }
 
     /**
@@ -77,7 +94,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->goBack('index.php?r=doacao/index');
         }
 
         $model->password = '';

@@ -6,16 +6,19 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Instituicao */
 
-$this->title = 'Create Instituicao';
-$this->params['breadcrumbs'][] = ['label' => 'Instituicaos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Adicionar Instituição';
 ?>
-<div class="instituicao-create">
+<main class="col-lg-10 content mx-auto">
+	<div class="row align-items-center">
+		<div class="col-sm-11">
+			<h3 class="style-text-primary style-color-blue-02">
+        <?= Html::encode($this->title) ?>
+			</h3>
+		</div>
+	</div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+  <?= $this->render('_form', [
+      'model' => $model,
+  ]) ?>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
-</div>
+</main>

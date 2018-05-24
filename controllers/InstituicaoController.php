@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\InstituicaoRedeSocial;
 use Yii;
 use app\models\Instituicao;
 use yii\data\ActiveDataProvider;
@@ -65,9 +66,29 @@ class InstituicaoController extends Controller
     public function actionCreate()
     {
         $model = new Instituicao();
+        $post = Yii::$app->request->post();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_instituicao]);
+        if ($model->load($post) && $model->validate()) {
+
+            $login = strtolower(str_replace(" ", "_", $model->nome));
+            $model->login = $login;
+            $model->senha = Yii::$app->getSecurity()->generateRandomString(8);
+
+            $model->save();
+
+            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
+
+            foreach ($redesSociais as $key => $value) {
+              $sociais = new InstituicaoRedeSocial();
+
+              $sociais->id_instituicao = $model->id_instituicao;
+              $sociais->nome = $key;
+              $sociais->url = $value;
+
+              $sociais->save();
+            }
+
+            return $this->redirect(['index', 'id' => $model->id_instituicao]);
         }
 
         return $this->render('create', [
@@ -85,9 +106,26 @@ class InstituicaoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $post = Yii::$app->request->post();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_instituicao]);
+        if ($model->load($post) && $model->validate()) {
+
+            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
+
+            foreach ($redesSociais as $key => $value) {
+              $sociais = new InstituicaoRedeSocial();
+              $sociais->load($post);
+
+              $sociais->id_instituicao = $model->id_instituicao;
+              $sociais->nome = $key;
+              $sociais->url = $value;
+
+              $sociais->save();
+            }
+
+            if($model->save()) {
+              return $this->redirect(['index', 'id' => $model->id_instituicao]);
+            }
         }
 
         return $this->render('update', [
@@ -104,9 +142,22 @@ class InstituicaoController extends Controller
      */
     public function actionDelete($id)
     {
+
+        $socials = $this->findModel($id)->getInstituicaoRedeSocial();
+
+        foreach ($socials->all() as $social) {
+          $social->delete();
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionVisualizar($id) {
+        $instituicao = Instituicao::findOne($id);
+
+        return $this->render('visualizar', ['instituicao' => $instituicao]);
     }
 
     /**

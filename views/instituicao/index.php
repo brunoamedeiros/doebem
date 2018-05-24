@@ -6,28 +6,39 @@ use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Instituicaos';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="instituicao-index">
+$this->title = 'Instituições';
 
-    <h1><?= Html::encode($this->title) ?></h1>
+?>
+
+<main class="container p-3">
+	<div class="col-lg-10 content mx-auto">
+		<div class="row mt-3">
+			<div class="col-10">
+				<h3 class="style-text-primary style-color-blue-02">
+					<?= Html::encode($this->title) ?>
+				</h3>
+			</div>
+
+			<div class="col-2">
+				<?= Html::a('Adicionar nova', ['create'], ['class' => 'btn style-btn-line radius-5 btn-sm float-right']) ?>
+			</div>
+		</div>
+
     <?php Pjax::begin(); ?>
 
-    <p>
-        <?= Html::a('Create Instituicao', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+      <?= GridView::widget([
+          'dataProvider' => $dataProvider,
+          'options' => [
+          		'class'=>'col-sm-12 table-responsive p0'
+            ],
+          'tableOptions' => [
+              'class' => 'table table-sm mt-3 table-striped',
+          ],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id_instituicao',
-            'nome',
-            'cnpj',
-            'descricao:ntext',
-            'email:email',
+          'columns' => [
+              'id_instituicao',
+              'nome',
+              'email:email',
             //'telefone',
             //'endereco',
             //'bairro',
@@ -38,9 +49,34 @@ $this->params['breadcrumbs'][] = $this->title;
             //'video',
             //'perfil',
             //'vinculo_api',
+	          [
+	          		'class' => 'yii\grid\ActionColumn',
+		            'template' => '{view} {update} {delete}',
+                'buttons' => [
+                		'view' => function($url, $model) {
+                      return Html::a('<i class="material-icons">remove_red_eye</i>',
+		                      ['view', 'id' => $model->id_instituicao], ['class' => '']);
+                    },
+                    'update' => function($url, $model) {
+                      return Html::a('<i class="material-icons">mode_edit</i>',
+                          ['update', 'id' => $model->id_instituicao], ['class' => '']);
+                    },
+		                'delete' => function($url, $model) {
+                      return Html::a('<i class="material-icons">delete</i>',
+		                      ['delete', 'id' => $model->id_instituicao],
+		                      [
+                          'class' => '',
+                          'data' => [
+                              'confirm' => 'Are you sure you want to delete this item?',
+                              'method' => 'post',
+                          ],
+                      ]);
+                    }
+                ]
+	          ],
+          ],
+      ]); ?>
+	</div>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>
-</div>
+  <?php Pjax::end(); ?>
+</main>

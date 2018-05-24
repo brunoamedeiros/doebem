@@ -8,9 +8,7 @@
 namespace yii\debug\panels;
 
 use Yii;
-use yii\base\InvalidConfigException;
 use yii\debug\Panel;
-use yii\helpers\ArrayHelper;
 use yii\log\Logger;
 use yii\debug\models\search\Db;
 
@@ -36,20 +34,6 @@ class DbPanel extends Panel
      * @var string the name of the database component to use for executing (explain) queries
      */
     public $db = 'db';
-    /**
-     * @var array the default ordering of the database queries. In the format of
-     * [ property => sort direction ], for example: [ 'duration' => SORT_DESC ]
-     * @since 2.0.7
-     */
-    public $defaultOrder = [
-        'seq' => SORT_ASC
-    ];
-    /**
-     * @var array the default filter to apply to the database queries. In the format
-     * of [ property => value ], for example: [ 'type' => 'SELECT' ]
-     * @since 2.0.7
-     */
-    public $defaultFilter = [];
 
     /**
      * @var array db queries info extracted to array as models, to use with data provider.
@@ -111,22 +95,13 @@ class DbPanel extends Panel
     public function getDetail()
     {
         $searchModel = new Db();
-
-        if (!$searchModel->load(Yii::$app->request->getQueryParams())) {
-            $searchModel->load($this->defaultFilter, '');
-        }
-
-        $models = $this->getModels();
-        $dataProvider = $searchModel->search($models);
-        $dataProvider->getSort()->defaultOrder = $this->defaultOrder;
-        $sumDuplicates = $this->sumDuplicateQueries($models);
+        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams(), $this->getModels());
 
         return Yii::$app->view->render('panels/db/detail', [
             'panel' => $this,
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
-            'hasExplain' => $this->hasExplain(),
-            'sumDuplicates' => $sumDuplicates,
+            'hasExplain' => $this->hasExplain()
         ]);
     }
 
@@ -168,7 +143,7 @@ class DbPanel extends Panel
      * Returns total query time.
      *
      * @param array $timings
-     * @return int total time
+     * @return integer total time
      */
     protected function getTotalQueryTime($timings)
     {
@@ -191,7 +166,6 @@ class DbPanel extends Panel
         if ($this->_models === null) {
             $this->_models = [];
             $timings = $this->calculateTimings();
-            $duplicates = $this->countDuplicateQuery($timings);
 
             foreach ($timings as $seq => $dbTiming) {
                 $this->_models[] = [
@@ -201,47 +175,11 @@ class DbPanel extends Panel
                     'trace' => $dbTiming['trace'],
                     'timestamp' => ($dbTiming['timestamp'] * 1000), // in milliseconds
                     'seq' => $seq,
-                    'duplicate' => $duplicates[$dbTiming['info']],
                 ];
             }
         }
 
         return $this->_models;
-    }
-
-    /**
-     * Return associative array, where key is query string
-     * and value is number of occurrences the same query in array.
-     *
-     * @param $timings
-     * @return array
-     * @since 2.0.13
-     */
-    public function countDuplicateQuery($timings)
-    {
-        $query = ArrayHelper::getColumn($timings, 'info');
-
-        return array_count_values($query);
-    }
-
-    /**
-     * Returns sum of all duplicated queries
-     *
-     * @param $modelData
-     * @return int
-     * @since 2.0.13
-     */
-    public function sumDuplicateQueries($modelData)
-    {
-        $numDuplicates = 0;
-        $duplicates = ArrayHelper::getColumn($modelData, 'duplicate');
-        foreach ($duplicates as $duplicate) {
-            if ($duplicate > 1) {
-                $numDuplicates++;
-            }
-        }
-
-        return $numDuplicates;
     }
 
     /**
@@ -261,8 +199,8 @@ class DbPanel extends Panel
     /**
      * Check if given queries count is critical according settings.
      *
-     * @param int $count queries count
-     * @return bool
+     * @param integer $count queries count
+     * @return boolean
      */
     public function isQueryCountCritical($count)
     {
@@ -288,20 +226,7 @@ class DbPanel extends Panel
     }
 
     /**
-     * @inheritdoc
-     */
-    public function isEnabled()
-    {
-        try {
-            $this->getDb();
-        } catch (InvalidConfigException $exception) {
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * @return bool Whether the DB component has support for EXPLAIN queries
+     * @return boolean Whether the DB component has support for EXPLAIN queries
      * @since 2.0.5
      */
     protected function hasExplain()
@@ -325,7 +250,7 @@ class DbPanel extends Panel
      * Check if given query type can be explained.
      *
      * @param string $type query type
-     * @return bool
+     * @return boolean
      *
      * @since 2.0.5
      */

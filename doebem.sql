@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Maio-2018 às 05:15
+-- Generation Time: 22-Maio-2018 às 21:01
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -83,11 +83,18 @@ CREATE TABLE `instituicao` (
   `cep` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
-  `imagem` varchar(255) NOT NULL,
-  `video` varchar(255) NOT NULL,
-  `perfil` int(11) NOT NULL,
-  `vinculo_api` varchar(255) NOT NULL
+  `imagem` varchar(255) DEFAULT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  `perfil` int(11) DEFAULT NULL,
+  `vinculo_api` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `instituicao`
+--
+
+INSERT INTO `instituicao` (`id_instituicao`, `nome`, `cnpj`, `descricao`, `email`, `telefone`, `endereco`, `bairro`, `cep`, `login`, `senha`, `imagem`, `video`, `perfil`, `vinculo_api`) VALUES
+(18, 'Joana de Angelis', '29.318.038/1903-82', 'Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores não altera o pão duris. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Atirei o pau no gatis, per gatis num morreus.', 'oi@toi.com', '(48) 9949-6528', 'Rua Carlos Gomes, 458', 'Revoredo', '88704-520', 'joana_de_angelis', '2zBgRHc1', '', '', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -97,9 +104,17 @@ CREATE TABLE `instituicao` (
 
 CREATE TABLE `instituicao_rede_social` (
   `id_instituicao` int(11) NOT NULL,
+  `id_rede_social` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `instituicao_rede_social`
+--
+
+INSERT INTO `instituicao_rede_social` (`id_instituicao`, `id_rede_social`, `nome`, `url`) VALUES
+(18, 3, 'instagram', 'obruno.angelo');
 
 -- --------------------------------------------------------
 
@@ -165,7 +180,8 @@ ALTER TABLE `instituicao`
 -- Indexes for table `instituicao_rede_social`
 --
 ALTER TABLE `instituicao_rede_social`
-  ADD PRIMARY KEY (`id_instituicao`);
+  ADD PRIMARY KEY (`id_rede_social`),
+  ADD KEY `id_instituicao` (`id_instituicao`) USING BTREE;
 
 --
 -- Indexes for table `item`
@@ -207,7 +223,13 @@ ALTER TABLE `doacao`
 -- AUTO_INCREMENT for table `instituicao`
 --
 ALTER TABLE `instituicao`
-  MODIFY `id_instituicao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_instituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `instituicao_rede_social`
+--
+ALTER TABLE `instituicao_rede_social`
+  MODIFY `id_rede_social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `item`

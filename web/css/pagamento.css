@@ -1,0 +1,19 @@
+.sugestao-pagamento {
+    padding: 15px;
+}
+.sugestao-pagamento > button {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 2px;
+}
+.sugestao-pagamento > button:hover {
+    background-color: #77b5ea;
+}
+.separate {
+    display: flex;
+    justify-content: space-between;
+}
+.control {
+    display: flex;
+    justify-content: flex-end;
+}
