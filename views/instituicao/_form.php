@@ -10,24 +10,24 @@ use yii\widgets\ActiveForm;
 
 <div class="row margin-top-30">
 	<div class="col-lg-12">
-    <?php $form = ActiveForm::begin([
-        'options' => [
-            'class' => 'needs-validation',
-	          'novalidate' => 'novalidate'
-        ],
-        'fieldConfig' => [
-            'template' => "{label}{input}{error}",
-            'options' => [
-                'class' => ''
-            ],
-        ],
-    ]);
+		<?php $form = ActiveForm::begin([
+			'options' => [
+				'class' => 'needs-validation',
+				'novalidate' => 'novalidate'
+			],
+			'fieldConfig' => [
+				'template' => "{label}{input}{error}",
+				'options' => [
+					'class' => ''
+				],
+			],
+		]);
 
-    ?>
+		?>
 
 		<div class="row">
 			<div class="form-group col-lg-5">
-        <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
+				<?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o nome da instituição.
@@ -35,8 +35,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-4">
-
-      <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+      			<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o e-mail da instituição.
@@ -44,7 +43,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-3">
-        <?= $form->field($model, 'cnpj')->textInput(['maxlength' => 18,
+       			<?= $form->field($model, 'cnpj')->textInput(['maxlength' => 18,
 		        'pattern' => '[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}', 'class' => 'form-control cnpj']) ?>
 
 				<div class="invalid-feedback">
@@ -55,7 +54,7 @@ use yii\widgets\ActiveForm;
 
 		<div class="row">
 			<div class="form-group col-lg-5">
-        <?= $form->field($model, 'endereco')->textInput(['maxlength' => true]) ?>
+        		<?= $form->field($model, 'endereco')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o endereço.
@@ -63,7 +62,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-3">
-        <?= $form->field($model, 'bairro')->textInput(['maxlength' => true]) ?>
+        		<?= $form->field($model, 'bairro')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o bairro.
@@ -71,7 +70,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-2">
-        <?= $form->field($model, 'cep')->textInput(['maxlength' => 8,
+        		<?= $form->field($model, 'cep')->textInput(['maxlength' => 8,
 		        'pattern' => '[0-9]{5}-[0-9]{3}', 'class' => 'form-control cep']) ?>
 
 				<div class="invalid-feedback">
@@ -80,8 +79,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-2">
-
-        <?= $form->field($model, 'telefone')->textInput(['maxlength' => true,
+        		<?= $form->field($model, 'telefone')->textInput(['maxlength' => true,
 		        'pattern' => '\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$', 'class' => 'form-control fone']) ?>
 
 				<div class="invalid-feedback">
@@ -91,7 +89,7 @@ use yii\widgets\ActiveForm;
 		</div>
 
 		<div class="form-group">
-      <?= $form->field($model, 'descricao')->textarea(['rows' => 3]) ?>
+      		<?= $form->field($model, 'descricao')->textarea(['rows' => 3]) ?>
 
 			<div class="invalid-feedback">
 				Por favor, insira uma descrição.
@@ -103,7 +101,6 @@ use yii\widgets\ActiveForm;
 				<div class="form-group col-sm-6 redes-sociais">
 					<label for="redes">Rede sociais</label>
 					<br>
-
 					<div class="select-redes-sociais">
 						<select class="col-lg-3 custom-select form-control clear-both float-left" name="redes-socias[]">
 							<option value="">Nenhuma</option>
@@ -125,7 +122,7 @@ use yii\widgets\ActiveForm;
 
 				<div class="form-group col-lg-6">
 					<div class="form-group col-lg-6 float-left">
-            <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
+            			<?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
 					</div>
 
 					<div class="col-5 float-left p0 d-none">
@@ -136,11 +133,11 @@ use yii\widgets\ActiveForm;
 
 			<div class="row">
 				<div class="col-lg-6">
-          <?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
+          			<?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
 				</div>
 
 				<div class="col-lg-6">
-          <?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
+          			<?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
 
 					<div class="invalid-feedback">
 						Por favor, insira a chave de ativação do PagSeguro.
@@ -150,8 +147,8 @@ use yii\widgets\ActiveForm;
 		</div>
 
 		<div class="control button-submit">
-      <?= Html::a('Cancelar', ['index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
-      <?= Html::submitButton('Salvar', ['class' => 'btn btn-primary mt-4']) ?>
+			<?= Html::a('Cancelar', ['index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
+			<?= Html::submitButton('Salvar', ['class' => 'btn btn-primary mt-4']) ?>
 		</div>
 
 		<?php ActiveForm::end(); ?>

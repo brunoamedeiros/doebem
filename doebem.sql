@@ -282,3 +282,9 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- INSTITUIÇÂO - muda o campo perfil para nulo
+ALTER TABLE `instituicao` CHANGE `perfil` `perfil` INT(11) NULL; 
+
+-- DOAÇÃO - remove o campo data de publicação
+ALTER TABLE `doacao` DROP `data_publicacao`;

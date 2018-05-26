@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Doacao;
+use app\models\Instituicao;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -39,6 +40,7 @@ class DoacaoController extends Controller
             'query' => Doacao::find(),
         ]);
 
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
@@ -53,8 +55,13 @@ class DoacaoController extends Controller
      */
     public function actionView($id_doacao, $id_instituicao)
     {
+        $instituicao = new Instituicao();
+
+        $instituicaoModel = $instituicao->findOne($id_instituicao);
+
         return $this->render('view', [
             'model' => $this->findModel($id_doacao, $id_instituicao),
+            'instituicaoModel' => $instituicaoModel
         ]);
     }
 
@@ -66,8 +73,13 @@ class DoacaoController extends Controller
     public function actionCreate()
     {
         $model = new Doacao();
+        $instituicao = new Instituicao();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->id_instituicao = $instituicao->findOne(1)->id_instituicao;
+            $model->data_publicacao = date('d/m/y');
+            $model->save();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao]);
         }
 

@@ -39,16 +39,6 @@ $this->title = 'Instituições';
               'id_instituicao',
               'nome',
               'email:email',
-            //'telefone',
-            //'endereco',
-            //'bairro',
-            //'cep',
-            //'login',
-            //'senha',
-            //'imagem',
-            //'video',
-            //'perfil',
-            //'vinculo_api',
 	          [
 	          		'class' => 'yii\grid\ActionColumn',
 		            'template' => '{view} {update} {delete}',
@@ -67,7 +57,7 @@ $this->title = 'Instituições';
 		                      [
                           'class' => '',
                           'data' => [
-                              'confirm' => 'Are you sure you want to delete this item?',
+                              'confirm' => 'Você realmente deseja deletar esta instituição?',
                               'method' => 'post',
                           ],
                       ]);

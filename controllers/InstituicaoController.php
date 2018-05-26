@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\InstituicaoRedeSocial;
 use Yii;
 use app\models\Instituicao;
+use app\models\Doacao;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -53,8 +54,11 @@ class InstituicaoController extends Controller
      */
     public function actionView($id)
     {
+        $projetos = Doacao::find()->where(['id_instituicao' => $id])->All();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'projetosModel' => $projetos
         ]);
     }
 
