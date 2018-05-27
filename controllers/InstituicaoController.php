@@ -55,10 +55,12 @@ class InstituicaoController extends Controller
     public function actionView($id)
     {
         $projetos = Doacao::find()->where(['id_instituicao' => $id])->All();
+        $redesSociais = InstituicaoRedeSocial::find()->where(['id_instituicao' => $id])->All();
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'projetosModel' => $projetos
+            'projetosModel' => $projetos,
+            'redesSociais' => $redesSociais
         ]);
     }
 

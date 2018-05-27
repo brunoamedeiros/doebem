@@ -67,21 +67,27 @@ $this->title = 'Projeto Doe Bem';
 				e residentes da cidade de Tubarão - SC
 				</p>
 
-				<?php foreach ($instituicoes as $instituicao): ?>
-					<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">
-						<div class="instituicao-content">
-							<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" class="img-fluid" alt="...">
-							
-							<p class="style-color-blue-03">
-								<?= $instituicao->nome ?>
-							</p>
-							
-							<a href="<?= \yii\helpers\Url::to(['instituicao/view', 'id' => $instituicao->id_instituicao]) ?>" type="button" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">
-								Conheça-nos
-							</a>	
+				<?php if(sizeof($instituicoes) > 0): ?>
+					<?php foreach ($instituicoes as $instituicao): ?>
+						<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">
+							<div class="instituicao-content">
+								<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" class="img-fluid" alt="...">
+								
+								<p class="style-color-blue-03">
+									<?= $instituicao->nome ?>
+								</p>
+								
+								<a href="<?= \yii\helpers\Url::to(['instituicao/view', 'id' => $instituicao->id_instituicao]) ?>" class="btn btn-primary style-btn-primary rounded-50 col-lg-12">
+									Conheça-nos
+								</a>	
+							</div>
 						</div>
-					</div>
-				<?php endforeach; ?>
+					<?php endforeach; ?>
+				<?php else: ?>
+					<p>
+					Nenhuma instituição cadastrada até o momento.
+					</p>
+				<?php ?>
 			</div>
 		</div>
 

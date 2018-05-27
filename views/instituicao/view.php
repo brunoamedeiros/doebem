@@ -34,27 +34,33 @@ $this->title = 'Visualizar dados';
         Nossos projetos
     </h4>
 
-    <?php foreach ($projetosModel as $proj): ?>
-        <div class="col-12 media clear-both">
-            <div class="md-auto col-lg-2 col-md-3 col-sm-12 hoverflow-hidden">
-                <img class="mr-3 nosso-projeto__img mx-auto" src="<?= Yii::getAlias('@web') ?>/uploads/<?= $proj->imagem_perfil ?>" alt="Generic placeholder image" width="100px">
+    <?php if(sizeof($projetosModel) > 0): ?>
+        <?php foreach ($projetosModel as $proj): ?>
+            <div class="col-12 media clear-both">
+                <div class="md-auto col-lg-2 col-md-3 col-sm-12 hoverflow-hidden">
+                    <img class="mr-3 nosso-projeto__img mx-auto" src="<?= Yii::getAlias('@web') ?>/uploads/<?= $proj->imagem_perfil ?>" alt="Generic placeholder image" width="100px">
+                </div>
+
+                <div class="media-body col-lg-9 col-md-9 col-sm-12 float-left">
+                    <h5 class="mt-0">
+                        <b>
+                            <?= $proj->titulo ?>
+                        </b>
+                    </h5>
+
+                    <?= $proj->descricao ?>
+                </div>
+
+                <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id_doacao' => $proj->id_doacao, 'id_instituicao' => $proj->id_instituicao]) ?>" class="style-btn-line col-3 margin-top-50 text-center">
+                    Conheça-nos
+                </a>
             </div>
-
-            <div class="media-body col-lg-9 col-md-9 col-sm-12 float-left">
-                <h5 class="mt-0">
-                    <b>
-                        <?= $proj->titulo ?>
-                    </b>
-                </h5>
-
-                <?= $proj->descricao ?>
-            </div>
-
-            <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id_doacao' => $proj->id_doacao, 'id_instituicao' => $proj->id_instituicao]) ?>" type="button" class="style-btn-line col-3 margin-top-50 text-center">
-                Conheça-nos
-            </a>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>
+        Nenhum projeto cadastrado até o momento.
+        </p>
+    <?php endif;?>
 </div>
 
 <div class="instituicao-infos col-12 p0 clear-both">
@@ -75,7 +81,9 @@ $this->title = 'Visualizar dados';
             <i class="material-icons">email</i> <?= $model->email ?>
         </p>
 
-        <p>facebook.com/loren</p>
+        <?php if(sizeof($redesSociais) > 0): ?>
+            <p>...</p>
+        <?php endif?>
     </div>
 
     <div class="infos-local col-lg-6 col-md-6 col-sm-12 float-right">
