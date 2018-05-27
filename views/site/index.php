@@ -87,7 +87,7 @@ $this->title = 'Projeto Doe Bem';
 					<p>
 					Nenhuma instituição cadastrada até o momento.
 					</p>
-				<?php ?>
+				<?php endif; ?>
 			</div>
 		</div>
 
