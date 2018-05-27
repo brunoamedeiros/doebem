@@ -30,9 +30,9 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'imagem_perfil')->fileInput(['accept' => 'image/*']) ?>
 
-            <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
-
             <?= $form->field($model, 'imagem_capa')->fileInput(['accept' => 'image/*']) ?>
+
+            <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
 
             <div class="control button-submit">
                 <?= Html::a('Cancelar', ['index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
