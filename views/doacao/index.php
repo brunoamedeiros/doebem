@@ -13,15 +13,15 @@ $this->title = 'Doacoes';
 
 	<div class="row align-items-center">
 		<div class="col-lg-2 col-md-2 col-sm-12 text-center">
-			<img src="../../public/imagens/loo.png" alt="..." class="img-thumbnail">
+			<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" alt="..." class="img-thumbnail">
 		</div>
 
 		<div class="col-lg-10 col-md-10 col-sm-12">
-			<h3 class="style-text-primary style-color-blue-02">Abrigo dos Velhinhos</h3>
+			<h3 class="style-text-primary style-color-blue-02"><?= $instituicao->nome ?></h3>
 
-			<button type="button" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2">
+			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" type="button" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2">
 				Editar meus dados
-			</button>
+			</a>
 		</div>
 	</div>
 
@@ -59,7 +59,6 @@ $this->title = 'Doacoes';
 					// 'id_instituicao',
 					'titulo',
 					// 'descricao:ntext',
-					'data_publicacao',
 				  //'imagem_perfil',
 				  //'video',
 				  //'imagem_capa:ntext',
