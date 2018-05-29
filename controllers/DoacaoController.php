@@ -2,8 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\Item;
 use Yii;
 use app\models\Doacao;
+use app\models\Instituicao;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,12 +37,15 @@ class DoacaoController extends Controller
      */
     public function actionIndex()
     {
+        $instituicao = Yii::$app->user->identity;
+
         $dataProvider = new ActiveDataProvider([
             'query' => Doacao::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'instituicao' => $instituicao
         ]);
     }
 
@@ -51,10 +56,10 @@ class DoacaoController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id_doacao, $id_instituicao)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id_doacao, $id_instituicao),
+            'model' => $this->findModel($id)
         ]);
     }
 
@@ -66,9 +71,14 @@ class DoacaoController extends Controller
     public function actionCreate()
     {
         $model = new Doacao();
+        $model->_items = [new Item()];
+        $instituicao = Yii::$app->user->identity;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->id_instituicao = $instituicao->getId();
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->id_doacao]);
         }
 
         return $this->render('create', [
@@ -105,9 +115,9 @@ class DoacaoController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id_doacao, $id_instituicao)
+    public function actionDelete($id)
     {
-        $this->findModel($id_doacao, $id_instituicao)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -120,9 +130,9 @@ class DoacaoController extends Controller
      * @return Doacao the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id_doacao, $id_instituicao)
+    protected function findModel($id)
     {
-        if (($model = Doacao::findOne(['id_doacao' => $id_doacao, 'id_instituicao' => $id_instituicao])) !== null) {
+        if (($model = Doacao::findOne(['id_doacao' => $id])) !== null) {
             return $model;
         }
 

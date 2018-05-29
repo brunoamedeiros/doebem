@@ -64,9 +64,9 @@ class SiteController extends Controller
     {
         $instituicoes = Instituicao::find()->all();
 
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+//        if (!Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
@@ -93,8 +93,9 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack('index.php?r=doacao/index');
+            return $this->goBack();
         }
 
         $model->password = '';

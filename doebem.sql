@@ -282,3 +282,12 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- INSTITUIÇÂO - muda o campo perfil para nulo
+ALTER TABLE `instituicao` CHANGE `perfil` `perfil` INT(11) NULL; 
+
+-- DOAÇÃO - remove o campo data de publicação
+ALTER TABLE `doacao` DROP `data_publicacao`;
+
+--DOACAO -  Mudar a coluna imagem_capa para varchar
+ALTER TABLE `doacao` CHANGE `imagem_capa` `imagem_capa` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
