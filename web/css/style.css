@@ -49,6 +49,15 @@ body {
 	font-family: 'Panton';
 }
 
+.navbar-light .navbar-toggler {
+	color: rgba(255,255,255, 0.5);
+	border-color: rgba(255,255,255, 0.5)
+}
+
+.navbar-light .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
 /*style page*/
 
 body .home-banner,
@@ -154,7 +163,7 @@ body .home-banner .navbar {
 	overflow: hidden;
 	clear: both;
 	margin-top: 50px;
-	padding-top: 50px;
+	padding: 50px;
 	background: url('../imagens/sobre-nos.png');
 	background-size: cover;
 }

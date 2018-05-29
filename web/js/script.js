@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    embedYoutube();
+
     $('[data-toggle="tooltip"]').tooltip();
 
     // Formulário de Cadastro de Instituição
@@ -24,6 +26,37 @@ $(document).ready(function(){
             }
         } else {
             $(this).addClass("disabled");
+        }
+    });
+
+    // Converter links do youtube em iframes
+    function embedYoutube() {
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/,
+            element = $('div[data-youtube]');
+
+        element.each(function () {
+            var url = $(this).data('youtube'),
+                match = url.match(regExp);
+
+            if (match && match[2].length == 11) {
+                var iframeMarkup = '<iframe width="100%" height="315" src="http://www.youtube.com/embed/'
+                    + match[2] + '" frameborder="0" allowfullscreen></iframe>';
+
+                $(this).append(iframeMarkup);
+            }
+        })
+    }
+
+    // Scroll para as seções
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+
+        if( target.length ) {
+            event.preventDefault();
+
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
         }
     });
 

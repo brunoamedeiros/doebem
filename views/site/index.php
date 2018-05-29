@@ -21,7 +21,7 @@ $this->title = 'Projeto Doe Bem';
 			"Aquele que tem caridade no coração, sempre <br>tem algo para dar"
 		</p>
 
-		<a href="#intituicoes-parceiras">
+		<a href="#instituicoes-parceiras">
 			<button type="button" class="btn btn-primary style-btn-primary rounded-50 center">
 				Conheça as instituições
 			</button>
@@ -37,7 +37,7 @@ $this->title = 'Projeto Doe Bem';
 					<div class="passo-quadro__content">
 						<img src="<?= Yii::getAlias('@web') ?>/imagens/img-conheca.png" alt="">
 						<p class="style-color-yellow-02 passo-titlo">Conheça</p>
-						<p>Conheça as intituições parceiras da DoeBem e seus projetos</p>
+						<p>Conheça as instituições parceiras da DoeBem e seus projetos</p>
 					</div>
 				</div>
 
@@ -45,7 +45,7 @@ $this->title = 'Projeto Doe Bem';
 					<div class="passo-quadro__content">
 						<img src="<?= Yii::getAlias('@web') ?>/imagens/voluntarie-se.png" alt="img-01">
 						<p class="style-color-green-02 passo-titlo">voluntarie-se</p>
-						<p>Todo tipo de contribuição para as instiuições parceiras são bem vindas</p>
+						<p>Todo tipo de contribuição para as instituições parceiras são bem vindas</p>
 					</div>
 				</div>
 
@@ -58,7 +58,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 			</div>
 
-			<div class="intituicoes-parceiras col-lg-12 mx-auto text-center" id="intituicoes-parceiras">
+			<div class="intituicoes-parceiras col-lg-12 mx-auto text-center" id="instituicoes-parceiras">
 				<h2 class="style-text-primary style-color-blue-02">instituições parceiras</h2>
 				<br>
 
@@ -91,26 +91,26 @@ $this->title = 'Projeto Doe Bem';
 			</div>
 		</div>
 
-		<div class="sobre-nos col-lg-12 mx-auto">
+		<div class="sobre-nos col-lg-12 mx-auto" id="sobre-nos">
 			<div class="sobre-nos__texto col-lg-6 mx-auto">
 				<h3 class="style-text-primary style-color-blue-02 text-center">
 					Sobre a doe bem
 				</h3>
 				<br>
 				<p class="text-center">
-					A DoeBem é um projeto de conclusão da disciplina de Apliação de Engenharia de Software,
-					do curso de Ciências de Computação da faculdade UNISUL. Ela tem objetivo, preparar os alunos
+					A <strong>DoeBem </strong> é um projeto de conclusão da disciplina de Aplicação de Engenharia de Software,
+					do curso de Ciência da Computação da UNISUL. Ela tem como objetivo, preparar os alunos
 					no gerenciamento de um projeto de software, desde a fase de planejamento até a entrega ao cliente.					
 				</p>
 			</div>
 		</div>
 
-		<div class="time col-lg-6 col-md-10 mx-auto text-center">
-			<h3 class="style-text-primary style-color-blue-02">time</h3>
+		<div class="time col-lg-6 col-md-10 mx-auto text-center" id="equipe">
+			<h3 class="style-text-primary style-color-blue-02">Equipe</h3>
 			<br>
 
 			<p>
-				Estes são os integrantes do time envolvido na idealização e desenvolvimento do projeto DoeBem,
+				Os integrantes do time envolvido na idealização e desenvolvimento do projeto DoeBem,
 				cada integrante teve uma função especifica em todas as etapas do projeto, visando sempre a qualidade do 
 				desenvolvimento em cada etapa. 
 			</p>
@@ -125,7 +125,7 @@ $this->title = 'Projeto Doe Bem';
 
 						<div class="time__funcao">
 							<p>
-								<b>jhonatas M</b>	
+								<b>Jhonatas M</b>
 								<br>
 								<span>Front-end</span>
 							</p>

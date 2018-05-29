@@ -51,43 +51,26 @@ AppAsset::register($this);
 
 		<?php else: ?>
 
-			<button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#instituicoes-parceiras">Instituições parceiras</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#sobre-nos">Sobre nós</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#equipe">Equipe</a>
+          </li>
+        </ul>
 
         <?= \app\widgets\Login\Login::widget() ?>
-
-	      <?php /* $form = ActiveForm::begin([
-	          'id' => 'login-form',
-	          'layout' => 'horizontal',
-	          'action' => \yii\helpers\Url::to(['site/login']),
-	          'options' => [
-	              'class' => 'form-inline logar',
-	          ],
-	          'fieldConfig' => [
-	              'template' => "{input}",
-	              'options' => [
-	                  'class' => 'form-group'
-	              ]
-	          ],
-	      ]);
-
-	      ?>
-
-				<div class="mx-sm-0 mb-2">
-	        <?= $form->field($modelLogin, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Login']) ?>
-				</div>
-
-				<div class="mx-sm-2 mb-2">
-	        <?= $form->field($modelLogin, 'password')->passwordInput(['placeholder' => 'Senha']) ?>
-				</div>
-
-        <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary mb-2 style-btn-primary animation-style', 'name' => 'login-button']) ?>
-
-        <?php ActiveForm::end(); */ ?>
 
 			<?php endif; ?>
 

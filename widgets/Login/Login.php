@@ -11,7 +11,7 @@ class Login extends Widget
         $loginForm = new LoginForm;
 
         if ($loginForm->load(\Yii::$app->request->post()) && $loginForm->login()) {
-            \Yii::$app->getResponse()->refresh();
+            \Yii::$app->getResponse()->redirect(['doacao/index']);
         } else {
             return $this->render('loginWidget', [
                 'modelLogin' => $loginForm,

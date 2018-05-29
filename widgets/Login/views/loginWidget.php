@@ -10,7 +10,7 @@ $form = ActiveForm::begin([
         'class' => 'form-inline logar',
     ],
     'fieldConfig' => [
-        'template' => "{input}{error}",
+        'template' => "{input}",
         'options' => [
             'class' => 'form-group'
         ]
@@ -19,14 +19,14 @@ $form = ActiveForm::begin([
 
 ?>
 
-  <div class="mx-sm-0 mb-2">
-      <?= $form->field($modelLogin, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Login']) ?>
+  <div class="col-12 col-sm-5 pr-sm-2 p-0">
+      <?= $form->field($modelLogin, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Login', 'class' => 'form-control col-12']) ?>
   </div>
 
-  <div class="mx-sm-2 mb-2">
-      <?= $form->field($modelLogin, 'password')->passwordInput(['placeholder' => 'Senha']) ?>
+  <div class="col-12 col-sm-5 pr-sm-2 p-0">
+      <?= $form->field($modelLogin, 'password')->passwordInput(['placeholder' => 'Senha', 'class' => 'form-control col-12']) ?>
   </div>
 
-<?= Html::submitButton('Entrar', ['class' => 'btn btn-primary mb-2 style-btn-primary animation-style', 'name' => 'login-button']) ?>
+<?= Html::submitButton('Entrar', ['class' => 'btn col-12 col-sm-2 btn-primary style-btn-primary animation-style', 'name' => 'login-button']) ?>
 
 <?php ActiveForm::end(); ?>
