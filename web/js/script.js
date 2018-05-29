@@ -69,6 +69,12 @@ $(document).ready(function(){
             $('.add-socials').removeClass("disabled");
         }
     });
+
+    $('.btn-add-item').on('click', function(e) {
+        var $clone = $('.form-item').clone();
+
+        console.log('teste');
+    });
 });
 
 // Validação dos formulários
