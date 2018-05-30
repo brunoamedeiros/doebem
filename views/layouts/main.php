@@ -32,7 +32,7 @@ AppAsset::register($this);
 <div class="home-banner">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
 		<a class="navbar-brand" href="<?= Yii::$app->homeUrl ?>">
-			<img src="imagens/logo.png" alt="">
+			<img src="<?= Yii::getAlias('@web') ?>/imagens/logo.png" alt="">
 		</a>
 
 		<?php if (!Yii::$app->user->isGuest): ?>

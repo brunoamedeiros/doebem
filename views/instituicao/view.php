@@ -82,13 +82,16 @@ $this->title = 'Visualizar dados';
         </p>
 
         <?php if(sizeof($redesSociais) > 0): ?>
-            <p>...</p>
+          <?php foreach ($redesSociais as $sociais): ?>
+	          <a class="d-block mt-3" href="https://<?= $sociais->nome ?>.com/<?= $sociais->url ?>" target="_blank">
+		          <span class="socicon-<?= $sociais->nome ?>"></span>
+		          <span><?= $sociais->url ?></span>
+	          </a>
+          <?php endforeach; ?>
         <?php endif;?>
     </div>
 
-    <div class="infos-local col-lg-6 col-md-6 col-sm-12 float-right p0">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.9740252873767!2d-49.02335288492086!3d-28.480328882478148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952142f303127973%3A0x88b99e946a08dd5b!2sUnisul+-+Universidade+do+Sul+de+Santa+Catarina!5e0!3m2!1spt-BR!2sbr!4v1527435358595"  width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
+    <div class="infos-local col-lg-6 col-md-6 col-sm-12 float-right p0"></div>
 
     <div class="clear-both"></div>
 </div>
