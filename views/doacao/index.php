@@ -37,10 +37,6 @@ $this->title = 'Doacoes';
 		</div>
 
 		<div class="col-lg-2 col-md-2 col-sm-12 p0">
-			<!-- <a href="cadastrar-necessidade.html" class="text-center float-right style-btn-line radius-5 btn-sm col-12">
-				Cadastrar nova
-			</a> -->
-
 			<?= Html::a('Cadastrar nova', ['create'], ['class' => 'text-center float-right style-btn-line radius-5 btn-sm col-12']) ?>
 		</div>
 	</div>
@@ -68,11 +64,11 @@ $this->title = 'Doacoes';
 				  //'imagem_capa:ntext',
 					[
 						'class' => 'yii\grid\ActionColumn',
-						'template' => '{view} {update} {delete}',
+						'template' => '{view} {update} {delete} {resultado}',
 						'buttons' => [
 							'view' => function($url, $model) {
 							  return Html::a('<i class="material-icons">remove_red_eye</i>',
-								  ['view', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao], ['class' => '']);
+								  ['view', 'id' => $model->id_doacao], ['class' => '']);
 							},
 							'update' => function($url, $model) {
 							  return Html::a('<i class="material-icons">mode_edit</i>',
@@ -88,7 +84,11 @@ $this->title = 'Doacoes';
 										  'method' => 'post',
 									  ],
 								  ]);
-							}
+							},
+							'resultado' => function($url, $model) {
+                return Html::a('<i class="material-icons">star</i>',
+                    ['resultado/create', 'id_doacao' => $model->id_doacao], ['class' => '']);
+              },
 						]
 					],
 				],

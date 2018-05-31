@@ -6,6 +6,7 @@ use app\models\InstituicaoRedeSocial;
 use app\models\Item;
 
 
+use app\models\Resultado;
 use Yii;
 use app\models\Doacao;
 use app\models\Instituicao;
