@@ -83,8 +83,7 @@ class DoacaoController extends Controller
         $model->_items = [new Item()];
         $instituicao = Yii::$app->user->identity;
 
-        var_dump(Yii::$app->request->post());
-        die();
+       
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->id_instituicao = $instituicao->getId();
