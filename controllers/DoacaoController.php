@@ -6,6 +6,7 @@ use app\models\InstituicaoRedeSocial;
 use app\models\Item;
 
 
+use app\models\Resultado;
 use Yii;
 use app\models\Doacao;
 use app\models\Instituicao;
@@ -43,7 +44,7 @@ class DoacaoController extends Controller
         $instituicao = Yii::$app->user->identity;
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Doacao::find(),
+            'query' => Doacao::find()->where(['id_instituicao' => $instituicao->getId()]),
         ]);
 
         return $this->render('index', [
@@ -63,7 +64,7 @@ class DoacaoController extends Controller
     {
 
       $doacao = $this->findModel($id);
-      $instituicao = $doacao->getInstituicao()->one();
+      $instituicao = Yii::$app->user->identity;
 
       return $this->render('view', [
           'model' => $doacao,
@@ -123,9 +124,9 @@ class DoacaoController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($id_doacao)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id_doacao)->delete();
 
         return $this->redirect(['index']);
     }

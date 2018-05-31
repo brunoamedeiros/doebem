@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Resultado;
+use app\models\Doacao;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -33,14 +34,20 @@ class ResultadoController extends Controller
      * Lists all Resultado models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id_doacao)
     {
+
+        $doacao = Doacao::find()->where(['id_doacao' => $id_doacao])->one();
+        $instituicao = Yii::$app->user->identity;
+
         $dataProvider = new ActiveDataProvider([
-            'query' => Resultado::find(),
+            'query' => Resultado::find()->where(['id_doacao' => $id_doacao]),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'doacao' => $doacao,
+            'instituicao' => $instituicao
         ]);
     }
 
@@ -63,16 +70,23 @@ class ResultadoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id_doacao)
     {
         $model = new Resultado();
+        $doacao = Doacao::find()->where(['id_doacao' => $id_doacao])->one();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_resultado' => $model->id_resultado, 'id_doacao' => $model->id_doacao]);
+        $model->id_doacao = $doacao->id_doacao;
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+          if($model->save()) {
+            return $this->redirect(['index', 'id_doacao' => $model->id_doacao]);
+          }
         }
 
         return $this->render('create', [
             'model' => $model,
+            'doacao' => $doacao
         ]);
     }
 
@@ -87,6 +101,7 @@ class ResultadoController extends Controller
     public function actionUpdate($id_resultado, $id_doacao)
     {
         $model = $this->findModel($id_resultado, $id_doacao);
+        $doacao = $model->getDoacao()->one();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id_resultado' => $model->id_resultado, 'id_doacao' => $model->id_doacao]);
@@ -94,6 +109,7 @@ class ResultadoController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'doacao' => $doacao
         ]);
     }
 
@@ -109,7 +125,7 @@ class ResultadoController extends Controller
     {
         $this->findModel($id_resultado, $id_doacao)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'id_doacao' => $id_doacao]);
     }
 
     /**

@@ -9,6 +9,7 @@ $(document).ready(function(){
     $('.fone').mask('(00) 0000-00009');
     $('.cpf').mask('000.000.000-00');
     $('.real').mask('000.000.000.000.000.00', {reverse: true});
+    $('.data').mask('00/00/0000', {reverse: true});
 
     // Adicionar redes sociais na instituição
     $('.add-socials').on('click', function (e) {

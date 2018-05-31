@@ -11,17 +11,15 @@ $this->title = 'Doacoes';
 ?>
 <div class="col-lg-10 content mx-auto">
 
-	<div class="row align-items-center">
+	<div class="row">
 		<div class="col-lg-2 col-md-2 col-sm-12 text-center">
 			<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" alt="..." class="img-thumbnail">
 		</div>
 
-		<div class="col-lg-10 col-md-10 col-sm-12">
+		<div class="col-lg-8 col-md-10 col-sm-12">
 			<a href="<?= \yii\helpers\Url::to(['instituicao/view', 'id' => $instituicao->id_instituicao]) ?>" target="_blank">
 				<h3 class="style-text-primary style-color-blue-02"><?= $instituicao->nome ?></h3>
 			</a>
-
-
 
 			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2">
 				Editar meus dados
@@ -37,17 +35,12 @@ $this->title = 'Doacoes';
 		</div>
 
 		<div class="col-lg-2 col-md-2 col-sm-12 p0">
-			<!-- <a href="cadastrar-necessidade.html" class="text-center float-right style-btn-line radius-5 btn-sm col-12">
-				Cadastrar nova
-			</a> -->
-
 			<?= Html::a('Cadastrar nova', ['create'], ['class' => 'text-center float-right style-btn-line radius-5 btn-sm col-12']) ?>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-sm-12 table-responsive">
-		<?php Pjax::begin(); ?>
 		
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
@@ -68,11 +61,11 @@ $this->title = 'Doacoes';
 				  //'imagem_capa:ntext',
 					[
 						'class' => 'yii\grid\ActionColumn',
-						'template' => '{view} {update} {delete}',
+						'template' => '{view} {update} {delete} {resultado}',
 						'buttons' => [
 							'view' => function($url, $model) {
 							  return Html::a('<i class="material-icons">remove_red_eye</i>',
-								  ['view', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao], ['class' => '']);
+								  ['view', 'id' => $model->id_doacao], ['class' => '']);
 							},
 							'update' => function($url, $model) {
 							  return Html::a('<i class="material-icons">mode_edit</i>',
@@ -88,13 +81,15 @@ $this->title = 'Doacoes';
 										  'method' => 'post',
 									  ],
 								  ]);
-							}
+							},
+							'resultado' => function($url, $model) {
+                return Html::a('<i class="material-icons">star</i>',
+                    ['resultado/index', 'id_doacao' => $model->id_doacao], ['class' => '']);
+              },
 						]
 					],
 				],
 			]); ?>
-		
-		  <?php Pjax::end(); ?>
 		</div>
 	</div>
 </div>
