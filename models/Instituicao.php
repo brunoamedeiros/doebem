@@ -46,7 +46,7 @@ class Instituicao extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['nome', 'cnpj', 'descricao', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'file'], 'required'],
+            [['nome', 'cnpj', 'descricao', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'file', 'vinculo_api'], 'required'],
             [['descricao'], 'string'],
             [['email'], 'email'],
             [['perfil'], 'integer'],
@@ -76,7 +76,7 @@ class Instituicao extends \yii\db\ActiveRecord implements IdentityInterface
             'file' => 'Imagem',
             'video' => 'Vídeo',
             'perfil' => 'Perfil',
-            'vinculo_api' => 'Vínculo com API',
+            'vinculo_api' => 'Token PagSeguro',
         ];
     }
 

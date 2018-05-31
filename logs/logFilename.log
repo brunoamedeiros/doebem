@@ -1,0 +1,255 @@
+
+31/05/2018 10:09:38 PagSeguro.Session[info]: Begin
+31/05/2018 10:09:38 PagSeguro.Session[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=oi%40toi.com&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:09:39 PagSeguro.Session[error]: Unauthorized
+31/05/2018 10:11:00 PagSeguro.Session[info]: Begin
+31/05/2018 10:11:00 PagSeguro.Session[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:11:00 PagSeguro.Session[info]: Session ID: 5533395fe23c44c0af25c9f1b6097077
+31/05/2018 10:11:20 PagSeguro.Session[info]: Begin
+31/05/2018 10:11:20 PagSeguro.Session[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:11:21 PagSeguro.Session[info]: Session ID: 7f1fc6ce52bc4455b09b963fe3497bb7
+31/05/2018 10:11:21 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:11:21 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:11:21 PagSeguro.Checkout[info]: Params: {"redirectURL":{"format":"html","acceptMimeType":null,"acceptParams":[],"formatters":{"html":{"class":"yii\\web\\HtmlResponseFormatter"},"xml":{"class":"yii\\web\\XmlResponseFormatter"},"json":{"class":"yii\\web\\JsonResponseFormatter"},"jsonp":{"class":"yii\\web\\JsonResponseFormatter","useJsonp":true}},"data":null,"content":null,"stream":null,"charset":"UTF-8","statusText":"Found","version":"1.1","isSent":false,"exitStatus":0},"currency":"BRL","itemId1":12,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"12.00","senderName":"Bruno","senderEmail":"bruno@dump.net.br","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:11:21 PagSeguro.Session[error]: <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><errors><error><code>11012</code><message>senderName invalid value: Bruno</message></error></errors>
+31/05/2018 10:12:55 PagSeguro.Session[info]: Begin
+31/05/2018 10:12:55 PagSeguro.Session[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:12:55 PagSeguro.Session[info]: Session ID: ace55a1d9f044438b0c62a86a817074d
+31/05/2018 10:12:55 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:12:55 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:12:55 PagSeguro.Checkout[info]: Params: {"redirectURL":{"format":"html","acceptMimeType":null,"acceptParams":[],"formatters":{"html":{"class":"yii\\web\\HtmlResponseFormatter"},"xml":{"class":"yii\\web\\XmlResponseFormatter"},"json":{"class":"yii\\web\\JsonResponseFormatter"},"jsonp":{"class":"yii\\web\\JsonResponseFormatter","useJsonp":true}},"data":null,"content":null,"stream":null,"charset":"UTF-8","statusText":"Found","version":"1.1","isSent":false,"exitStatus":0},"currency":"BRL","itemId1":13,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"12.00","senderName":"John Doe","senderEmail":"john@doe.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:12:56 PagSeguro.Checkout[info]: Code: C78F4115CECEFF5554A28F8A6E6F902E
+31/05/2018 10:14:21 PagSeguro.Session[info]: Begin
+31/05/2018 10:14:21 PagSeguro.Session[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:14:22 PagSeguro.Session[info]: Session ID: b791dd4b39724cafb53a12b7eff4bfa0
+31/05/2018 10:14:22 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:14:22 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:14:22 PagSeguro.Checkout[info]: Params: {"redirectURL":{"format":"html","acceptMimeType":null,"acceptParams":[],"formatters":{"html":{"class":"yii\\web\\HtmlResponseFormatter"},"xml":{"class":"yii\\web\\XmlResponseFormatter"},"json":{"class":"yii\\web\\JsonResponseFormatter"},"jsonp":{"class":"yii\\web\\JsonResponseFormatter","useJsonp":true}},"data":null,"content":null,"stream":null,"charset":"UTF-8","statusText":"Found","version":"1.1","isSent":false,"exitStatus":0},"currency":"BRL","itemId1":14,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"12.00","senderName":"John Doe 1","senderEmail":"john@doe.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:14:22 PagSeguro.Checkout[info]: Code: 19F017200E0E7F7EE452DFBCBC9F9C82
+31/05/2018 10:21:53 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:21:53 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:21:53 PagSeguro.Checkout[info]: Params: {"redirectURL":{"format":"html","acceptMimeType":null,"acceptParams":[],"formatters":{"html":{"class":"yii\\web\\HtmlResponseFormatter"},"xml":{"class":"yii\\web\\XmlResponseFormatter"},"json":{"class":"yii\\web\\JsonResponseFormatter"},"jsonp":{"class":"yii\\web\\JsonResponseFormatter","useJsonp":true}},"data":null,"content":null,"stream":null,"charset":"UTF-8","statusText":"Found","version":"1.1","isSent":false,"exitStatus":0},"currency":"BRL","itemId1":15,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"12.00","senderName":"Teste Bruno","senderEmail":"adas@das.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:21:54 PagSeguro.Checkout[info]: Code: FD4917346F6F2BECC4020FA68A7C57BA
+31/05/2018 10:22:32 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:22:32 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:22:32 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":16,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"15.00","senderName":"John Doe 1","senderEmail":"adas@das.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:22:33 PagSeguro.Checkout[info]: Code: 97601515BABA182004916FBCFADBCBD6
+31/05/2018 10:26:20 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:26:20 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:26:20 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":17,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"15.00","senderName":"John Doe 1","senderEmail":"adas@das.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:26:21 PagSeguro.Checkout[info]: Code: 0FD7530BD6D64800046F1F8802D5D4BB
+31/05/2018 10:45:33 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:45:33 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:45:33 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":22,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"12.00","senderName":"John Doe 1","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:45:34 PagSeguro.Checkout[info]: Code: A7F8CA0B404081D004BB3FA6037AE06B
+31/05/2018 10:46:21 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:46:21 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:46:21 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":23,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"12.00","senderName":"John Doe 1","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:46:22 PagSeguro.Checkout[info]: Code: 6501411BEEEED5B88465FFBC77A68CFC
+31/05/2018 10:56:52 PagSeguro.Checkout[info]: Begin
+31/05/2018 10:56:52 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 10:56:52 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":27,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"12.00","senderName":"John Doe 1","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 10:56:52 PagSeguro.Checkout[info]: Code: 03EFC9E69F9FD5FAA4958FAA51BCD68A
+31/05/2018 11:00:47 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:00:47 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:00:47 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":28,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"55.00","senderName":"TEste Ae","senderEmail":"adas@das.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:00:47 PagSeguro.Checkout[info]: Code: 991F6154F2F2799CC42C5F9F9DAD6F18
+31/05/2018 11:01:12 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:01:12 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:01:12 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":29,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"55.00","senderName":"TEste Ae","senderEmail":"adas@das.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:01:12 PagSeguro.Checkout[info]: Code: FB1550826666131AA46C8FA39EAF2E19
+31/05/2018 11:10:10 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:10:10 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:10:10 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":30,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:10:10 PagSeguro.Checkout[info]: Code: 30EACB3D3C3CBC911445BFB2D198FAF7
+31/05/2018 11:11:37 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:11:37 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:11:37 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":31,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:11:37 PagSeguro.Checkout[info]: Code: 842D30B41B1BD8B66424FFAB69DCB602
+31/05/2018 11:13:00 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:13:00 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:13:00 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":32,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:13:01 PagSeguro.Checkout[info]: Code: CAB8299C4343939BB4B04FA756B76BE3
+31/05/2018 11:13:21 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:13:21 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:13:21 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":33,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:13:21 PagSeguro.Checkout[info]: Code: 1AF0C2EC92929316645E6FBF0E9A8943
+31/05/2018 11:13:48 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:13:48 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:13:48 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":34,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:13:49 PagSeguro.Checkout[info]: Code: 85BBC2969898BC02240A3FB968CEADA4
+31/05/2018 11:13:55 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:13:55 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:13:55 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":35,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:13:56 PagSeguro.Checkout[info]: Code: A1C66F0AA8A82EA774502F8F9382A503
+31/05/2018 11:15:06 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:15:06 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:15:06 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":36,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:15:06 PagSeguro.Checkout[info]: Code: B5074AC478782840044B7F82365E5842
+31/05/2018 11:15:31 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:15:32 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:15:32 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":37,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Iheoa Maun","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:15:32 PagSeguro.Checkout[info]: Code: 1931A0DAD3D32F833447AF9862A3662A
+31/05/2018 11:19:07 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:19:07 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:19:07 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":38,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"50.00","senderName":"AGORA VAI","senderEmail":"agora@vai.com.br","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:19:08 PagSeguro.Checkout[info]: Code: 63F6917CDDDDDFC004062FBD95038A56
+31/05/2018 11:20:13 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:20:13 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:20:13 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":39,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"50.00","senderName":"AGORA VAI","senderEmail":"agora@vai.com.br","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:20:13 PagSeguro.Checkout[info]: Code: 63D1B281CECEAD6334F53FAD848A294C
+31/05/2018 11:20:54 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:20:54 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:20:54 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":40,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"50.00","senderName":"AGORA VAI","senderEmail":"agora@vai.com.br","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:20:54 PagSeguro.Checkout[info]: Code: 04EBD7DF48483612242F6F8E0A0CDF9C
+31/05/2018 11:25:35 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:25:35 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:25:35 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":41,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"66.00","senderName":"teste ajax","senderEmail":"teste@ajax.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:25:35 PagSeguro.Checkout[info]: Code: 4D2574D3A6A63E3774D3FF91470D3A90
+31/05/2018 11:26:50 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:26:50 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:26:50 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":42,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"66.00","senderName":"teste ajax","senderEmail":"teste@ajax.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:26:50 PagSeguro.Checkout[info]: Code: 7354EE58E8E8C68DD43A5FB8590000E0
+31/05/2018 11:27:14 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:27:15 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:27:15 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":43,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"66.00","senderName":"teste ajax","senderEmail":"teste@ajax.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:27:15 PagSeguro.Checkout[info]: Code: D337332BFCFCF88CC4E81F9821EA0C1C
+31/05/2018 11:27:50 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:27:50 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:27:50 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":44,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"100.00","senderName":"ajax teste 2","senderEmail":"ajax@teste.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:27:50 PagSeguro.Checkout[info]: Code: 5E26E3C3ACAC471334CDCFB9186D936D
+31/05/2018 11:28:27 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:28:27 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:28:27 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":45,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"88.00","senderName":"ajaxx 3 teste","senderEmail":"teste@este.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:28:27 PagSeguro.Checkout[info]: Code: ED276AECEDED622BB4293F941588CC41
+31/05/2018 11:34:55 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:34:55 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:34:55 PagSeguro.Session[error]: current() expects parameter 1 to be array, null given
+31/05/2018 11:36:48 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:36:48 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:36:48 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":47,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"88.00","senderName":"ajaxx 3 teste","senderEmail":"teste@este.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:36:49 PagSeguro.Checkout[info]: Code: 9501FCE234341C7224F32FB18D397F75
+31/05/2018 11:37:22 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:37:22 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:37:22 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":48,"itemDescription1":"Teste","itemAmount1":"88.00","senderName":"ajaxx 3 teste","senderEmail":"teste@este.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:37:23 PagSeguro.Session[error]: <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><errors><error><code>11026</code><message>Item quantity is required.</message></error></errors>
+31/05/2018 11:39:58 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:39:58 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:39:58 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":49,"itemDescription1":"Teste","itemAmount1":"88.00","senderName":"ajaxx 3 teste","senderEmail":"teste@este.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:39:59 PagSeguro.Session[error]: <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><errors><error><code>11026</code><message>Item quantity is required.</message></error></errors>
+31/05/2018 11:41:15 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:41:15 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:41:15 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":50,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"88.00","senderName":"ajaxx 3 teste","senderEmail":"teste@este.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:41:16 PagSeguro.Checkout[info]: Code: A72ED3B1FFFF6ADCC46D1FAC01663D9B
+31/05/2018 11:44:13 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:44:13 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:44:13 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":51,"itemDescription1":"Teste","itemQuantity1":1,"itemAmount1":"27.00","senderName":"ajaxx 3 teste","senderEmail":"teste@este.com","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:44:14 PagSeguro.Checkout[info]: Code: 5E7CFD9841416A600490DFA172BE7201
+31/05/2018 11:45:13 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:45:13 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:45:13 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":52,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"1.00","senderName":"TEste Doaca\u00e7\u00e3o","senderEmail":"teste@este.com","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:45:13 PagSeguro.Checkout[info]: Code: 46C37485B9B92B322460DF9103E2E374
+31/05/2018 11:48:24 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:48:24 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:48:24 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":53,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"1.00","shippingAddressRequired":"false"}
+31/05/2018 11:48:25 PagSeguro.Checkout[info]: Code: 3424AD1B8181B53AA4E7EFA6F16967A1
+31/05/2018 11:50:25 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:50:25 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:50:25 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":54,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"1.00","senderName":"TEste Doaca\u00e7\u00e3o","senderEmail":"teste@este.com","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:50:26 PagSeguro.Checkout[info]: Code: 0BDAE18FFCFC10F554682FABB0220B37
+31/05/2018 11:51:03 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:51:03 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:51:03 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":55,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"5.00","senderName":"Comprador Sandbox","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:51:04 PagSeguro.Checkout[info]: Code: A055DDC3D9D9B27FF4717FA64828372E
+31/05/2018 11:52:02 PagSeguro.Checkout[info]: Begin
+31/05/2018 11:52:02 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 11:52:02 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":56,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"5.00","senderName":"Comprador Sandbox","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 11:52:03 PagSeguro.Checkout[info]: Code: 869AB8FF0F0F68933469EFA4D5C74779
+31/05/2018 12:01:38 PagSeguro.Checkout[info]: Begin
+31/05/2018 12:01:38 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 12:01:38 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":57,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"5.00","senderName":"Comprador Sandbox","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"891.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 12:01:38 PagSeguro.Checkout[info]: Code: 4FE9CC051D1D280FF42C8F966D5E3AB4
+31/05/2018 12:04:24 PagSeguro.Checkout[info]: Begin
+31/05/2018 12:04:24 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 12:04:25 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":58,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"5.00","senderName":"Comprador Sandbox","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"891.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 12:04:25 PagSeguro.Checkout[info]: Code: DAB0985DDCDCDE7AA4459FAD031ECDEF
+31/05/2018 12:05:25 PagSeguro.Checkout[info]: Begin
+31/05/2018 12:05:25 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 12:05:25 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":59,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"7.00","senderName":"Bruno Teste","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"891.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 12:05:25 PagSeguro.Checkout[info]: Code: C6E4D7BA4141244114BA8FA071DD8E07
+31/05/2018 12:05:50 PagSeguro.Checkout[info]: Begin
+31/05/2018 12:05:50 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 12:05:50 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":60,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"7.00","senderName":"Bruno Teste","senderEmail":"teste@este.com","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"891.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 12:05:51 PagSeguro.Checkout[info]: Code: 292900593434521BB495AFB1B458BD2C
+31/05/2018 12:06:48 PagSeguro.Checkout[info]: Begin
+31/05/2018 12:06:48 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 12:06:48 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":61,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"7.00","senderName":"Comprador Sandbox","senderEmail":"teste@este.com","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"891.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 12:06:49 PagSeguro.Checkout[info]: Code: 0C38EAA65454F7A994F19FA186BE4E05
+31/05/2018 12:07:09 PagSeguro.Checkout[info]: Begin
+31/05/2018 12:07:09 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 12:07:09 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":62,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"7.00","senderName":"Comprador Sandbox","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"891.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 12:07:09 PagSeguro.Checkout[info]: Code: 5C4446AB4040A29664D0EFA8E0AA331A
+31/05/2018 12:08:24 PagSeguro.Checkout[info]: Begin
+31/05/2018 12:08:24 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 12:08:24 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":63,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"2.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":11,"senderPhone":"(**) 5627-****","senderCPF":"891.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 12:08:24 PagSeguro.Checkout[info]: Code: 814A2954DFDFCAA6643DEFABFAD350CC
+31/05/2018 13:25:02 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:25:02 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 13:25:02 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":64,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"40.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:25:03 PagSeguro.Checkout[info]: Code: AD788FD2FEFEB95994F70FAD774EB37C
+31/05/2018 13:25:49 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:25:49 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 13:25:49 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":65,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"40.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:25:51 PagSeguro.Checkout[info]: Code: 6A6E5F3894948A5CC44D7FB8E5E217AE
+31/05/2018 13:26:21 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:26:21 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 13:26:21 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":66,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"40.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderCPF":"816.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:26:22 PagSeguro.Checkout[info]: Code: E1AA870D898964FAA408CFB78FDFDD01
+31/05/2018 13:27:17 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:27:17 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 13:27:18 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":67,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"40.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:27:18 PagSeguro.Checkout[info]: Code: BCC5D5D8DDDDD1B994338F8DF55CA830
+31/05/2018 13:29:36 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:29:36 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 13:29:36 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":68,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"40.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderCPF":"461.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:29:37 PagSeguro.Checkout[info]: Code: DBF7749AADAD1AD664215FB2EF81A79F
+31/05/2018 13:34:40 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:34:40 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=E28E4B127FA447D9BED24EA10689F224
+31/05/2018 13:34:40 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":69,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"5.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:34:40 PagSeguro.Session[error]: Unauthorized
+31/05/2018 13:39:48 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:39:48 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=E28E4B127FA447D9BED24EA10689F224
+31/05/2018 13:39:48 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":70,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"50.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:39:48 PagSeguro.Session[error]: Unauthorized
+31/05/2018 13:40:19 PagSeguro.Checkout[info]: Begin
+31/05/2018 13:40:19 PagSeguro.Checkout[info]: POST: https://ws.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=E28E4B127FA447D9BED24EA10689F224
+31/05/2018 13:40:19 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":71,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"50.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 13:40:20 PagSeguro.Checkout[info]: Code: AA9DB1016F6FD1FBB4416FAB60D59A9E
+31/05/2018 14:21:19 PagSeguro.Checkout[info]: Begin
+31/05/2018 14:21:20 PagSeguro.Checkout[info]: POST: https://ws.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=E28E4B127FA447D9BED24EA10689F224
+31/05/2018 14:21:20 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":72,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 14:21:20 PagSeguro.Checkout[info]: Code: 362E789BD2D23FAEE4AD3F808623781B
+31/05/2018 14:55:14 PagSeguro.Checkout[info]: Begin
+31/05/2018 14:55:14 PagSeguro.Checkout[info]: POST: https://ws.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=E28E4B127FA447D9BED24EA10689F224
+31/05/2018 14:55:14 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":73,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderAreaCode":"48","senderPhone":"(**) 9949-****","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 14:55:15 PagSeguro.Checkout[info]: Code: 41A5F19E7575327884554FA96F623A0E
+31/05/2018 14:55:50 PagSeguro.Checkout[info]: Begin
+31/05/2018 14:55:50 PagSeguro.Checkout[info]: POST: https://ws.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=E28E4B127FA447D9BED24EA10689F224
+31/05/2018 14:55:50 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":74,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"30.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderAreaCode":"48","senderPhone":"(**) 99949-****","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 14:55:50 PagSeguro.Checkout[info]: Code: CC58CECE9C9CE60AA45C5F81D2A64744
+31/05/2018 15:05:25 PagSeguro.Checkout[info]: Begin
+31/05/2018 15:05:25 PagSeguro.Checkout[info]: POST: https://ws.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=E28E4B127FA447D9BED24EA10689F224
+31/05/2018 15:05:25 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":75,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderAreaCode":"48","senderPhone":"(**) 99949-****","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 15:05:25 PagSeguro.Checkout[info]: Code: 93138415DDDD47ADD4069F953DBDA3F7
+31/05/2018 15:18:03 PagSeguro.Checkout[info]: Begin
+31/05/2018 15:18:03 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 15:18:03 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":1,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Bruno Medeiros","senderEmail":"bruno.am19@gmail.com","senderAreaCode":"48","senderPhone":"(**) 99949-****","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 15:18:03 PagSeguro.Checkout[info]: Code: 2408331B5A5A3FC6649A2F969E5539B0
+31/05/2018 15:18:36 PagSeguro.Checkout[info]: Begin
+31/05/2018 15:18:36 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 15:18:36 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":2,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"20.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":"48","senderPhone":"(**) 95465-****","senderCPF":"555.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 15:18:37 PagSeguro.Checkout[info]: Code: A778343E5252548444BCFFA78B735BA7
+31/05/2018 15:21:25 PagSeguro.Checkout[info]: Begin
+31/05/2018 15:21:25 PagSeguro.Checkout[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=bruno%40dump.net.br&token=B793687FD6BC4ED9825B5D26CF014DEA
+31/05/2018 15:21:25 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":3,"itemDescription1":"Doa\u00e7\u00e3o para o projeto: Teste","itemQuantity1":1,"itemAmount1":"10.00","senderName":"Bruno Medeiros","senderEmail":"c04106196191627587440@sandbox.pagseguro.com.br","senderAreaCode":"48","senderPhone":"(**) 99949-****","senderCPF":"085.***.***-**","shippingAddressRequired":"false"}
+31/05/2018 15:21:27 PagSeguro.Checkout[info]: Code: 3BD6AA8F9A9AF087748C5F980A1EA936

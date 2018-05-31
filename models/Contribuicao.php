@@ -17,6 +17,7 @@ use Yii;
  */
 class Contribuicao extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -31,7 +32,7 @@ class Contribuicao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_contribuinte', 'id_doacao', 'valor'], 'required'],
+            [['valor'], 'required'],
             [['id_contribuinte', 'id_doacao'], 'integer'],
             [['valor'], 'number'],
             [['id_contribuinte'], 'exist', 'skipOnError' => true, 'targetClass' => Contribuinte::className(), 'targetAttribute' => ['id_contribuinte' => 'id_contribuinte']],

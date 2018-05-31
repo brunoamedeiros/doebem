@@ -102,7 +102,10 @@ $this->title = 'Destalhes do projeto';
 					</div>
 					
 					<div class="contribua">
-						<button type="button" class="btn btn-primary style-btn-primary rounded-50 center btn-lg col-12">Ajudar</button>
+						<a class="btn btn-primary style-btn-primary rounded-50 center btn-lg col-12"
+						   href="<?= \yii\helpers\Url::to(['contribuicao/create', 'id_doacao' => $model->id_doacao]) ?>">
+							Contribuir
+						</a>
 					</div>
 				</div>
 			</div>

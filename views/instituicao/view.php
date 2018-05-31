@@ -51,7 +51,7 @@ $this->title = 'Visualizar dados';
                     <?= $proj->descricao ?>
                 </div>
 
-                <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id_doacao' => $proj->id_doacao, 'id_instituicao' => $proj->id_instituicao]) ?>" class="style-btn-line col-3 margin-top-50 text-center">
+                <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 margin-top-50 text-center">
                     Conheça-nos
                 </a>
             </div>

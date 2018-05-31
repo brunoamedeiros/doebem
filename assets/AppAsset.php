@@ -27,11 +27,13 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/lib/mask/jquery.mask.min.js',
         'js/script.js',
-        'http://maps.google.com/maps/api/js?sensor=false'
+        'https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset'
     ];
+
+    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
 }

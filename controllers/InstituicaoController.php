@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+
 /**
  * InstituicaoController implements the CRUD actions for Instituicao model.
  */
@@ -54,11 +55,12 @@ class InstituicaoController extends Controller
      */
     public function actionView($id)
     {
+        $instituicao = $this->findModel($id);
         $projetos = Doacao::find()->where(['id_instituicao' => $id])->All();
         $redesSociais = InstituicaoRedeSocial::find()->where(['id_instituicao' => $id])->All();
 
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $instituicao,
             'projetosModel' => $projetos,
             'redesSociais' => $redesSociais
         ]);

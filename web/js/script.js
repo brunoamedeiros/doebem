@@ -6,7 +6,9 @@ $(document).ready(function(){
     // Formulário de Cadastro de Instituição
     $('.cnpj').mask('00.000.000/0000-00');
     $('.cep').mask('00000-000');
-    $('.fone').mask('(00) 0000-0000');
+    $('.fone').mask('(00) 0000-00009');
+    $('.cpf').mask('000.000.000-00');
+    $('.real').mask('000.000.000.000.000.00', {reverse: true});
 
     // Adicionar redes sociais na instituição
     $('.add-socials').on('click', function (e) {
@@ -74,6 +76,12 @@ $(document).ready(function(){
         var $clone = $('.form-item').clone();
 
         console.log('teste');
+    });
+
+    // Adicionar valores no campo valor no momento da contribuição
+    $('.sugestao-pagamento button').on('click', function () {
+        var valor = $(this).data('valor');
+        $('.real').val(valor);
     });
 });
 

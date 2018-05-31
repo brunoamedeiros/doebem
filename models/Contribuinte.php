@@ -7,10 +7,11 @@ use Yii;
 /**
  * This is the model class for table "contribuinte".
  *
- * @property int $id_contribuinte
+ * @property integer $id_contribuinte
  * @property string $nome
+ * @property string $email
  * @property string $cpf
- * @property string $data_nascimento
+ * @property string $telefone
  *
  * @property Contribuicao[] $contribuicaos
  */
@@ -30,8 +31,10 @@ class Contribuinte extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'cpf', 'data_nascimento'], 'required'],
-            [['nome', 'cpf', 'data_nascimento'], 'string', 'max' => 255],
+            [['nome', 'email', 'cpf', 'telefone'], 'required'],
+            [['email'], 'email'],
+            [['cpf'], 'match', 'pattern' => '/^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/'],
+            [['nome', 'email', 'cpf', 'telefone'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,8 +46,9 @@ class Contribuinte extends \yii\db\ActiveRecord
         return [
             'id_contribuinte' => 'Cód. Contribuinte',
             'nome' => 'Nome',
+            'email' => 'E-mail',
             'cpf' => 'CPF',
-            'data_nascimento' => 'Data de Nascimento',
+            'telefone' => 'Telefone',
         ];
     }
 

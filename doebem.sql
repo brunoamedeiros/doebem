@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Maio-2018 às 21:01
+-- Generation Time: 31-Maio-2018 às 15:14
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -44,8 +44,9 @@ CREATE TABLE `contribuicao` (
 CREATE TABLE `contribuinte` (
   `id_contribuinte` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `cpf` varchar(255) NOT NULL,
-  `data_nascimento` varchar(255) NOT NULL
+  `telefone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -59,11 +60,17 @@ CREATE TABLE `doacao` (
   `id_instituicao` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `descricao` text NOT NULL,
-  `data_publicacao` date NOT NULL,
   `imagem_perfil` varchar(255) NOT NULL,
   `video` varchar(255) DEFAULT NULL,
   `imagem_capa` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `doacao`
+--
+
+INSERT INTO `doacao` (`id_doacao`, `id_instituicao`, `titulo`, `descricao`, `imagem_perfil`, `video`, `imagem_capa`) VALUES
+(1, 18, 'Teste', 'oi', '06600a6989b4901354b2e92da4db9ec8.png', '', '755e4725b94f3bdc2d21529029dba081.jpg');
 
 -- --------------------------------------------------------
 
@@ -94,7 +101,7 @@ CREATE TABLE `instituicao` (
 --
 
 INSERT INTO `instituicao` (`id_instituicao`, `nome`, `cnpj`, `descricao`, `email`, `telefone`, `endereco`, `bairro`, `cep`, `login`, `senha`, `imagem`, `video`, `perfil`, `vinculo_api`) VALUES
-(18, 'Joana de Angelis', '29.318.038/1903-82', 'Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores não altera o pão duris. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Atirei o pau no gatis, per gatis num morreus.', 'oi@toi.com', '(48) 9949-6528', 'Rua Carlos Gomes, 458', 'Revoredo', '88704-520', 'joana_de_angelis', '2zBgRHc1', '', '', NULL, '');
+(18, 'Joana de Angelis', '29.318.038/1903-82', 'Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores não altera o pão duris. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Atirei o pau no gatis, per gatis num morreus.', 'bruno@dump.net.br', '(48) 9949-6528', 'Rua Carlos Gomes, 458', 'Revoredo', '88704-520', 'joana_de_angelis', '2zBgRHc1', '0183adabb6b2f2a071078bc2c3c2444a.jpg', '', NULL, 'B793687FD6BC4ED9825B5D26CF014DEA');
 
 -- --------------------------------------------------------
 
@@ -217,7 +224,7 @@ ALTER TABLE `contribuinte`
 -- AUTO_INCREMENT for table `doacao`
 --
 ALTER TABLE `doacao`
-  MODIFY `id_doacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_doacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `instituicao`
@@ -251,8 +258,8 @@ ALTER TABLE `resultado`
 -- Limitadores para a tabela `contribuicao`
 --
 ALTER TABLE `contribuicao`
-  ADD CONSTRAINT `contribuicao_ibfk_1` FOREIGN KEY (`id_contribuinte`) REFERENCES `contribuinte` (`id_contribuinte`),
-  ADD CONSTRAINT `contribuicao_ibfk_2` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`);
+  ADD CONSTRAINT `contribuicao_ibfk_2` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`),
+  ADD CONSTRAINT `contribuicao_ibfk_3` FOREIGN KEY (`id_contribuinte`) REFERENCES `contribuinte` (`id_contribuinte`);
 
 --
 -- Limitadores para a tabela `doacao`
@@ -282,12 +289,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
--- INSTITUIÇÂO - muda o campo perfil para nulo
-ALTER TABLE `instituicao` CHANGE `perfil` `perfil` INT(11) NULL; 
-
--- DOAÇÃO - remove o campo data de publicação
-ALTER TABLE `doacao` DROP `data_publicacao`;
-
---DOACAO -  Mudar a coluna imagem_capa para varchar
-ALTER TABLE `doacao` CHANGE `imagem_capa` `imagem_capa` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;

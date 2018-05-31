@@ -2,7 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\InstituicaoRedeSocial;
 use app\models\Item;
+
+
 use Yii;
 use app\models\Doacao;
 use app\models\Instituicao;
@@ -58,9 +61,14 @@ class DoacaoController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id)
-        ]);
+
+      $doacao = $this->findModel($id);
+      $instituicao = $doacao->getInstituicao()->one();
+
+      return $this->render('view', [
+          'model' => $doacao,
+          'instituicaoModel' => $instituicao
+      ]);
     }
 
     /**

@@ -12,24 +12,22 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="contribuinte-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php Pjax::begin(); ?>
 
     <p>
         <?= Html::a('Create Contribuinte', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
-    <?= GridView::widget([
+<?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_contribuinte',
             'nome',
+            'email:email',
             'cpf',
             'data_nascimento',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
-</div>
+<?php Pjax::end(); ?></div>
