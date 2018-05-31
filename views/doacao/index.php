@@ -11,17 +11,15 @@ $this->title = 'Doacoes';
 ?>
 <div class="col-lg-10 content mx-auto">
 
-	<div class="row align-items-center">
+	<div class="row">
 		<div class="col-lg-2 col-md-2 col-sm-12 text-center">
 			<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" alt="..." class="img-thumbnail">
 		</div>
 
-		<div class="col-lg-10 col-md-10 col-sm-12">
+		<div class="col-lg-8 col-md-10 col-sm-12">
 			<a href="<?= \yii\helpers\Url::to(['instituicao/view', 'id' => $instituicao->id_instituicao]) ?>" target="_blank">
 				<h3 class="style-text-primary style-color-blue-02"><?= $instituicao->nome ?></h3>
 			</a>
-
-
 
 			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2">
 				Editar meus dados
@@ -43,7 +41,6 @@ $this->title = 'Doacoes';
 
 	<div class="row">
 		<div class="col-sm-12 table-responsive">
-		<?php Pjax::begin(); ?>
 		
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
@@ -87,14 +84,12 @@ $this->title = 'Doacoes';
 							},
 							'resultado' => function($url, $model) {
                 return Html::a('<i class="material-icons">star</i>',
-                    ['resultado/create', 'id_doacao' => $model->id_doacao], ['class' => '']);
+                    ['resultado/index', 'id_doacao' => $model->id_doacao], ['class' => '']);
               },
 						]
 					],
 				],
 			]); ?>
-		
-		  <?php Pjax::end(); ?>
 		</div>
 	</div>
 </div>

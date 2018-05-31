@@ -132,7 +132,7 @@ class InstituicaoController extends Controller
             }
 
             if($model->save()) {
-              return $this->redirect(['index', 'id' => $model->id_instituicao]);
+              return $this->redirect(['doacao/index']);
             }
         }
 

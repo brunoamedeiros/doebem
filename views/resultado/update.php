@@ -4,18 +4,22 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Resultado */
+/* @var $doacao app\models\Doacao */
 
-$this->title = 'Update Resultado: {nameAttribute}';
-$this->params['breadcrumbs'][] = ['label' => 'Resultados', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_resultado, 'url' => ['view', 'id_resultado' => $model->id_resultado, 'id_doacao' => $model->id_doacao]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Editar Resultado: ' . $doacao->titulo;
 ?>
-<div class="resultado-update">
+<main class="col-lg-10 content mx-auto">
+	<div class="row align-items-center">
+		<div class="col-sm-11">
+			<h3 class="style-text-primary style-color-blue-02">
+        <?= Html::encode($this->title) ?>
+			</h3>
+		</div>
+	</div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+  <?= $this->render('_form', [
+      'model' => $model,
+      'doacao' => $doacao
+  ]) ?>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
-</div>
+</main>

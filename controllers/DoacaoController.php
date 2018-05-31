@@ -44,7 +44,7 @@ class DoacaoController extends Controller
         $instituicao = Yii::$app->user->identity;
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Doacao::find(),
+            'query' => Doacao::find()->where(['id_instituicao' => $instituicao->getId()]),
         ]);
 
         return $this->render('index', [
@@ -64,7 +64,7 @@ class DoacaoController extends Controller
     {
 
       $doacao = $this->findModel($id);
-      $instituicao = $doacao->getInstituicao()->one();
+      $instituicao = Yii::$app->user->identity;
 
       return $this->render('view', [
           'model' => $doacao,

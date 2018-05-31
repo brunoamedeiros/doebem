@@ -147,7 +147,7 @@ use yii\widgets\ActiveForm;
 		</div>
 
 		<div class="control button-submit">
-			<?= Html::a('Cancelar', ['index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
+			<?= Html::a('Cancelar', ['doacao/index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
 			<?= Html::submitButton('Salvar', ['class' => 'btn btn-primary mt-4']) ?>
 		</div>
 
