@@ -124,9 +124,9 @@ class DoacaoController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($id_doacao)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id_doacao)->delete();
 
         return $this->redirect(['index']);
     }
