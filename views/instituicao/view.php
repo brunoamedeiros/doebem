@@ -71,6 +71,7 @@ $this->title = 'Visualizar dados';
     <div class="infos-detalhes col-lg-6 col-md-6 col-sm-12 p0 float-left">
         <p>
             <i class="material-icons">place</i> <?= $model->endereco ?>
+            <input type="hidden" id="endereco" value="Rua tarquinio balsini tubarao sc " />
         </p>
 
         <p>
@@ -91,8 +92,12 @@ $this->title = 'Visualizar dados';
         <?php endif;?>
     </div>
 
-    <div class="infos-local col-lg-6 col-md-6 col-sm-12 float-right p0"></div>
+    <div class="infos-local col-lg-6 col-md-6 col-sm-12 float-right p0" id="mapa">
+    </div>
 
     <div class="clear-both"></div>
 </div>
 </div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdJhOdrdEwE6DMR3frHLUlp3vxqjnaldc&callback=initMap">
+</script>
