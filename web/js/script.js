@@ -132,3 +132,72 @@ function geocodeAddress(geocoder, resultsMap) {
         }
     });
 };
+
+qtdIten = 0;
+
+$(document).ready(function(){
+    $('#btn-add-item').on('click', function(){
+        var item = [],
+            formItens = $('#form-iten'),
+            campos = $('#form-iten input'),
+            itemHtml;
+
+        if(campos[0].value != "" && campos[1].value != "" && campos[2].value != "") {
+            item['descricao'] = campos[0].value;
+            item['qtd'] = campos[1].value;
+            item['valor'] = campos[2].value;
+    
+            itemHtml = retornaComponenteitem(item);
+    
+            criaInputsHiden(item);
+            qtdIten++;
+
+            $('#lista-itens').append(itemHtml);
+    
+            $('.remover-item').on('click', function(){
+                $(this).parent().parent().remove();
+            });
+    
+            for(var i = 0; i < campos.length; i++) {
+                campos[i].value = "";
+            };
+        };
+    });
+});
+
+function criaInputsHiden(item) {
+    var listaitens = $('#lista-itens'),
+        descricao,
+        qtd,
+        valor;
+
+    descricao =
+    '<input type="hidden" id="item-' + qtdIten + '-descricao" class="" name="Item[' + qtdIten + '][descricao]" value="' + item['descricao'] + '">';
+
+    qtd = 
+    '<input type="hidden" id="item-' + qtdIten + '-quantidade" class="form-control" name="Item[' + qtdIten + '][quantidade]" value="' + item['qtd'] + '">';
+
+    valor = 
+    '<input type="hidden" id="item-' + qtdIten + '-quantidade" class="form-control" name="Item[' + qtdIten + '][valor]" value="' + item['valor'] + '">';
+
+    listaitens.append(descricao);
+    listaitens.append(qtd);
+    listaitens.append(valor);
+}
+
+function retornaComponenteitem(item) {
+    return elItem = 
+        '<div class="list-group-item list-group-item-action flex-column align-items-start">'+
+            '<div class="d-flex w-100 justify-content-between">'+
+                '<h5 class="mb-1">' +
+                    item['qtd'] + ' ' + item['descricao'] +
+                '</h5>'+
+                '<button type="button" class="close remover-item">'+
+                    '<span aria-hidden="true">×</span>'+
+                '</button>'+
+            '</div>'+
+            '<p class="mb-1">'+
+                'R$ ' + item['valor'] +
+            '</p>'+
+        '</div>';
+}

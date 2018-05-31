@@ -11,32 +11,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="col-lg-10 content mx-auto">
-
-	<div class="row">
-		<div class="col-lg-2 col-md-2 col-sm-12 text-center">
-			<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" alt="..." class="img-thumbnail">
-		</div>
-
-		<div class="col-lg-8 col-md-10 col-sm-12">
-			<a href="<?= \yii\helpers\Url::to(['instituicao/view', 'id' => $instituicao->id_instituicao]) ?>" target="_blank">
-				<h3 class="style-text-primary style-color-blue-02"><?= $instituicao->nome ?></h3>
-			</a>
-
-			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2">
-				Editar meus dados
-			</a>
-		</div>
-
-		<div class="col-lg-2 col-md-2 col-sm-12">
-			<a href="<?= \yii\helpers\Url::to(['doacao/index']) ?>" class="btn style-btn-line radius-5 btn-sm col-sm-12">
-				Voltar
-			</a>
-		</div>
-	</div>
+	<a href="<?= \yii\helpers\Url::to(['doacao/index']) ?>" class="btn style-btn-line float-left radius-5">
+		Voltar
+	</a>
 
 	<div class="row justify-content-between mt-3 margin-top-50 col-12 p-0">
 		<div class="col-lg-10 col-md-10 col-sm-12 float-left">
-			<h4 class="style-text-primary style-color-blue-03 margin-bottom-20">
+			<h4 class="style-text-secondary style-color-blue-03 margin-bottom-20">
 				Resultados do projeto <?= $doacao->titulo ?>
 			</h4>
 		</div>

@@ -9,8 +9,7 @@ use yii\widgets\Pjax;
 
 $this->title = 'Doacoes';
 ?>
-<div class="col-lg-10 content mx-auto">
-
+<div class="col-lg-8 col-md-11 mx-auto content mx-auto">
 	<div class="row">
 		<div class="col-lg-2 col-md-2 col-sm-12 text-center">
 			<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" alt="..." class="img-thumbnail">
@@ -27,9 +26,9 @@ $this->title = 'Doacoes';
 		</div>
 	</div>
 
-	<div class="row justify-content-between mt-3 margin-top-50 col-12">
+	<div class="row justify-content-between mt-3 margin-top-50 col-12 p0">
 		<div class="col-lg-10 col-md-10 col-sm-12 float-left">
-			<h4 class="style-text-primary style-color-blue-03 margin-bottom-20">
+			<h4 class="style-text-secondary style-color-blue-03 margin-bottom-20">
 				Meus projetos
 			</h4>
 		</div>
@@ -41,7 +40,6 @@ $this->title = 'Doacoes';
 
 	<div class="row">
 		<div class="col-sm-12 table-responsive">
-		
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
 				'options' => [
@@ -52,13 +50,7 @@ $this->title = 'Doacoes';
 				],
 		
 				'columns' => [
-					// 'id_doacao',
-					// 'id_instituicao',
 					'titulo',
-					// 'descricao:ntext',
-				  //'imagem_perfil',
-				  //'video',
-				  //'imagem_capa:ntext',
 					[
 						'class' => 'yii\grid\ActionColumn',
 						'template' => '{view} {update} {delete} {resultado}',

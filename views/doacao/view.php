@@ -10,31 +10,36 @@ $this->title = 'Detalhes do projeto';
 // $this->params['breadcrumbs'][] = ['label' => 'Doacaos', 'url' => ['index']];
 // $this->params['breadcrumbs'][] = $this->title;
 ?>
+ 
+<div class="img-capa">
+	<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $model->imagem_capa ?>" class="img-fluid" alt="Responsive image">
+</div>
 
-<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $model->imagem_capa ?>" class="img-fluid" alt="Responsive image">
-
-<main class="col-lg-10 content detalhes-necessidade mx-auto">
+<main class="col-lg-8 col-md-11 mx-auto content detalhes-necessidade">
 	<div class="row">
 		<div class="col-lg-12">
-			
+			<a class="btn style-btn-line radius-5" href="<?= \yii\helpers\Url::to(['doacao/index', 'id' => $model->id_instituicao]) ?>">
+				Voltar
+			</a>
+
 			<div class="text-center">
 				<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $model->imagem_perfil ?>" alt="..." class="img-thumbnail" height="150px" width="150px">
 				<h3 class="style-text-primary style-color-blue-02"><?= $model->titulo ?></h3>
 			</div>
 			
-			<div class="descricao">
+			<div class="descricao margin-botton-50">
 				<?= $model->descricao ?>
 			</div>
 			
 			<div class="info row">
 				<div class="col-lg-6">
-					<iframe width="540" height="315" src="https://www.youtube.com/embed/1fi0AohD2ik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+					<iframe width="100%" height="315" src="https://www.youtube.com/embed/1fi0AohD2ik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
 					</iframe>
 					
 					<div class="tabs">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
 							<li class="nav-item">
-								<a class="nav-link" id="doadores-tab" data-toggle="tab" href="#doadores" role="tab" aria-controls="doadores" aria-selected="false">Doadores</a>
+								<a class="nav-link active" id="doadores-tab" data-toggle="tab" href="#doadores" role="tab" aria-controls="doadores" aria-selected="false">Doadores</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" id="sobre-tab" data-toggle="tab" href="#sobre" role="tab" aria-controls="sobre" aria-selected="false">Sobre</a>
@@ -52,40 +57,34 @@ $this->title = 'Detalhes do projeto';
 					</div>
 				</div>
 				
-				<div class="col-lg-6 infos">
-					<div>
-						<span class="oi oi-info"> </span>
-						<label>
-							<?= $instituicaoModel->endereco ?>
-						</label>
-					</div>
+				<div class="col-lg-6 infos infos-detalhes">
+					<p>
+						<i class="material-icons">place</i>
+						<?= $instituicaoModel->endereco ?>
+					</p>
 					
-					<div>
-						<span class="oi oi-phone"></span>
-						<label>
-							<?= $instituicaoModel->telefone ?>
-						</label>
-					</div>
+					<p>
+						<i class="material-icons">phone</i>
+						<?= $instituicaoModel->telefone ?>
+					</p>
 					
-					<div>
-						<strong>@</strong>
-						<label><?= $instituicaoModel->email ?></label>
-					</div>
+					<p>
+						<i class="material-icons">email</i>
+						<?= $instituicaoModel->email ?>
+					</p>
 					
-					<div>
-						<strong>f </strong>
-						<label>/abrigo</label>
-					</div>
+					<p class="margin-botton-50">
+					</p>
 					
-					<div class="progresso">
+					<div class="progresso ">
 						<strong>Itens para doação - Total: R$ 5.030,00</strong>
 						<div class="progress">
 							<div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
 						</div>
 					</div>
 					
-					<div class="items">
-						<div>
+					<div class="items margin-botton-20">
+						<!-- <div>
 							<span class="oi oi-task"></span>
 							<label>Item One - Qtd: 3 - Valor Un.: R$ 10,00</label>
 						</div>
@@ -98,7 +97,7 @@ $this->title = 'Detalhes do projeto';
 						<div>
 							<span class="oi oi-timer"></span>
 							<label>Item Three - Valor: R$ 5.000,00</label>
-						</div>
+						</div> -->
 					</div>
 					
 					<div class="contribua">
