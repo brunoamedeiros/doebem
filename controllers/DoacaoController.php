@@ -4,8 +4,6 @@ namespace app\controllers;
 
 use app\models\InstituicaoRedeSocial;
 use app\models\Item;
-
-
 use app\models\Resultado;
 use Yii;
 use app\models\Doacao;
@@ -65,12 +63,10 @@ class DoacaoController extends Controller
 
       $doacao = $this->findModel($id);
       $instituicao = Yii::$app->user->identity;
-      $contribuidores = $doacao->getContribuicoes()->all();
 
       return $this->render('view', [
           'model' => $doacao,
-          'instituicaoModel' => $instituicao,
-          'contribuidores' => $contribuidores
+          'instituicaoModel' => $instituicao
       ]);
     }
 
@@ -85,11 +81,22 @@ class DoacaoController extends Controller
         $model->_items = [new Item()];
         $instituicao = Yii::$app->user->identity;
 
-       
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {        
             $model->id_instituicao = $instituicao->getId();
             $model->save();
+
+            $itens = Yii::$app->request->post()['Item'];
+            
+            foreach($itens as $item) {
+                $novoItem = new Item();
+
+                $novoItem->id_doacao = $model->id_doacao;
+                $novoItem->descricao = $item['descricao'];
+                $novoItem->quantidade = $item['quantidade'];
+                $novoItem->valor = $item['valor'];
+
+                $novoItem->save();
+            }
 
             return $this->redirect(['view', 'id' => $model->id_doacao]);
         }
