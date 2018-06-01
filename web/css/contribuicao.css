@@ -1,0 +1,47 @@
+.form-group {
+    padding-right: 0 !important;
+}
+
+.container {
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.container input {
+    height: 40px;
+    border-radius: 10px;
+    background-color: #dddddd87;
+}
+
+.form-contribuicao {
+    margin-left: 85px;
+}
+
+.button-back a {
+    width: 100%;
+    font-weight: bold;
+    color: #4caefd;
+    background-color: #fff;
+    border-color: #4caefd;
+}
+
+.button-back a:hover {
+    background-color: #1fd1f4;
+    border-color: #1fd1f4;
+}
+
+.sugestao-pagamento button {
+    margin: 4px;
+    font-size: 14px;
+    color: #5c4c4b;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+.sugestao-pagamento button:hover {
+    background: -moz-linear-gradient(left, #f093fb 1%, #f5576c 100%);
+    background: -webkit-linear-gradient(left, #f093fb 1%, #f5576c 100%);
+    background: linear-gradient(to right, #f093fb 1%, #f5576c 100%);
+    color: #fff;
+}
