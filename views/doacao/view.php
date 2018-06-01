@@ -5,6 +5,8 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Doacao */
+/* @var $instituicao app\models\Instituicao */
+/* @var $contribuidores app\models\Contribuicao */
 
 $this->title = 'Detalhes do projeto';
 // $this->params['breadcrumbs'][] = ['label' => 'Doacaos', 'url' => ['index']];
@@ -39,7 +41,7 @@ $this->title = 'Detalhes do projeto';
 					<div class="tabs">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
 							<li class="nav-item">
-								<a class="nav-link active" id="doadores-tab" data-toggle="tab" href="#doadores" role="tab" aria-controls="doadores" aria-selected="false">Doadores</a>
+								<a class="nav-link active show" id="doadores-tab" data-toggle="tab" href="#doadores" role="tab" aria-controls="doadores" aria-selected="false">Doadores</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" id="sobre-tab" data-toggle="tab" href="#sobre" role="tab" aria-controls="sobre" aria-selected="false">Sobre</a>
@@ -48,7 +50,9 @@ $this->title = 'Detalhes do projeto';
 						
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade" id="doadores" role="tabpanel" aria-labelledby="doadores-tab">
-								...
+								<?php foreach ($contribuidores as $contribuidor): ?>
+                  <p><?= $contribuidor->getContribuinte()->one()->nome; ?></p>
+                <?php endforeach; ?>
 							</div>
 							<div class="tab-pane fade" id="sobre" role="tabpanel" aria-labelledby="sobre-tab">
 								<?= $instituicaoModel->descricao ?>

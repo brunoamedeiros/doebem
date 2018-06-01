@@ -65,10 +65,12 @@ class DoacaoController extends Controller
 
       $doacao = $this->findModel($id);
       $instituicao = Yii::$app->user->identity;
+      $contribuidores = $doacao->getContribuicoes()->all();
 
       return $this->render('view', [
           'model' => $doacao,
-          'instituicaoModel' => $instituicao
+          'instituicaoModel' => $instituicao,
+          'contribuidores' => $contribuidores
       ]);
     }
 
