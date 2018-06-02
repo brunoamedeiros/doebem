@@ -72,7 +72,7 @@ $this->title = 'Visualizar dados';
             <p>
                 <i class="material-icons">place</i>
                 <?= $model->endereco ?>
-                <input type="hidden" id="endereco" value="Rua tarquinio balsini tubarao sc " />
+                <input type="hidden" id="endereco" value="<?= $model->endereco ?>" />
             </p>
 
             <p>

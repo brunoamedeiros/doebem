@@ -134,6 +134,7 @@ function geocodeAddress(geocoder, resultsMap) {
 };
 
 qtdIten = 0;
+lista_itens_del = []
 
 $(document).ready(function(){
     $('#btn-add-item').on('click', function(){
@@ -142,27 +143,74 @@ $(document).ready(function(){
             campos = $('#form-iten input'),
             itemHtml;
 
-        if(campos[0].value != "" && campos[1].value != "" && campos[2].value != "") {
-            item['descricao'] = campos[0].value;
-            item['qtd'] = campos[1].value;
-            item['valor'] = campos[2].value;
+        if(campos[0].value == "" || campos[1].value == "" || campos[2].value == ""){
+            $('.alert-danger').html('Todos os campos são necessários').show();
+        }else {
+            if(campos[0].value != "" && campos[1].value != "" && campos[2].value != "") {
+                item['descricao'] = campos[0].value;
+                item['qtd'] = campos[1].value;
+                item['valor'] = campos[2].value;
+                item['id'] = qtdIten;
+        
+                itemHtml = retornaComponenteitem(item);
+        
+                criaInputsHiden(item);
+                qtdIten++;
     
-            itemHtml = retornaComponenteitem(item);
-    
-            criaInputsHiden(item);
-            qtdIten++;
+                $('#lista-itens').append(itemHtml);
+        
+                $('.remover-item').on('click', function(){
+                    $(this).parent().parent().remove();
+                });
+        
+                for(var i = 0; i < campos.length; i++) {
+                    campos[i].value = "";
+                };
 
-            $('#lista-itens').append(itemHtml);
-    
-            $('.remover-item').on('click', function(){
-                $(this).parent().parent().remove();
-            });
-    
-            for(var i = 0; i < campos.length; i++) {
-                campos[i].value = "";
+                $('.alert-danger').hide();
             };
         };
     });
+
+    $('.btn-cadastrar-item').on('click', function(e){
+        if($('.btn-excluir').length){
+            var campos = $('#form-iten input');
+
+            if(campos[0].value == "" || campos[1].value == "" || campos[2].value == ""){
+                $('.alert-danger').html('Todos os campos são necessários').show();
+                e.preventDefault();  
+            };         
+        }else{
+            if(!$('.lista-itens').length) {
+                $('.alert-danger').html('É necessário ter pelo menos um item em seu projeto').show();
+                e.preventDefault();
+            };
+        };
+    });
+
+    $('.btn-excluir').on('click', function(){
+        var el = $(this),
+            id_item = el.data('id-item');
+
+        $('.btn-excluir-confirma').data('id-item', id_item);
+    });
+
+    $('.btn-excluir-confirma').on('click', function(){
+       var id_item = $(this).data('id-item');
+
+       if($.inArray(id_item, lista_itens_del) == -1 && $('.form-itens').length > 1){
+            lista_itens_del.push(id_item);
+
+            $("#lista-itens-del").append(
+                "<input type='hidden' name='deletar[] = ['" + id_item + "'] value='" + id_item + "'/>"
+            ); 
+            
+            $("#item-del-" + id_item).parent().parent().remove();
+            $("#list-id-item-" + id_item).remove();
+        }else{
+            $('.alert-danger').html('Não é possível excluir este item pois é necessário ter pelo menos um item em seu projeto').show();
+        };
+    })
 });
 
 function criaInputsHiden(item) {
@@ -187,7 +235,7 @@ function criaInputsHiden(item) {
 
 function retornaComponenteitem(item) {
     return elItem = 
-        '<div class="list-group-item list-group-item-action flex-column align-items-start">'+
+        '<div class="lista-itens list-group-item list-group-item-action flex-column align-items-start">'+
             '<div class="d-flex w-100 justify-content-between">'+
                 '<h5 class="mb-1">' +
                     item['qtd'] + ' ' + item['descricao'] +
@@ -200,4 +248,12 @@ function retornaComponenteitem(item) {
                 'R$ ' + item['valor'] +
             '</p>'+
         '</div>';
+}
+
+function editaItem() {
+    var btn = $(".js-btn-edit");
+
+    btn.on('click', function(){
+        console.log($(this));
+    });
 }

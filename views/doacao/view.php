@@ -51,8 +51,8 @@ $this->title = 'Detalhes do projeto';
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade" id="doadores" role="tabpanel" aria-labelledby="doadores-tab">
 								<?php foreach ($contribuidores as $contribuidor): ?>
-                  <p><?= $contribuidor->getContribuinte()->one()->nome; ?></p>
-                <?php endforeach; ?>
+									<p><?= $contribuidor->getContribuinte()->one()->nome; ?></p>
+								<?php endforeach; ?>
 							</div>
 							<div class="tab-pane fade" id="sobre" role="tabpanel" aria-labelledby="sobre-tab">
 								<?= $instituicaoModel->descricao ?>
@@ -80,28 +80,29 @@ $this->title = 'Detalhes do projeto';
 					<p class="margin-botton-50">
 					</p>
 					
-					<div class="progresso ">
-						<strong>Itens para doação - Total: R$ 5.030,00</strong>
+					<div class="items margin-botton-20">
+						<strong>Itens para doação</strong>
+						<br><br>
+
+						<?php foreach($itens as $item): ?>
+							<div>
+								<span class="oi oi-task"></span>
+								<label>
+									<?= $item->quantidade ?> 
+									<b>
+										<?= $item->descricao ?>
+									</b> 
+									- Valor Un.: R$ <?= $item->valor ?>
+								</label>
+							</div>
+						<?php endforeach; ?>
+					</div>
+
+					<div class="progresso margin-bottom-20">
+						
 						<div class="progress">
 							<div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
 						</div>
-					</div>
-					
-					<div class="items margin-botton-20">
-						<!-- <div>
-							<span class="oi oi-task"></span>
-							<label>Item One - Qtd: 3 - Valor Un.: R$ 10,00</label>
-						</div>
-						
-						<div>
-							<span class="oi oi-timer"></span>
-							<label>Item Two - Valor: R$ 20,00</label>
-						</div>
-						
-						<div>
-							<span class="oi oi-timer"></span>
-							<label>Item Three - Valor: R$ 5.000,00</label>
-						</div> -->
 					</div>
 					
 					<div class="contribua">

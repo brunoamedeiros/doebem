@@ -412,3 +412,7 @@ body .home-banner .navbar {
 .help-block {
 	color: red;
 }
+
+.hide {
+	display: none;
+}

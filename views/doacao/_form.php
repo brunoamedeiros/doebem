@@ -38,8 +38,11 @@ use yii\widgets\ActiveForm;
             Lista de itens
         </h3>
 
+        <div class="alert alert-danger hide" role="alert">
+        </div>
+
         <?php foreach ($model->_items as $k => $item): ?>
-            <div class="form-item row" id="form-iten">
+            <div class="form-item row form-itens" id="form-iten">
                 <div class="form-group col-5">
                     <?= $form->field($item, '[' . $k . ']descricao')->textInput(['rows' => 6]) ?>
                 </div>
@@ -52,31 +55,79 @@ use yii\widgets\ActiveForm;
                     <?= $form->field($item, '[' . $k . ']valor')->textInput(['type' => 'number']) ?>
                 </div>
 
-                <div class="form-group col-3">
-                    <button
-                        type="button"
-                        id="btn-add-item"
-                        data-id-inst="<?= $model->id_instituicao?>"
-                        class="btn style-btn-line radius-5 margin-top-30 col-12">
-                        Adicionar item
-                    </button>
-                </div>
+                <?php if(!sizeof($model->items) > 0): ?>
+                    <div class="form-group col-3">
+                        <button
+                            type="button"
+                            id="btn-add-item"
+                            data-id-inst="<?= $model->id_instituicao ?>"
+                            class="btn style-btn-line radius-5 margin-top-30">
+                            Adicionar item
+                        </button>
+                    </div>
+                <?php else: ?>
+                <input id="list-id-item-<?= $item->id_item ?>" type="hidden" name="Item[<?= $k ?>][id_item]" value="<?= $item->id_item ?>" />
+
+                    <div class="form-group col-3">
+                        <!-- <button
+                            type="button"
+                            data-index="<?= $k ?>"
+                            data-id-item="<?= $item->id_item ?>"
+                            class="btn style-btn-line radius-5 margin-top-30 btn-editar-item">
+                            Salvar
+                        </button> -->
+
+                        <button
+                            type="button"
+                            id="item-del-<?= $item->id_item?>"
+                            data-id-item="<?= $item->id_item ?>"
+                            class="btn btn-danger radius-5 margin-top-30 btn-excluir col-12"
+                            data-toggle="modal" data-target="#modal-confirmacao">
+                            deletar
+                        </button>
+                    </div>
+                <?php endif; ?>
             </div>
         <?php endforeach; ?>
 
         <div class="d-none form-items-hidden">
-
         </div>
 
         <div class="list-group" id="lista-itens">
-            
+        </div>
+
+        <div  id="lista-itens-del">
         </div>
 
         <div class="control button-submit">
             <?= Html::a('Cancelar', ['index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
-            <?= Html::submitButton('Salvar', ['class' => 'btn btn-primary mt-4']) ?>
+            <?= Html::submitButton('Salvar', ['class' => 'btn btn-primary mt-4 btn-cadastrar-item']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
     </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-confirmacao">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Excluir item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+            Deseja realmente excluir esse item? Está ação não porerá ser desfeita.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-excluir-confirma" data-dismiss="modal" data-id-item="">Excluir</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\InstituicaoRedeSocial;
 use app\models\Item;
 use app\models\Resultado;
+use app\models\Contribuicao;
 use Yii;
 use app\models\Doacao;
 use app\models\Instituicao;
@@ -61,13 +62,18 @@ class DoacaoController extends Controller
     public function actionView($id)
     {
 
-      $doacao = $this->findModel($id);
-      $instituicao = Yii::$app->user->identity;
+        $doacao = $this->findModel($id);
+        $instituicao = Yii::$app->user->identity;
 
-      return $this->render('view', [
-          'model' => $doacao,
-          'instituicaoModel' => $instituicao
-      ]);
+        $contribuicao = Contribuicao::findOne($id);
+        $itens = $doacao->items;
+
+        return $this->render('view', [
+            'model' => $doacao,
+            'instituicaoModel' => $instituicao,
+            'contribuicao' => $contribuicao,
+            'itens' => $itens
+        ]);
     }
 
     /**
@@ -117,9 +123,44 @@ class DoacaoController extends Controller
     public function actionUpdate($id_doacao, $id_instituicao)
     {
         $model = $this->findModel($id_doacao, $id_instituicao);
+        $model->_items = $model->items;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao]);
+        $post = Yii::$app->request->post();
+        
+        // var_dump($post);
+        // die();
+        
+        if ($model->load($post) && $model->validate()) {
+
+            if(isset($post['Item'])){
+                $itens = $post['Item'];
+                
+                if(sizeof($itens) > 0) {
+                    foreach($itens as $item) {
+                        $novoItem = Item::findOne($item["id_item"]);
+                        
+                        $novoItem->descricao = $item['descricao'];
+                        $novoItem->quantidade = $item['quantidade'];
+                        $novoItem->valor = $item['valor'];
+        
+                        $novoItem->save();
+                    };
+                };
+            };            
+            
+            if(isset( $post['deletar'])){
+                $itensDeletar = $post['deletar'];
+                
+                if(sizeof($itensDeletar) > 0) {
+                    foreach($itensDeletar as $item) {
+                        Item::findOne($item)->delete();
+                    };
+                };
+            };
+
+            $model->save();
+
+            return $this->redirect(['index', 'id' => $model->id_doacao]);
         }
 
         return $this->render('update', [
