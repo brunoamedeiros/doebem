@@ -63,10 +63,31 @@ class DoacaoController extends Controller
 
       $doacao = $this->findModel($id);
       $instituicao = Yii::$app->user->identity;
+      $contribuicoes = $doacao->getContribuicoes()->all();
+      $itens = $doacao->getItems()->all();
+
+      $total = 0;
+      foreach ($itens as $item) {
+        $total += $item->valor * $item->quantidade;
+      }
+
+      $totalArrecadado = 0;
+      foreach ($contribuicoes as $contribuicao) {
+        $totalArrecadado += $contribuicao->valor;
+      }
+
+      $progress = round(($totalArrecadado / $total) * 100);
+
+      $total = number_format($total, 2);
 
       return $this->render('view', [
           'model' => $doacao,
-          'instituicaoModel' => $instituicao
+          'instituicaoModel' => $instituicao,
+          'contribuicoes' => $contribuicoes,
+          'total' => $total,
+          'progress' => $progress,
+          'itens' => $itens,
+          'totalArrecadado' => $totalArrecadado
       ]);
     }
 
@@ -117,6 +138,7 @@ class DoacaoController extends Controller
     public function actionUpdate($id_doacao, $id_instituicao)
     {
         $model = $this->findModel($id_doacao, $id_instituicao);
+      $model->_items = [$model->getItems()->all()];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao]);
