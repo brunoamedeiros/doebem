@@ -65,6 +65,7 @@ class DoacaoController extends Controller
       $instituicao = Yii::$app->user->identity;
       $contribuicoes = $doacao->getContribuicoes()->all();
       $itens = $doacao->getItems()->all();
+      $resultados = $doacao->getResultados()->all();
 
       $total = 0;
       foreach ($itens as $item) {
@@ -87,7 +88,8 @@ class DoacaoController extends Controller
           'total' => $total,
           'progress' => $progress,
           'itens' => $itens,
-          'totalArrecadado' => $totalArrecadado
+          'totalArrecadado' => $totalArrecadado,
+          'resultados' => $resultados
       ]);
     }
 

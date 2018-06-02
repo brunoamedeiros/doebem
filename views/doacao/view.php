@@ -40,7 +40,7 @@ $this->title = 'Detalhes do projeto';
 					<div class="tabs">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
 							<li class="nav-item">
-								<a class="nav-link active" id="sobre-tab" data-toggle="tab" href="#sobre" role="tab" aria-controls="sobre" aria-selected="false">Sobre</a>
+								<a class="nav-link active" id="sobre-tab" data-toggle="tab" href="#sobre" role="tab" aria-controls="sobre" aria-selected="false">Andamento do projeto</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" id="doadores-tab" data-toggle="tab" href="#doadores" role="tab" aria-controls="doadores" aria-selected="true">Doadores</a>
@@ -58,7 +58,23 @@ $this->title = 'Detalhes do projeto';
 							</div>
 
 							<div class="tab-pane fade show active" id="sobre" role="tabpanel" aria-labelledby="sobre-tab">
-                				<?= $instituicaoModel->descricao ?>
+								<b>
+									Resultados
+								</b>
+
+								<p>
+									Acompanhe o desenvolvimento do projeto através das doações  recebias.
+								</p>
+
+								<?php if(sizeof($resultados) > 0): ?>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-resultados">
+										Ver resultados
+									</button>
+								<?php else: ?>
+									<p>
+										Em breve taremos atualizações sobre o andamento do projeto, aguarde.
+									</p>
+								<?php endif; ?>
 							</div>
 							<!-- <div class="tab-pane fade" id="doadores" role="tabpanel" aria-labelledby="doadores-tab">
 								<ul class="list-group list-group-flush">
@@ -79,12 +95,10 @@ $this->title = 'Detalhes do projeto';
 						<i class="material-icons">place</i>
 						<?= $instituicaoModel->endereco ?>
 					</p>
-					
 					<p>
 						<i class="material-icons">phone</i>
 						<?= $instituicaoModel->telefone ?>
 					</p>
-					
 					<p>
 						<i class="material-icons">email</i>
 						<?= $instituicaoModel->email ?>
@@ -143,3 +157,50 @@ $this->title = 'Detalhes do projeto';
 		</div>
 	</div>
 </main>
+
+<div class="modal fade" id="modal-resultados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Resultados</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<?php foreach($resultados as $i => $k): ?>
+						<li data-target="#carouselExampleIndicators" data-slide-to="<?= $i ?>"></li>
+					<?php endforeach; ?>
+				</ol>
+				<div class="carousel-inner">
+					<?php foreach($resultados as $i => $r): ?>
+						<div class="carousel-item <?= ($i == 0)? 'active' : '' ?>">
+							<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $r->imagem ?>" alt="resultado-<?= $i ?>" class="float-right d-block w-100">
+							<div class="carousel-caption d-none d-md-block">
+								<p>
+									<?= $r->data ?>
+								</p>
+								<p>
+									<?= $r->descricao ?>
+								</p>
+							</div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">
+						Previous
+					</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+    </div>
+  </div>
+</div>

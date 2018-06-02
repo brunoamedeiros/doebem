@@ -66,8 +66,8 @@ use yii\widgets\ActiveForm;
                         </button>
                     </div>
                 <?php else: ?>
-                <input id="list-id-item-<?= $item->id_item ?>" type="hidden" name="Item[<?= $k ?>][id_item]" value="<?= $item->id_item ?>" />
-
+                    <input id="list-id-item-<?= $item->id_item ?>" type="hidden" name="Item[<?= $k ?>][id_item]" value="<?= $item->id_item ?>" />
+                    
                     <div class="form-group col-3">
                         <!-- <button
                             type="button"

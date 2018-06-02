@@ -18,7 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="button-back col-lg-1">
 			<a class="btn btn-primary"
 			   href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $doacao->id_doacao]) ?>">
-				<
+				<i class="material-icons">
+					keyboard_arrow_left
+				</i>
 			</a>
 		</div>
 
