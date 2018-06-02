@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Doacao */
 
-$this->title = 'Adicionar Necessidade';
+$this->title = 'Adicionar Novo Projeto';
 ?>
 <main class="col-lg-10 content mx-auto">
     <div class="row align-items-center">

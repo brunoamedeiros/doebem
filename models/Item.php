@@ -12,7 +12,6 @@ use Yii;
  * @property string $descricao
  * @property double $quantidade
  * @property double $valor
- * @property string $imagem
  *
  * @property Doacao $doacao
  */
@@ -32,11 +31,9 @@ class Item extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_doacao', 'descricao', 'quantidade', 'valor', 'imagem'], 'required'],
             [['id_doacao'], 'integer'],
             [['descricao'], 'string'],
             [['quantidade', 'valor'], 'number'],
-            [['imagem'], 'string', 'max' => 255],
             [['id_doacao'], 'exist', 'skipOnError' => true, 'targetClass' => Doacao::className(), 'targetAttribute' => ['id_doacao' => 'id_doacao']],
         ];
     }
@@ -51,8 +48,7 @@ class Item extends \yii\db\ActiveRecord
             'id_doacao' => 'Cód. Doação',
             'descricao' => 'Descrição',
             'quantidade' => 'Quantidade',
-            'valor' => 'Valor',
-            'imagem' => 'Imagem',
+            'valor' => 'Valor'
         ];
     }
 

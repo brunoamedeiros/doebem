@@ -4,8 +4,6 @@ namespace app\controllers;
 
 use app\models\InstituicaoRedeSocial;
 use app\models\Item;
-
-
 use app\models\Resultado;
 use Yii;
 use app\models\Doacao;
@@ -65,10 +63,31 @@ class DoacaoController extends Controller
 
       $doacao = $this->findModel($id);
       $instituicao = Yii::$app->user->identity;
+      $contribuicoes = $doacao->getContribuicoes()->all();
+      $itens = $doacao->getItems()->all();
+
+      $total = 0;
+      foreach ($itens as $item) {
+        $total += $item->valor * $item->quantidade;
+      }
+
+      $totalArrecadado = 0;
+      foreach ($contribuicoes as $contribuicao) {
+        $totalArrecadado += $contribuicao->valor;
+      }
+
+      $progress = round(($totalArrecadado / $total) * 100);
+
+      $total = number_format($total, 2);
 
       return $this->render('view', [
           'model' => $doacao,
-          'instituicaoModel' => $instituicao
+          'instituicaoModel' => $instituicao,
+          'contribuicoes' => $contribuicoes,
+          'total' => $total,
+          'progress' => $progress,
+          'itens' => $itens,
+          'totalArrecadado' => $totalArrecadado
       ]);
     }
 
@@ -83,9 +102,22 @@ class DoacaoController extends Controller
         $model->_items = [new Item()];
         $instituicao = Yii::$app->user->identity;
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {        
             $model->id_instituicao = $instituicao->getId();
             $model->save();
+
+            $itens = Yii::$app->request->post()['Item'];
+            
+            foreach($itens as $item) {
+                $novoItem = new Item();
+
+                $novoItem->id_doacao = $model->id_doacao;
+                $novoItem->descricao = $item['descricao'];
+                $novoItem->quantidade = $item['quantidade'];
+                $novoItem->valor = $item['valor'];
+
+                $novoItem->save();
+            }
 
             return $this->redirect(['view', 'id' => $model->id_doacao]);
         }
@@ -106,6 +138,7 @@ class DoacaoController extends Controller
     public function actionUpdate($id_doacao, $id_instituicao)
     {
         $model = $this->findModel($id_doacao, $id_instituicao);
+      $model->_items = [$model->getItems()->all()];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao]);

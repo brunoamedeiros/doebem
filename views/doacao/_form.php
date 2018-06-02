@@ -34,54 +34,42 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
 
-        <h3 class="style-text-primary style-color-blue-02">Lista de itens</h3>
+        <h3 class="style-text-secondary style-color-blue-03 mt-20 margin-top-30">
+            Lista de itens
+        </h3>
 
         <?php foreach ($model->_items as $k => $item): ?>
-            <div class="form-item">
-                <?= $form->field($item, '[' . $k . ']descricao')->textarea(['rows' => 6]) ?>
+            <div class="form-item row" id="form-iten">
+                <div class="form-group col-5">
+                    <?= $form->field($item, '[' . $k . ']descricao')->textInput(['rows' => 6]) ?>
+                </div>
 
-                <?= $form->field($item, '[' . $k . ']quantidade')->textInput() ?>
+                <div class="form-group col-2">
+                    <?= $form->field($item, '[' . $k . ']quantidade')->textInput(['type' => 'number']) ?>
+                </div>
 
-                <?= $form->field($item, '[' . $k . ']valor')->textInput() ?>
+                <div class="form-group col-2">
+                    <?= $form->field($item, '[' . $k . ']valor')->textInput(['type' => 'number']) ?>
+                </div>
+
+                <div class="form-group col-3">
+                    <button
+                        type="button"
+                        id="btn-add-item"
+                        data-id-inst="<?= $model->id_instituicao?>"
+                        class="btn style-btn-line radius-5 margin-top-30 col-12">
+                        Adicionar item
+                    </button>
+                </div>
             </div>
-
-            <button type="button" class="btn-add-item">Adicionar item</button>
         <?php endforeach; ?>
 
         <div class="d-none form-items-hidden">
 
         </div>
 
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">2 Fralda</h5>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <p class="mb-1">R$ 100</p>
-            </a>
-
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">2 Toalha</h5>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <p class="mb-1">R$ 100</p>
-            </a>
-
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Cirurgia Zé</h5>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <p class="mb-1">R$ 100</p>
-            </a>
+        <div class="list-group" id="lista-itens">
+            
         </div>
 
         <div class="control button-submit">
