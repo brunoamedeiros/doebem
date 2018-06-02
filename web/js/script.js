@@ -83,6 +83,8 @@ $(document).ready(function(){
     $('.sugestao-pagamento button').on('click', function () {
         var valor = $(this).data('valor');
         $('.real').val(valor);
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
     });
 });
 

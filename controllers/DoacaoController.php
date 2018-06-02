@@ -61,19 +61,34 @@ class DoacaoController extends Controller
      */
     public function actionView($id)
     {
+      $doacao = $this->findModel($id);
+      $instituicao = Yii::$app->user->identity;
+      $contribuicoes = $doacao->getContribuicoes()->all();
+      $itens = $doacao->getItems()->all();
 
-        $doacao = $this->findModel($id);
-        $instituicao = Yii::$app->user->identity;
+      $total = 0;
+      foreach ($itens as $item) {
+        $total += $item->valor * $item->quantidade;
+      }
 
-        $contribuicao = Contribuicao::findOne($id);
-        $itens = $doacao->items;
+      $totalArrecadado = 0;
+      foreach ($contribuicoes as $contribuicao) {
+        $totalArrecadado += $contribuicao->valor;
+      }
 
-        return $this->render('view', [
-            'model' => $doacao,
-            'instituicaoModel' => $instituicao,
-            'contribuicao' => $contribuicao,
-            'itens' => $itens
-        ]);
+      $progress = round(($totalArrecadado / $total) * 100);
+
+      $total = number_format($total, 2);
+
+      return $this->render('view', [
+          'model' => $doacao,
+          'instituicaoModel' => $instituicao,
+          'contribuicoes' => $contribuicoes,
+          'total' => $total,
+          'progress' => $progress,
+          'itens' => $itens,
+          'totalArrecadado' => $totalArrecadado
+      ]);
     }
 
     /**
@@ -126,9 +141,6 @@ class DoacaoController extends Controller
         $model->_items = $model->items;
 
         $post = Yii::$app->request->post();
-        
-        // var_dump($post);
-        // die();
         
         if ($model->load($post) && $model->validate()) {
 

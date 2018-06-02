@@ -13,17 +13,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <main class="container p-3">
 
-	<div class="row align-items-center mb-4">
+	<div class="row mb-4">
 
-		<div class="col-lg-1">
+		<div class="button-back col-lg-1">
 			<a class="btn btn-primary"
 			   href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $doacao->id_doacao]) ?>">
-				Voltar
+				<
 			</a>
 		</div>
 
-		<div class="col-lg-11">
-			<h1><?= Html::encode($this->title) ?></h1>
+		<div class="col-lg-6">
+			<h3 class="style-text-primary style-color-blue-02">
+				<?= Html::encode($this->title) ?>
+			</h3>
 		</div>
 	</div>
 
