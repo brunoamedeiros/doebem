@@ -39,9 +39,10 @@
     border-color: #ddd;
 }
 
-.sugestao-pagamento button:hover {
-    background: -moz-linear-gradient(left, #f093fb 1%, #f5576c 100%);
-    background: -webkit-linear-gradient(left, #f093fb 1%, #f5576c 100%);
-    background: linear-gradient(to right, #f093fb 1%, #f5576c 100%);
+.sugestao-pagamento button:hover,
+.sugestao-pagamento button.active {
+    background-image: -moz-linear-gradient(left, #f093fb 1%, #f5576c 100%) !important;
+    background-image: -webkit-linear-gradient(left, #f093fb 1%, #f5576c 100%) !important;
+    background-image: linear-gradient(to right, #f093fb 1%, #f5576c 100%) !important;
     color: #fff;
 }
