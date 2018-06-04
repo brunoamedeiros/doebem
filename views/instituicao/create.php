@@ -18,7 +18,7 @@ $this->title = 'Adicionar Instituição';
 	</div>
 
   <?= $this->render('_form', [
-      'model' => $model
+      'model' => $model,
   ]) ?>
 
 </main>

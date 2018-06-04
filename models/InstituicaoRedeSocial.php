@@ -30,7 +30,7 @@ class InstituicaoRedeSocial extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'url'], 'required'],
+            [['id_instituicao', 'nome', 'url'], 'required'],
             [['id_instituicao'], 'integer'],
             [['nome', 'url'], 'string', 'max' => 255],
             [['id_instituicao'], 'exist', 'skipOnError' => true, 'targetClass' => Instituicao::className(), 'targetAttribute' => ['id_instituicao' => 'id_instituicao']],

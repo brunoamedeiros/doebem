@@ -13,7 +13,6 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * DoacaoController implements the CRUD actions for Doacao model.
@@ -30,21 +29,6 @@ class DoacaoController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-                ],
-            ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['view'],
-                        'allow' => true,
-                        'roles' => ['?', '@']
-                    ],
-                    [
-                        'actions' => ['index', 'create', 'update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['@']
-                    ]
                 ],
             ],
         ];
@@ -78,7 +62,7 @@ class DoacaoController extends Controller
     public function actionView($id)
     {
       $doacao = $this->findModel($id);
-      $instituicao = $doacao->getInstituicao()->one();
+      $instituicao = Yii::$app->user->identity;
       $contribuicoes = $doacao->getContribuicoes()->all();
       $itens = $doacao->getItems()->all();
       $resultados = $doacao->getResultados()->all();

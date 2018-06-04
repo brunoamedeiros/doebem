@@ -49,13 +49,12 @@ $this->title = 'Detalhes do projeto';
 						
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade" id="doadores" role="tabpanel" aria-labelledby="doadores-tab">
-								<ul class="list-group list-group-flush">
-									<?php if(sizeof($contribuicoes) > 0): ?>
-										<?php foreach ($contribuicoes as $contribuicao): ?>
-											<li class="list-group-item"><?= $contribuicao->getContribuinte()->one()->nome; ?></li>
-										<?php endforeach; ?>
-									<?php endif; ?>
-								</ul>
+								<?php if(sizeof($contribuicoes) > 0): ?>
+									<?php foreach ($contribuicoes as $contribuicao): ?>
+										<li class="list-group-item"><?= $contribuicao->getContribuinte()->one()->nome; ?>
+										</li>
+									<?php endforeach; ?>
+								<?php endif; ?>
 							</div>
 
 							<div class="tab-pane fade show active" id="sobre" role="tabpanel" aria-labelledby="sobre-tab">
@@ -77,6 +76,15 @@ $this->title = 'Detalhes do projeto';
 									</p>
 								<?php endif; ?>
 							</div>
+							<!-- <div class="tab-pane fade" id="doadores" role="tabpanel" aria-labelledby="doadores-tab">
+								<ul class="list-group list-group-flush">
+									<?php if(sizeof($contribuicoes) > 0): ?>
+										<?php foreach ($contribuicoes as $contribuicao): ?>
+											<li class="list-group-item"><?= $contribuicao->getContribuinte()->one()->nome; ?></li>
+										<?php endforeach; ?>
+									<?php endif; ?>
+								</ul>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -97,22 +105,22 @@ $this->title = 'Detalhes do projeto';
 					</p>
 					<br><br>
 
-					<div class="items mb-5">
+					<div class="items margin-botton-20">
 						<strong>Itens para doação</strong>
+						<br><br>
 
-						<?php if(sizeof($itens) > 0): ?>
-              <?php foreach ($itens as $item): ?>
-								<div>
-                  <?php if($totalArrecadado >= ($item->quantidade * $item->valor)): ?>
-										<span class="material-icons">check</span>
-                  <?php else: ?>
-										<span class="material-icons">query_builder</span>
-                  <?php endif; ?>
-
-									<label><?= $item->descricao . ' - Qtd: ' . $item->quantidade . ' -  Valor Un.: R$ ' . number_format($item->valor, 2);?></label>
-								</div>
-              <?php endforeach; ?>
-            <?php endif; ?>
+						<?php foreach($itens as $item): ?>
+							<div>
+								<span class="oi oi-task"></span>
+								<label>
+									<?= $item->quantidade ?> 
+									<b>
+										<?= $item->descricao ?>
+									</b> 
+									- Valor Un.: R$ <?= number_format($item->valor, 2) ?>
+								</label>
+							</div>
+						<?php endforeach; ?>
 					</div>
 					
 					<div class="progresso mb-3">
@@ -121,9 +129,23 @@ $this->title = 'Detalhes do projeto';
 							<div class="progress-bar" role="progressbar" style="width: <?= $progress ?>%;" aria-valuenow="<?= $progress ?>" aria-valuemin="0" aria-valuemax="<?= $total ?>"><?= $progress ?>%</div>
 						</div>
 					</div>
+					
+					<!-- <div class="items mb-5">
+						<?php if(sizeof($itens) > 0): ?>
+							<?php foreach ($itens as $item): ?>
+								<div>
+									<?php if($totalArrecadado >= ($item->quantidade * $item->valor)): ?>
+										<span class="material-icons">check</span>
+									<?php else: ?>
+										<span class="material-icons">query_builder</span>
+									<?php endif; ?>
 
-
-
+									<label><?= $item->descricao . ' - Qtd: ' . $item->quantidade . ' -  Valor Un.: R$ ' . number_format($item->valor, 2);?></label>
+								</div>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</div> -->
+					
 					<div class="contribua">
 						<a class="btn btn-primary style-btn-primary rounded-50 center btn-lg col-12"
 						   href="<?= \yii\helpers\Url::to(['contribuicao/create', 'id_doacao' => $model->id_doacao]) ?>">

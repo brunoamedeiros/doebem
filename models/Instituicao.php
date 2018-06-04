@@ -91,7 +91,7 @@ class Instituicao extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSociais()
+    public function getInstituicaoRedeSocial()
     {
         return $this->hasMany(InstituicaoRedeSocial::className(), ['id_instituicao' => 'id_instituicao']);
     }
