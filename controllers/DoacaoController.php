@@ -145,19 +145,18 @@ class DoacaoController extends Controller
         $post = Yii::$app->request->post();
         
         if ($model->load($post) && $model->validate()) {
-
             if(isset($post['Item'])){
                 $itens = $post['Item'];
                 
                 if(sizeof($itens) > 0) {
-                    foreach($itens as $item) {
-                        $novoItem = Item::findOne($item["id_item"]);
+                    foreach($itens as $it) {
+                        $item = Item::findOne($it["id_item"]);
                         
-                        $novoItem->descricao = $item['descricao'];
-                        $novoItem->quantidade = $item['quantidade'];
-                        $novoItem->valor = $item['valor'];
-        
-                        $novoItem->save();
+                        $item->descricao = $it['descricao'];
+                        $item->quantidade = $it['quantidade'];
+                        $item->valor = $it['valor'];
+                       
+                        $item->save();
                     };
                 };
             };            
@@ -170,6 +169,21 @@ class DoacaoController extends Controller
                         Item::findOne($item)->delete();
                     };
                 };
+            };
+
+            if(isset($post['novoItem'])){
+                $novosItens = $post['novoItem'];
+
+                foreach($novosItens as $item) {
+                    $novoItem = new Item();
+
+                    $novoItem->id_doacao = $model->id_doacao;
+                    $novoItem->descricao = $item['descricao'];
+                    $novoItem->quantidade = $item['quantidade'];
+                    $novoItem->valor = $item['valor'];
+    
+                    $novoItem->save();
+                }
             };
 
             $model->save();
