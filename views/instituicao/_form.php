@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\InstituicaoRedeSocial
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Instituicao */
@@ -11,6 +12,7 @@ use yii\widgets\ActiveForm;
 <div class="row margin-top-30">
 	<div class="col-lg-12">
 		<?php $form = ActiveForm::begin([
+			'enableClientValidation' => false,
 			'options' => [
 				'class' => 'needs-validation',
 				'novalidate' => 'novalidate'
@@ -27,7 +29,7 @@ use yii\widgets\ActiveForm;
 
 		<div class="row">
 			<div class="form-group col-lg-5">
-				<?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
+				<?= $form->field($model->instituicao, 'nome')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o nome da instituição.
@@ -35,7 +37,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-4">
-      			<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+      			<?= $form->field($model->instituicao, 'email')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o e-mail da instituição.
@@ -43,7 +45,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-3">
-       			<?= $form->field($model, 'cnpj')->textInput(['maxlength' => 18,
+       			<?= $form->field($model->instituicao, 'cnpj')->textInput(['maxlength' => 18,
 		        'pattern' => '[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}', 'class' => 'form-control cnpj']) ?>
 
 				<div class="invalid-feedback">
@@ -54,7 +56,7 @@ use yii\widgets\ActiveForm;
 
 		<div class="row">
 			<div class="form-group col-lg-5">
-        		<?= $form->field($model, 'endereco')->textInput(['maxlength' => true]) ?>
+        		<?= $form->field($model->instituicao, 'endereco')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o endereço.
@@ -62,7 +64,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-3">
-        		<?= $form->field($model, 'bairro')->textInput(['maxlength' => true]) ?>
+        		<?= $form->field($model->instituicao, 'bairro')->textInput(['maxlength' => true]) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira o bairro.
@@ -70,7 +72,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-2">
-        		<?= $form->field($model, 'cep')->textInput(['maxlength' => 8,
+        		<?= $form->field($model->instituicao, 'cep')->textInput(['maxlength' => 8,
 		        'pattern' => '[0-9]{5}-[0-9]{3}', 'class' => 'form-control cep']) ?>
 
 				<div class="invalid-feedback">
@@ -79,7 +81,7 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="form-group col-lg-2">
-        		<?= $form->field($model, 'telefone')->textInput(['maxlength' => true,
+        		<?= $form->field($model->instituicao, 'telefone')->textInput(['maxlength' => true,
 		        'pattern' => '\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$', 'class' => 'form-control fone']) ?>
 
 				<div class="invalid-feedback">
@@ -89,7 +91,7 @@ use yii\widgets\ActiveForm;
 		</div>
 
 		<div class="form-group">
-      		<?= $form->field($model, 'descricao')->textarea(['rows' => 3]) ?>
+      		<?= $form->field($model->instituicao, 'descricao')->textarea(['rows' => 3]) ?>
 
 			<div class="invalid-feedback">
 				Por favor, insira uma descrição.
@@ -100,24 +102,56 @@ use yii\widgets\ActiveForm;
 			<div class="row">
 				<div class="form-group col-sm-6 redes-sociais">
 					<label for="redes">Rede sociais</label>
-					<br>
-					<div class="select-redes-sociais">
-						<select class="col-lg-3 custom-select form-control clear-both float-left" name="redes-socias[]">
-							<option value="">Nenhuma</option>
-							<option value="facebook">Facebook</option>
-							<option value="instagram">Instagram</option>
-							<option value="twitter">Twitter</option>
-							<option value="youtube">Youtube</option>
-						</select>
 
-						<div class="form-group col-lg-8 float-left">
-							<input class="form-control" id="redes" name="value- redes-sociais[]">
-						</div>
+					<?php echo Html::a('Nova Rede Social', 'javascript:void(0);', [
+              'id' => 'instituicao-new-socials-button',
+              'class' => 'float-right btn btn-default btn-xs'
+          ]); ?>
+
+					<br>
+					<div class="select-redes-sociais d-none">
+						<?php
+            // parcel table
+            $sociais = new InstituicaoRedeSocial();
+            $sociais->loadDefaultValues();
+
+            echo $this->render('_form-instituicao-social', [
+                'key' => '__id__',
+                'form' => $form,
+                'sociais' => $sociais,
+            ]);
+            ?>
 					</div>
 
-					<button type="button" class="btn oi oi-plus col-sm-0.2 form-group col-lg-1 add-socials">
-						<i class="material-icons">add</i>
-					</button>
+					<?php
+
+            foreach ($model->sociais as $key => $_sociais) {
+              echo $this->render('_form-instituicao-social', [
+                  'key' => $_sociais->isNewRecord ? (strpos($key, 'new') !== false ? $key : 'new' . $key) : $_sociais->id_rede_social,
+                  'form' => $form,
+                  'sociais' => $_sociais,
+              ]);
+            }
+
+            ob_start(); // output buffer the javascript to register later
+					?>
+					<script>
+
+              // add parcel button
+              var social_k = <?php echo isset($key) ? str_replace('new', '', $key) : 0; ?>;
+
+              $('#instituicao-new-socials-button').on('click', function () {
+                  social_k += 1;
+                  $('.redes-sociais').append($('.select-redes-sociais').html().replace(/__id__/g, 'new' + social_k));
+              });
+
+              // remove parcel button
+              $(document).on('click', '.instituicao-remove-socials-button', function () {
+                  $(this).closest('.redes-sociais .social-block').remove();
+              });
+
+					</script>
+          <?php $this->registerJs(str_replace(['<script>', '</script>'], '', ob_get_clean())); ?>
 				</div>
 
 				<div class="form-group col-lg-6">
@@ -137,11 +171,11 @@ use yii\widgets\ActiveForm;
 
 			<div class="row">
 				<div class="col-lg-6">
-          			<?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
+          			<?= $form->field($model->instituicao, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
 				</div>
 
 				<div class="col-lg-6">
-          			<?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
+          			<?= $form->field($model->instituicao, 'vinculo_api')->textInput(['maxlength' => true]) ?>
 
 					<div class="invalid-feedback">
 						Por favor, insira a chave de ativação do PagSeguro.
@@ -151,7 +185,7 @@ use yii\widgets\ActiveForm;
 		</div>
 
 		<div class="control button-submit">
-			<?= Html::a('Cancelar', ['doacao/index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
+			<?= Html::a('Cancelar', ['index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
 			<?= Html::submitButton('Salvar', ['class' => 'btn btn-primary mt-4']) ?>
 		</div>
 

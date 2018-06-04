@@ -2,15 +2,25 @@
 
 namespace app\controllers;
 
-use app\models\InstituicaoRedeSocial;
 use Yii;
+use app\models\InstituicaoRedeSocial;
 use app\models\Instituicao;
 use app\models\Doacao;
+use app\models\InstituicaoForm;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use PagSeguro\Configuration\Configure;
+use PagSeguro\Library;
+
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+
+Configure::setCharset('UTF-8');// UTF-8 or ISO-8859-1
+Configure::setLog(true, '/logpath/logFilename.log');
 
 /**
  * InstituicaoController implements the CRUD actions for Instituicao model.
@@ -59,6 +69,12 @@ class InstituicaoController extends Controller
         $projetos = Doacao::find()->where(['id_instituicao' => $id])->All();
         $redesSociais = InstituicaoRedeSocial::find()->where(['id_instituicao' => $id])->All();
 
+        Configure::setEnvironment('sandbox');//production or sandbox
+        Configure::setAccountCredentials(
+            $instituicao->email,
+            $instituicao->vinculo_api
+        );
+
         return $this->render('view', [
             'model' => $instituicao,
             'projetosModel' => $projetos,
@@ -73,35 +89,17 @@ class InstituicaoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Instituicao();
+        $model = new InstituicaoForm();
+        $model->instituicao = new Instituicao;
+        $model->instituicao->loadDefaultValues();
         $post = Yii::$app->request->post();
+        $model->setAttributes($post);
 
-        if ($model->load($post) && $model->validate()) {
-
-            $login = strtolower(str_replace(" ", "_", $model->nome));
-            $model->login = $login;
-            $model->senha = Yii::$app->getSecurity()->generateRandomString(8);
-
-            $model->save();
-
-            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
-
-            foreach ($redesSociais as $key => $value) {
-              $sociais = new InstituicaoRedeSocial();
-
-              $sociais->id_instituicao = $model->id_instituicao;
-              $sociais->nome = $key;
-              $sociais->url = $value;
-
-              $sociais->save();
-            }
-
-            return $this->redirect(['index', 'id' => $model->id_instituicao]);
+        if ($post && $model->save()) {
+          return $this->redirect(['index', 'id' => $model->instituicao->id_instituicao]);
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->render('create', ['model' => $model]);
     }
 
     /**
@@ -113,32 +111,15 @@ class InstituicaoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-        $post = Yii::$app->request->post();
+      $model = new InstituicaoForm();
+      $model->instituicao = $this->findModel($id);
+      $model->setAttributes(Yii::$app->request->post());
 
-        if ($model->load($post) && $model->validate()) {
+      if (Yii::$app->request->post() && $model->save()) {
+        return $this->redirect(['index', 'id' => $model->instituicao->id_instituicao]);
+      }
 
-            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
-
-            foreach ($redesSociais as $key => $value) {
-              $sociais = new InstituicaoRedeSocial();
-              $sociais->load($post);
-
-              $sociais->id_instituicao = $model->id_instituicao;
-              $sociais->nome = $key;
-              $sociais->url = $value;
-
-              $sociais->save();
-            }
-
-            if($model->save()) {
-              return $this->redirect(['doacao/index']);
-            }
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+      return $this->render('update', ['model' => $model]);
     }
 
     /**
