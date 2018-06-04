@@ -28,9 +28,17 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'descricao')->textarea(['rows' => 6]) ?>
 
-        <?= $form->field($model, 'imagem_perfil')->fileInput(['accept' => 'image/*']) ?>
+        <div class="input-group field-doacao-imagem_perfil required">
+          <div class="custom-file ">
+            <?= $form->field($model, 'imagem_perfil')->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem de Perfil',['class'=>'custom-file-label']) ?>
+          </div>
+        </div>
 
-        <?= $form->field($model, 'imagem_capa')->fileInput(['accept' => 'image/*']) ?>
+        <div class="input-group field-doacao-imagem_capa required">
+          <div class="custom-file">
+            <?= $form->field($model, 'imagem_capa')->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem de Capa',['class'=>'custom-file-label']) ?>
+          </div>
+        </div>
 
         <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
 
@@ -67,7 +75,7 @@ use yii\widgets\ActiveForm;
                     </div>
                 <?php else: ?>
                     <input id="list-id-item-<?= $item->id_item ?>" type="hidden" name="Item[<?= $k ?>][id_item]" value="<?= $item->id_item ?>" />
-                    
+
                     <div class="form-group col-3">
                         <!-- <button
                             type="button"

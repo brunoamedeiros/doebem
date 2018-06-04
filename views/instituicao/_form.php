@@ -121,8 +121,12 @@ use yii\widgets\ActiveForm;
 				</div>
 
 				<div class="form-group col-lg-6">
-					<div class="form-group col-lg-6 float-left">
-            			<?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
+					<div class="form-group col-lg-6 margin-top-20 float-left">
+						<div class="input-group field-doacao-imagem_capa required">
+				          <div class="custom-file">
+				            <?= $form->field($model, 'file')->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem',['class'=>'custom-file-label']) ?>
+				          </div>
+				        </div>
 					</div>
 
 					<div class="col-5 float-left p0 d-none">

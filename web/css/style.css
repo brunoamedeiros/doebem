@@ -254,7 +254,30 @@ body .home-banner .navbar {
 	border-radius: 5px;
 }
 
+
+
 /*Alteracoes bootstrap*/
+
+.input-group {
+    margin-top: 10px !important;
+}
+
+.input-group label, input {
+    cursor: pointer;
+}
+
+.has-error>.custom-file {
+    margin-bottom: 15px;
+}
+
+.has-error .help-block {
+    margin-top: 20px;
+}
+
+.custom-file-label::after {
+    content: "Selecione";
+    cursor: pointer;
+}
 
 .style-btn-primary {
 	background: -moz-linear-gradient(left, #f093fb 1%, #f5576c 100%);
@@ -370,6 +393,10 @@ body .home-banner .navbar {
 	margin-top: 30px;
 }
 
+.margin-top-20 {
+	margin-top: 20px;
+}
+
 .margin-top-50 {
 	margin-top: 50px !important;
 }
@@ -383,7 +410,7 @@ body .home-banner .navbar {
 }
 
 .button-submit button{
-	margin-left: 10px;	
+	margin-left: 10px;
 }
 
 /* Visualização Instituição */
