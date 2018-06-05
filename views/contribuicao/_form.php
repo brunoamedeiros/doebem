@@ -62,7 +62,7 @@ use yii\widgets\ActiveForm;
 
 				<div class="control">
 					<?php if(!empty(Yii::$app->session->get('token'))): ?>
-						<script>PagSeguroLightbox('<?= Yii::$app->session->get('token') ?>');</script>
+						<script>  PagSeguroLightbox('<?= Yii::$app->session->get('token') ?>');</script>
 					<?php
 							Yii::$app->session->set('token', null);
 						endif;

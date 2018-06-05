@@ -43,9 +43,11 @@ $this->title = 'Detalhes do projeto';
 							<li class="nav-item">
 								<a class="nav-link active" id="sobre-tab" data-toggle="tab" href="#sobre" role="tab" aria-controls="sobre" aria-selected="false">Andamento do projeto</a>
 							</li>
+              <?php if($total > 0): ?>
 							<li class="nav-item">
 								<a class="nav-link" id="doadores-tab" data-toggle="tab" href="#doadores" role="tab" aria-controls="doadores" aria-selected="true">Doadores</a>
 							</li>
+              <?php endif; ?>
 						</ul>
 
 						<div class="tab-content" id="myTabContent">
@@ -103,24 +105,31 @@ $this->title = 'Detalhes do projeto';
 						<?= $instituicaoModel->email ?>
 					</p>
 
+
 					<div class="items mb-3">
 						<strong>Itens para doação</strong>
 
             <?php if(sizeof($itens) > 0): ?>
               <?php foreach ($itens as $item): ?>
 								<div>
-                  <?php if($totalArrecadado >= ($item->quantidade * $item->valor)): ?>
-										<span class="material-icons">check</span>
-                  <?php else: ?>
-										<span class="material-icons">query_builder</span>
-                  <?php endif; ?>
+                  <?php if($total > 0): ?>
+	                  <?php if($totalArrecadado >= ($item->quantidade * $item->valor)): ?>
+											<span class="material-icons">check</span>
+	                  <?php else: ?>
+											<span class="material-icons">query_builder</span>
+	                  <?php endif; ?>
 
-									<label><?= $item->descricao . ' - Qtd: ' . $item->quantidade . ' -  Valor Un.: R$ ' . number_format($item->valor, 2);?></label>
+										<label><?= $item->descricao . ' - Qtd: ' . $item->quantidade . ' -  Valor Un.: R$ ' . number_format($item->valor, 2);?></label>
+                  <?php else: ?>
+	                  <span class="material-icons">check</span>
+	                  <label><?= $item->descricao ?></label>
+                  <?php endif; ?>
 								</div>
               <?php endforeach; ?>
             <?php endif; ?>
 					</div>
 
+          <?php if($total > 0): ?>
 					<div class="progresso mb-3">
 						<strong>Total: R$ <?= $total ?></strong>
 						<div class="progress">
@@ -128,16 +137,13 @@ $this->title = 'Detalhes do projeto';
 						</div>
 					</div>
 
-					<!-- <div class="items mb-5">
-
-					</div> -->
-
 					<div class="contribua">
 						<a class="btn btn-primary style-btn-primary rounded-50 center btn-lg col-12"
 						   href="<?= \yii\helpers\Url::to(['contribuicao/create', 'id_doacao' => $model->id_doacao]) ?>">
 							Contribuir
 						</a>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
