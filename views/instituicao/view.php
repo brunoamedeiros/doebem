@@ -72,8 +72,8 @@ $this->title = 'Visualizar dados';
         <div class="infos-detalhes col-lg-6 col-md-6 col-sm-12 p0 float-left">
             <p>
                 <i class="material-icons">place</i>
-                <?= $model->endereco ?> - <?= $model->bairro ?>
-                <input type="hidden" id="endereco" value="<?= $model->endereco ?> - <?= $model->bairro ?>" />
+                <?= $model->endereco ?>
+                <input type="hidden" id="endereco" value="<?= $model->endereco ?>" />
             </p>
 
             <p>

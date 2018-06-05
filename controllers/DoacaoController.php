@@ -93,10 +93,7 @@ class DoacaoController extends Controller
         $totalArrecadado += $contribuicao->valor;
       }
 
-      $progress = 0;
-      if($total > 0) {
-        $progress = round(($totalArrecadado / $total) * 100);
-      }
+      $progress = round(($totalArrecadado / $total) * 100);
 
       $total = number_format($total, 2);
 
