@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 31-Maio-2018 às 15:14
+-- Generation Time: 05-Jun-2018 às 10:44
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -46,7 +46,8 @@ CREATE TABLE `contribuinte` (
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `cpf` varchar(255) NOT NULL,
-  `telefone` varchar(255) NOT NULL
+  `telefone` varchar(255) NOT NULL,
+  `anonimo` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -64,13 +65,6 @@ CREATE TABLE `doacao` (
   `video` varchar(255) DEFAULT NULL,
   `imagem_capa` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `doacao`
---
-
-INSERT INTO `doacao` (`id_doacao`, `id_instituicao`, `titulo`, `descricao`, `imagem_perfil`, `video`, `imagem_capa`) VALUES
-(1, 18, 'Teste', 'oi', '06600a6989b4901354b2e92da4db9ec8.png', '', '755e4725b94f3bdc2d21529029dba081.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,13 +90,6 @@ CREATE TABLE `instituicao` (
   `vinculo_api` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `instituicao`
---
-
-INSERT INTO `instituicao` (`id_instituicao`, `nome`, `cnpj`, `descricao`, `email`, `telefone`, `endereco`, `bairro`, `cep`, `login`, `senha`, `imagem`, `video`, `perfil`, `vinculo_api`) VALUES
-(18, 'Joana de Angelis', '29.318.038/1903-82', 'Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores não altera o pão duris. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Atirei o pau no gatis, per gatis num morreus.', 'bruno@dump.net.br', '(48) 9949-6528', 'Rua Carlos Gomes, 458', 'Revoredo', '88704-520', 'joana_de_angelis', '2zBgRHc1', '0183adabb6b2f2a071078bc2c3c2444a.jpg', '', NULL, 'B793687FD6BC4ED9825B5D26CF014DEA');
-
 -- --------------------------------------------------------
 
 --
@@ -115,13 +102,6 @@ CREATE TABLE `instituicao_rede_social` (
   `nome` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `instituicao_rede_social`
---
-
-INSERT INTO `instituicao_rede_social` (`id_instituicao`, `id_rede_social`, `nome`, `url`) VALUES
-(18, 3, 'instagram', 'obruno.angelo');
 
 -- --------------------------------------------------------
 
@@ -224,31 +204,31 @@ ALTER TABLE `contribuinte`
 -- AUTO_INCREMENT for table `doacao`
 --
 ALTER TABLE `doacao`
-  MODIFY `id_doacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_doacao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `instituicao`
 --
 ALTER TABLE `instituicao`
-  MODIFY `id_instituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_instituicao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `instituicao_rede_social`
 --
 ALTER TABLE `instituicao_rede_social`
-  MODIFY `id_rede_social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rede_social` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `resultado`
 --
 ALTER TABLE `resultado`
-  MODIFY `id_resultado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_resultado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -258,8 +238,8 @@ ALTER TABLE `resultado`
 -- Limitadores para a tabela `contribuicao`
 --
 ALTER TABLE `contribuicao`
-  ADD CONSTRAINT `contribuicao_ibfk_2` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`),
-  ADD CONSTRAINT `contribuicao_ibfk_3` FOREIGN KEY (`id_contribuinte`) REFERENCES `contribuinte` (`id_contribuinte`);
+  ADD CONSTRAINT `contribuicao_ibfk_2` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`) ON DELETE CASCADE,
+  ADD CONSTRAINT `contribuicao_ibfk_3` FOREIGN KEY (`id_contribuinte`) REFERENCES `contribuinte` (`id_contribuinte`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `doacao`
@@ -277,19 +257,15 @@ ALTER TABLE `instituicao_rede_social`
 -- Limitadores para a tabela `item`
 --
 ALTER TABLE `item`
-  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`);
+  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `resultado`
 --
 ALTER TABLE `resultado`
-  ADD CONSTRAINT `resultado_ibfk_1` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`);
+  ADD CONSTRAINT `resultado_ibfk_1` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id_doacao`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
--- REMOVE COLUNO imagem DA TABELA ITEM
-ALTER TABLE `item`
-  DROP `imagem`;
