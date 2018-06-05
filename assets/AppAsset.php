@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
         'https://s3.amazonaws.com/icomoon.io/114779/Socicon/style.css?9ukd8d'
     ];
     public $js = [
+        'js/lib/tinymce/tinymce/tinymce.js',
         'js/lib/mask/jquery.mask.min.js',
         'js/script.js',
         'https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js'
