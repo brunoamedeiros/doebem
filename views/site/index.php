@@ -117,7 +117,7 @@ $this->title = 'Projeto Doe Bem';
 
 			<div class="row">
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/jhonatas.jpg'); background-size: contain">
 						<div class="time-img">
 						</div>
 
@@ -125,7 +125,7 @@ $this->title = 'Projeto Doe Bem';
 
 						<div class="time__funcao">
 							<p>
-								<b>Jhonatas M</b>
+								<b>Jhonatas</b>
 								<br>
 								<span>Front-end</span>
 							</p>
@@ -142,7 +142,7 @@ $this->title = 'Projeto Doe Bem';
 
 						<div class="time__funcao">
 							<p>
-								<b>Celio V</b>
+								<b>Celio</b>
 								<br>
 								<span>Analista/DBA</span>
 							</p>
@@ -151,7 +151,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 <col-sm-6></col-sm-6> col-md-3">
-					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/bruno.jpg'); background-size: contain">
 						<div class="time-img">
 						</div>
 
@@ -159,7 +159,7 @@ $this->title = 'Projeto Doe Bem';
 
 						<div class="time__funcao">
 							<p>
-								<b>Bruno M</b>
+								<b>Bruno</b>
 								<br>
 								<span>Front-end</span>
 							</p>
@@ -176,7 +176,7 @@ $this->title = 'Projeto Doe Bem';
 
 						<div class="time__funcao">
 							<p>
-								<b>Mateus A</b>
+								<b>Mateus</b>
 								<br>
 								<span>Analista/DBA</span>
 							</p>
@@ -204,7 +204,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/diou.jpg'); background-size: contain">
 						<div class="time-img">
 						</div>
 
@@ -212,7 +212,7 @@ $this->title = 'Projeto Doe Bem';
 
 						<div class="time__funcao">
 							<p>
-								<b>Diou M</b>
+								<b>Diou</b>
 								<br>
 								<span>Front-end</span>
 							</p>
