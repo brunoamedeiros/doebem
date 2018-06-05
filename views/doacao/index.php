@@ -20,7 +20,7 @@ $this->title = 'Doacoes';
 				<h3 class="style-text-primary style-color-blue-02"><?= $instituicao->nome ?></h3>
 			</a>
 
-			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2">
+			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2 px-0">
 				Editar meus dados
 			</a>
 		</div>

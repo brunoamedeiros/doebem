@@ -119,13 +119,14 @@ class DoacaoController extends Controller
         $model = new Doacao();
         $model->_items = [new Item()];
         $instituicao = Yii::$app->user->identity;
+        $model->scenario = 'insert-photo-upload';
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {        
             $model->id_instituicao = $instituicao->getId();
             $model->save();
 
             $itens = Yii::$app->request->post()['Item'];
-            
+
             foreach($itens as $item) {
                 $novoItem = new Item();
 
@@ -157,6 +158,7 @@ class DoacaoController extends Controller
     {
         $model = $this->findModel($id_doacao, $id_instituicao);
         $model->_items = $model->items;
+        $model->scenario = 'update-photo-upload';
 
         $post = Yii::$app->request->post();
         

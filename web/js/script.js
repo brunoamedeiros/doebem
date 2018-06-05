@@ -88,27 +88,6 @@ $(document).ready(function(){
     });
 });
 
-// Validação dos formulários
-// (function() {
-//     'use strict';
-//     window.addEventListener('load', function() {
-//         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-//         var forms = document.getElementsByClassName('needs-validation');
-//         // Loop over them and prevent submission
-//         var validation = Array.prototype.filter.call(forms, function(form) {
-//             form.addEventListener('submit', function(event) {
-//                 event.preventDefault();
-//
-//                 if (form.checkValidity() === false) {
-//                     event.preventDefault();
-//                     event.stopPropagation();
-//                 }
-//                 form.classList.add('was-validated');
-//             }, false);
-//         });
-//     }, false);
-// })();
-
 function initMap() {
     var map = new google.maps.Map(document.getElementById('mapa'), {
         zoom: 15,
@@ -157,45 +136,29 @@ $(document).ready(function(){
 
                 itemHtml = retornaComponenteitem(item);
 
-
-                criaInputsHiden(item);
-                qtdIten++;
-
-
-
                 if($('.add-itens-edit').length){
                     criaInputsHiden(item, editQtdItens, true);
                     editQtdItens++;
+                    var inputs = $('.add-itens-edit input');
+
+                    for(var i = 0; i < inputs.length; i++) {
+                        inputs[i].value = "";
+                    };
                 }else{
                     criaInputsHiden(item, qtdIten, false);
                     qtdIten++;
-                };
 
+                    for(var i = 0; i < campos.length; i++) {
+                        campos[i].value = "";
+                        $('.alert-danger').hide();
+                    };
+                };
 
                 $('#lista-itens').append(itemHtml);
 
                 $('.remover-item').on('click', function(){
                     $(this).parent().parent().remove();
                 });
-
-
-                for(var i = 0; i < campos.length; i++) {
-                    campos[i].value = "";
-
-                    if($('.add-itens-edit').length) {
-                        var inputs = $('.add-itens-edit input');
-
-                        for(var i = 0; i < inputs.length; i++) {
-                            inputs[i].value = "";
-                        };
-                    } else {
-                        for(var i = 0; i < campos.length; i++) {
-                            campos[i].value = "";
-                        };
-                    };
-
-                    $('.alert-danger').hide();
-                };
             };
         };
     });
@@ -210,9 +173,6 @@ $(document).ready(function(){
                 $('.alert-danger').html('Todos os campos são necessários').show();
                 e.preventDefault();
             };
-
-            $('.alert-danger').html('Todos os campos são necessárioss').show();
-            e.preventDefault();
         }else{
             if(!$('.lista-itens').length) {
                 $('.alert-danger').html('É necessário ter pelo menos um item em seu projeto').show();
@@ -246,7 +206,6 @@ $(document).ready(function(){
     })
 
     $(".custom-file-input").change(function() {
-        console.log("sdds");
         var value = $(this).val().split("\\");
         $(this).prev().html(value[value.length-1]);
     });
@@ -259,15 +218,14 @@ function criaInputsHiden(item, qtdIndex, edicao) {
         qtd,
         valor;
 
-
-    descricao =
-    '<input type="hidden" id="item-' + qtdIten + '-descricao" class="" name="Item[' + qtdIten + '][descricao]" value="' + item['descricao'] + '">';
-
-    qtd =
-    '<input type="hidden" id="item-' + qtdIten + '-quantidade" class="form-control" name="Item[' + qtdIten + '][quantidade]" value="' + item['qtd'] + '">';
-
-    valor =
-    '<input type="hidden" id="item-' + qtdIten + '-quantidade" class="form-control" name="Item[' + qtdIten + '][valor]" value="' + item['valor'] + '">';
+    // descricao =
+    // '<input type="hidden" id="item-' + qtdIten + '-descricao" class="" name="Item[' + qtdIten + '][descricao]" value="' + item['descricao'] + '">';
+    //
+    // qtd =
+    // '<input type="hidden" id="item-' + qtdIten + '-quantidade" class="form-control" name="Item[' + qtdIten + '][quantidade]" value="' + item['qtd'] + '">';
+    //
+    // valor =
+    // '<input type="hidden" id="item-' + qtdIten + '-quantidade" class="form-control" name="Item[' + qtdIten + '][valor]" value="' + item['valor'] + '">';
 
     if(!edicao) {
         descricao =

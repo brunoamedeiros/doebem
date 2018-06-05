@@ -56,11 +56,15 @@ use yii\widgets\ActiveForm;
 					<?= $form->field($contribuicao, 'valor')->textInput(['class' => 'form-control real']) ?>
 				</div>
 
+				<div class="form-group col-lg-12">
+          <?= $form->field($contribuinte, 'anonimo')->checkbox() ?>
+				</div>
+
 				<div class="control">
 					<?php if(!empty(Yii::$app->session->get('token'))): ?>
 						<script>PagSeguroLightbox('<?= Yii::$app->session->get('token') ?>');</script>
 					<?php
-					Yii::$app->session->set('token', null);
+							Yii::$app->session->set('token', null);
 						endif;
 					?>
 					<?= Html::submitButton('Contribuir', ['class' => 'btn btn-primary style-btn-primary rounded-50 center btn-lg float-right']) ?>

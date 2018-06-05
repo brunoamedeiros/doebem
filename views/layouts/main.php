@@ -37,17 +37,18 @@ AppAsset::register($this);
 
 		<?php if (!Yii::$app->user->isGuest): ?>
 			<div class="float-right style-color-white">
-           Olá, <?= Yii::$app->user->identity->nome; ?>
+				Olá, <?= Yii::$app->user->identity->nome; ?>
+        <?= Html::a('Painel Administrativo', ['doacao/index'], ['class' => 'radius-5 ml-3 btn btn-sm mb-2 style-btn-line-white animation-style']) ?>
 			</div>
 
-				<?=
-        Html::beginForm(['/site/logout'], 'post')
-        . Html::submitButton(
-            'Sair',
-            ['class' => 'radius-5 btn mb-2 style-btn-line-white animation-style float-right']
-        )
-        . Html::endForm()
-				?>
+			<?=
+      Html::beginForm(['/site/logout'], 'post')
+      . Html::submitButton(
+          'Sair',
+          ['class' => 'radius-5 btn mb-2 style-btn-line-white animation-style float-right']
+      )
+      . Html::endForm()
+			?>
 
 		<?php else: ?>
 

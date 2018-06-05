@@ -11,7 +11,7 @@ $this->title = 'Visualizar dados';
 <div class="col-lg-7 col-md-11 mx-auto content">
     <div class="perfil col-12 p0">  
         <div class="float-left sobre-nos__imagens-content">
-            <img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $model->imagem ?>" class="rounded float-left" alt="..." width="100px">
+	            <img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $model->imagem ?>" class="rounded float-left" alt="..." width="100px">
         </div>  
 
         <div class="instituicao-nome">
@@ -37,9 +37,9 @@ $this->title = 'Visualizar dados';
 
         <?php if(sizeof($projetosModel) > 0): ?>
             <?php foreach ($projetosModel as $proj): ?>
-                <div class="col-12 media clear-both align-items-center">
+                <div class="col-12 media clear-both align-items-center mt-3">
                     <div class="md-auto col-lg-2 col-md-3 col-sm-12 hoverflow-hidden">
-                        <img class="mr-3 nosso-projeto__img mx-auto" src="<?= Yii::getAlias('@web') ?>/uploads/<?= $proj->imagem_perfil ?>" alt="Generic placeholder image" width="100px">
+                        <img class="mr-3 nosso-projeto__img mx-auto" src="<?= Yii::getAlias('@web') ?>/uploads/<?= $proj->imagem_perfil ?>" alt="<?= $proj->titulo ?>" width="100px">
                     </div>
 
                     <div class="media-body col-lg-9 col-md-9 col-sm-12 float-left">
@@ -88,10 +88,10 @@ $this->title = 'Visualizar dados';
 
             <?php if(sizeof($redesSociais) > 0): ?>
                 <?php foreach ($redesSociais as $sociais): ?>
-                    <a class="d-block mt-3" href="https://<?= $sociais->nome ?>.com/<?= $sociais->url ?>" target="_blank">
+                   <!-- <a class="d-block mt-3" href="https://<?= $sociais->nome ?>.com/<?= $sociais->url ?>" target="_blank">
                         <span class="socicon-<?= $sociais->nome ?>"></span>
                         <span><?= $sociais->url ?></span>
-                    </a>
+                    </a> -->
                 <?php endforeach; ?>
             <?php endif;?>
         </div>

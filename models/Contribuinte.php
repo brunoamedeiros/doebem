@@ -12,6 +12,7 @@ use Yii;
  * @property string $email
  * @property string $cpf
  * @property string $telefone
+ * @property boolean $anonimo
  *
  * @property Contribuicao[] $contribuicaos
  */
@@ -33,6 +34,7 @@ class Contribuinte extends \yii\db\ActiveRecord
         return [
             [['nome', 'email', 'cpf', 'telefone'], 'required'],
             [['email'], 'email'],
+            [['anonimo'], 'boolean'],
             [['cpf'], 'match', 'pattern' => '/^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/'],
             [['nome', 'email', 'cpf', 'telefone'], 'string', 'max' => 255],
         ];
@@ -49,6 +51,7 @@ class Contribuinte extends \yii\db\ActiveRecord
             'email' => 'E-mail',
             'cpf' => 'CPF',
             'telefone' => 'Telefone',
+            'anonimo' => 'Doação Anônima'
         ];
     }
 

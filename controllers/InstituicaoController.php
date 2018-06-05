@@ -34,12 +34,12 @@ class InstituicaoController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view'],
+                        'actions' => ['view', 'index','create'],
                         'allow' => true,
                         'roles' => ['?', '@']
                     ],
                     [
-                        'actions' => ['index', 'create', 'update', 'delete'],
+                        'actions' => ['update', 'delete'],
                         'allow' => true,
                         'roles' => ['@']
                     ]
@@ -72,7 +72,18 @@ class InstituicaoController extends Controller
     public function actionView($id)
     {
         $instituicao = $this->findModel($id);
-        $projetos = Doacao::find()->where(['id_instituicao' => $id])->All();
+
+        $projetos = Doacao::find()
+          ->select([
+              '{{doacao}}.*',
+              'COUNT({{item}}.id_item) AS itemCount'
+          ])
+          ->joinWith('items')
+          ->groupBy('{{doacao}}.id_doacao')
+          ->where(['id_instituicao' => $id])
+          ->andHaving(['>=', 'itemCount', 1])
+          ->all();
+
         $redesSociais = InstituicaoRedeSocial::find()->where(['id_instituicao' => $id])->All();
 
         return $this->render('view', [
@@ -91,6 +102,7 @@ class InstituicaoController extends Controller
     {
         $model = new Instituicao();
         $post = Yii::$app->request->post();
+        $model->scenario = 'insert-photo-upload';
 
         if ($model->load($post) && $model->validate()) {
 
@@ -100,17 +112,17 @@ class InstituicaoController extends Controller
 
             $model->save();
 
-            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
-
-            foreach ($redesSociais as $key => $value) {
-              $sociais = new InstituicaoRedeSocial();
-
-              $sociais->id_instituicao = $model->id_instituicao;
-              $sociais->nome = $key;
-              $sociais->url = $value;
-
-              $sociais->save();
-            }
+//            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
+//
+//            foreach ($redesSociais as $key => $value) {
+//              $sociais = new InstituicaoRedeSocial();
+//
+//              $sociais->id_instituicao = $model->id_instituicao;
+//              $sociais->nome = $key;
+//              $sociais->url = $value;
+//
+//              $sociais->save();
+//            }
 
             return $this->redirect(['index', 'id' => $model->id_instituicao]);
         }
@@ -131,21 +143,22 @@ class InstituicaoController extends Controller
     {
         $model = $this->findModel($id);
         $post = Yii::$app->request->post();
+        $model->scenario = 'update-photo-upload';
 
         if ($model->load($post) && $model->validate()) {
 
-            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
-
-            foreach ($redesSociais as $key => $value) {
-              $sociais = new InstituicaoRedeSocial();
-              $sociais->load($post);
-
-              $sociais->id_instituicao = $model->id_instituicao;
-              $sociais->nome = $key;
-              $sociais->url = $value;
-
-              $sociais->save();
-            }
+//            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
+//
+//            foreach ($redesSociais as $key => $value) {
+//              $sociais = new InstituicaoRedeSocial();
+//              $sociais->load($post);
+//
+//              $sociais->id_instituicao = $model->id_instituicao;
+//              $sociais->nome = $key;
+//              $sociais->url = $value;
+//
+//              $sociais->save();
+//            }
 
             if($model->save()) {
               return $this->redirect(['doacao/index']);
