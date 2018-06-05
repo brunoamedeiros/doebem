@@ -98,50 +98,48 @@ use yii\widgets\ActiveForm;
 
 		<div class="share">
 			<div class="row">
-				<div class="form-group col-sm-6 redes-sociais">
-					<label for="redes">Rede sociais</label>
-					<br>
-					<div class="select-redes-sociais">
-						<select class="col-lg-3 custom-select form-control clear-both float-left" name="redes-socias[]">
-							<option value="">Nenhuma</option>
-							<option value="facebook">Facebook</option>
-							<option value="instagram">Instagram</option>
-							<option value="twitter">Twitter</option>
-							<option value="youtube">Youtube</option>
-						</select>
+<!--				<div class="form-group col-sm-6 redes-sociais">-->
+<!--					<label for="redes">Rede sociais</label>-->
+<!--					<br>-->
+<!--					<div class="select-redes-sociais">-->
+<!--						<select class="col-lg-3 custom-select form-control clear-both float-left" name="redes-socias[]">-->
+<!--							<option value="">Nenhuma</option>-->
+<!--							<option value="facebook">Facebook</option>-->
+<!--							<option value="instagram">Instagram</option>-->
+<!--							<option value="twitter">Twitter</option>-->
+<!--							<option value="youtube">Youtube</option>-->
+<!--						</select>-->
+<!---->
+<!--						<div class="form-group col-lg-8 float-left">-->
+<!--							<input class="form-control" id="redes" name="value- redes-sociais[]">-->
+<!--						</div>-->
+<!--					</div>-->
+<!---->
+<!--					<button type="button" class="btn oi oi-plus col-sm-0.2 form-group col-lg-1 add-socials">-->
+<!--						<i class="material-icons">add</i>-->
+<!--					</button>-->
+<!--				</div>-->
 
-						<div class="form-group col-lg-8 float-left">
-							<input class="form-control" id="redes" name="value- redes-sociais[]">
-						</div>
-					</div>
-
-					<button type="button" class="btn oi oi-plus col-sm-0.2 form-group col-lg-1 add-socials">
-						<i class="material-icons">add</i>
-					</button>
-				</div>
-
-				<div class="form-group col-lg-6">
-					<div class="form-group col-lg-6 margin-top-20 float-left">
-						<div class="input-group field-doacao-imagem_capa required">
-				          <div class="custom-file">
-				            <?= $form->field($model, 'file')->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem',['class'=>'custom-file-label']) ?>
-				          </div>
-				        </div>
-					</div>
-
-					<div class="col-5 float-left p0 d-none">
-						<img src="" alt="Nenhuma foto adicionada" title="foto capa" class="img-thumbnail ">
-					</div>
-				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-lg-6">
-          			<?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
+				<div class="form-group col-lg-4 p-0">
+					<div class="form-group col-lg-12">
+						<label for="">Imagem</label>
+						<div class="input-group field-doacao-imagem_capa required">
+							<div class="custom-file">
+                <?= $form->field($model, 'file')->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem',['class'=>'custom-file-label']) ?>
+							</div>
+						</div>
+					</div>
 				</div>
 
-				<div class="col-lg-6">
-          			<?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
+				<div class="col-lg-4">
+          <?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
+				</div>
+
+				<div class="col-lg-4">
+          <?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
 
 					<div class="invalid-feedback">
 						Por favor, insira a chave de ativação do PagSeguro.

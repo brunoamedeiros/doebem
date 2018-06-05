@@ -34,13 +34,13 @@ use yii\widgets\ActiveForm;
           </div>
         </div>
 
-        <div class="input-group field-doacao-imagem_capa required">
+        <div class="input-group field-doacao-imagem_capa required mb-2">
           <div class="custom-file">
             <?= $form->field($model, 'imagem_capa')->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem de Capa',['class'=>'custom-file-label']) ?>
           </div>
         </div>
 
-        <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'video')->textInput(['maxlength' => true, 'placeholder' => 'Link do YouTube']) ?>
 
         <h3 class="style-text-secondary style-color-blue-03 mt-20 margin-top-30">
             Lista de itens

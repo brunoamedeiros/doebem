@@ -15,7 +15,8 @@ $this->title = 'Visualizar dados';
         </div>  
 
         <div class="instituicao-nome">
-            <h3 class="style-text-primary style-color-blue-02"><?= $model->nome ?></h3>
+            <h3 class="style-text-primary style-color-blue-02 m-0"><?= $model->nome ?></h3>
+	          <small>CNPJ: <?= $model->cnpj ?></small>
         </div>
     </div>
 
@@ -36,7 +37,7 @@ $this->title = 'Visualizar dados';
 
         <?php if(sizeof($projetosModel) > 0): ?>
             <?php foreach ($projetosModel as $proj): ?>
-                <div class="col-12 media clear-both">
+                <div class="col-12 media clear-both align-items-center">
                     <div class="md-auto col-lg-2 col-md-3 col-sm-12 hoverflow-hidden">
                         <img class="mr-3 nosso-projeto__img mx-auto" src="<?= Yii::getAlias('@web') ?>/uploads/<?= $proj->imagem_perfil ?>" alt="Generic placeholder image" width="100px">
                     </div>
@@ -51,8 +52,8 @@ $this->title = 'Visualizar dados';
                         <?= $proj->descricao ?>
                     </div>
 
-                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 margin-top-50 text-center">
-                        Conheça-nos
+                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 text-center">
+                        Conheça!
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -63,7 +64,7 @@ $this->title = 'Visualizar dados';
         <?php endif;?>
     </div>
 
-    <div class="instituicao-infos col-12 p0 clear-both">
+    <div class="instituicao-infos col-12 p0 clear-both mt-3">
         <h4 class="style-text-secondary style-color-blue-03 margin-bottom-20">
             Como nos achar
         </h4>

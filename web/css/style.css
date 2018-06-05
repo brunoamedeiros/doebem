@@ -142,7 +142,6 @@ body .home-banner .navbar {
 }
 
 .instituicao-nome {
-	margin-top: 80px;
 	float: left;
 }
 
@@ -152,7 +151,6 @@ body .home-banner .navbar {
 }
 
 .instituicao-infos {
-	margin-top: 50px;
 	clear: both;
 }
 
@@ -174,7 +172,7 @@ body .home-banner .navbar {
 }
 
 .sobre-nos__imagens-content {
-	padding: 10px;
+	padding-right: 10px;
 }
 
 .time {
@@ -230,7 +228,6 @@ body .home-banner .navbar {
 }
 
 .nossos-projetos {
-	margin-top: 50px;
 	overflow: hidden;
 }
 
@@ -257,11 +254,6 @@ body .home-banner .navbar {
 
 
 /*Alteracoes bootstrap*/
-
-.input-group {
-    margin-top: 10px !important;
-}
-
 .input-group label, input {
     cursor: pointer;
 }
