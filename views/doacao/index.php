@@ -56,17 +56,20 @@ $this->title = 'Doacoes';
 						'buttons' => [
 							'view' => function($url, $model) {
 							  return Html::a('<i class="material-icons">remove_red_eye</i>',
-								  ['view', 'id' => $model->id_doacao], ['class' => '']);
+								  ['view', 'id' => $model->id_doacao], ['class' => '',
+											  'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Visualizar"]);
 							},
 							'update' => function($url, $model) {
 							  return Html::a('<i class="material-icons">mode_edit</i>',
-								  ['update', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao], ['class' => '']);
+								  ['update', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao], ['class' => '',
+                    'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Editar"]);
 							},
 							'delete' => function($url, $model) {
 							  return Html::a('<i class="material-icons">delete</i>',
 								  ['delete', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao],
 								  [
 									  'class' => '',
+										  'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Excluir",
 									  'data' => [
 										  'confirm' => 'Você realmente deseja deletar este projeto?',
 										  'method' => 'post',
@@ -75,7 +78,8 @@ $this->title = 'Doacoes';
 							},
 							'resultado' => function($url, $model) {
                 return Html::a('<i class="material-icons">star</i>',
-                    ['resultado/index', 'id_doacao' => $model->id_doacao], ['class' => '']);
+                    ['resultado/index', 'id_doacao' => $model->id_doacao], ['class' => '',
+                        'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Cadastrar Resultados"]);
               },
 						]
 					],
