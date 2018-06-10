@@ -89,7 +89,7 @@ use yii\widgets\ActiveForm;
 		</div>
 
 		<div class="form-group">
-      		<?= $form->field($model, 'descricao')->textarea(['rows' => 3]) ?>
+      		<?= $form->field($model, 'descricao')->textarea(['rows' => 3, 'id' => 'mytextarea']) ?>
 
 			<div class="invalid-feedback">
 				Por favor, insira uma descrição.
