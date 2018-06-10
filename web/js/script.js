@@ -119,6 +119,7 @@ lista_itens_del = [];
 editQtdItens = 0;
 
 $(document).ready(function(){
+
     $('#btn-add-item').on('click', function(){
         var item = [],
             formItens = $('#form-iten'),

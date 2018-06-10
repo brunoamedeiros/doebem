@@ -30,33 +30,16 @@ use yii\widgets\ActiveForm;
           <?= $form->field($model, 'descricao')->textarea(['rows' => 6]) ?>
 	      </div>
 
-		    <div class="row">
-			    <div class="form-group col-lg-6 p-0">
-				    <div class="form-group col-lg-6 float-left">
-		          <?= $form->field($model, 'file_imagem_perfil')->fileInput(['accept' => 'image/*']) ?>
-				    </div>
+		    <div class="input-group field-doacao-imagem_perfil required">
+                <div class="upload form-group p-0">
+		          <?= $form->field($model, 'file_imagem_perfil')->fileInput(['accept' => 'image/*', 'class' => 'custom-file-input']) ?>
 			    </div>
-
-			    <div class="form-group col-lg-6 p-0">
-				    <div class="form-group col-lg-6">
-		          <?= $form->field($model, 'file_imagem_capa')->fileInput(['accept' => 'image/*']) ?>
-				    </div>
-			    </div>
+            </div>
+            <div class="input-group field-doacao-imagem_capa required">
+			    <div class="upload form-group p-0 ">
+		          <?= $form->field($model, 'file_imagem_capa')->fileInput(['accept' => 'image/*', 'class' => 'custom-file-input']) ?>
+                </div>
 		    </div>
-
-        <!-- <div class="input-group field-doacao-imagem_perfil required">
-          <div class="custom-file ">
-            <?= $form->field($model, 'imagem_perfil')
-		            ->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem de Perfil',['class'=>'custom-file-label']) ?>
-          </div>
-        </div>
-
-        <div class="input-group field-doacao-imagem_capa required my-3">
-          <div class="custom-file">
-            <?= $form->field($model, 'imagem_capa')
-		            ->textInput(['type'=>'file', 'accept' => 'image/*', 'class' => 'custom-file-input'])->label('Imagem de Capa',['class'=>'custom-file-label']) ?>
-          </div>
-        </div> -->
 
 	    <div class="col-lg-12 p-0">
         <?= $form->field($model, 'video')->textInput(['maxlength' => true, 'placeholder' => 'Link do YouTube']) ?>

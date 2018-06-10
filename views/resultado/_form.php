@@ -40,9 +40,9 @@ use yii\widgets\ActiveForm;
 				<?= $form->field($model, 'data')->textInput(['class' => 'form-control data', 'value' => date('d/m/Y')]) ?>
 			</div>
 
-			<div class="form-group col-lg-6">
-				<div class="form-group col-lg-6 float-left">
-          <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
+			<div class="col-lg-6 margin-top-30">
+				<div class="upload form-group col-lg-12 float-left">
+          			<?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
 				</div>
 
 				<div class="col-5 float-left p0 d-none">

@@ -123,18 +123,18 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="row">
-				<div class="form-group col-lg-4">
-					<div class="form-group col-lg-6 float-left">
-            <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
+				<div class="col-lg-4 margin-top-30">
+					<div class="upload form-group col-lg-12 float-left">
+            			<?= $form->field($model, 'file')->fileInput(['accept' => 'image/*', 'class' => 'custom-file-input']) ?>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
-          <?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
+      				<?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
 				</div>
 
 				<div class="col-lg-4">
-          <?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
+          			<?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
 
 					<div class="invalid-feedback">
 						Por favor, insira a chave de ativação do PagSeguro.
