@@ -33,7 +33,7 @@ $this->title = 'Doacoes';
 			</h4>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-12">
-			<?= Html::a('Cadastrar nova', ['create'], ['class' => 'btn btn-outline-primary']) ?>
+			<?= Html::a('Cadastrar novo', ['create'], ['class' => 'btn btn-outline-primary']) ?>
 		</div>
 	</div>
 

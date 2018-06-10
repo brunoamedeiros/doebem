@@ -98,43 +98,18 @@ use yii\widgets\ActiveForm;
 
 		<div class="share">
 			<div class="row">
-<!--				<div class="form-group col-sm-6 redes-sociais">-->
-<!--					<label for="redes">Rede sociais</label>-->
-<!--					<br>-->
-<!--					<div class="select-redes-sociais">-->
-<!--						<select class="col-lg-3 custom-select form-control clear-both float-left" name="redes-socias[]">-->
-<!--							<option value="">Nenhuma</option>-->
-<!--							<option value="facebook">Facebook</option>-->
-<!--							<option value="instagram">Instagram</option>-->
-<!--							<option value="twitter">Twitter</option>-->
-<!--							<option value="youtube">Youtube</option>-->
-<!--						</select>-->
-<!---->
-<!--						<div class="form-group col-lg-8 float-left">-->
-<!--							<input class="form-control" id="redes" name="value- redes-sociais[]">-->
-<!--						</div>-->
-<!--					</div>-->
-<!---->
-<!--					<button type="button" class="btn oi oi-plus col-sm-0.2 form-group col-lg-1 add-socials">-->
-<!--						<i class="material-icons">add</i>-->
-<!--					</button>-->
-<!--				</div>-->
-
-			</div>
-
-			<div class="row">
 				<div class="form-group col-lg-4">
 					<div class="form-group col-lg-6 float-left">
-            <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
+            			<?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
-          <?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
+          			<?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
 				</div>
 
 				<div class="col-lg-4">
-          <?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
+          			<?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
 
 					<div class="invalid-feedback">
 						Por favor, insira a chave de ativação do PagSeguro.
@@ -143,7 +118,31 @@ use yii\widgets\ActiveForm;
 			</div>
 		</div>
 
-		<div class="control button-submit">
+		<h3 class="style-text-secondary style-color-blue-03 mt-20 margin-top-30">
+            Redes sociais
+        </h3>
+
+		<div class="form-group col-sm-6 redes-sociais p0 float-left">
+			<div class="col-12">
+				<?= $form->field($model, 'instagram')->textInput(['maxlength' => true, "placeholder" => "Apenas link do seu perfil"]) ?>
+			</div>
+
+			<div class="col-12">
+				<?= $form->field($model, 'facebook')->textInput(['maxlength' => true, "placeholder" => "Aplenas o link do seu perfil"]) ?>
+			</div>
+		</div>
+
+		<div class="form-group col-sm-6 redes-sociais p0 float-left">
+			<div class="col-12">
+				<?= $form->field($model, 'youtube')->textInput(['maxlength' => true, "placeholder" => "Aplenas o link do seu canal"]) ?>
+			</div>
+
+			<div class="col-12">
+				<?= $form->field($model, 'twitter')->textInput(['maxlength' => true, "placeholder" => "Aplenas o link do seu perfil"]) ?>
+			</div>
+		</div>
+
+		<div class="control button-submit clear-both">
 			<?= Html::a('Cancelar', ['doacao/index'], ['class' => 'btn style-btn-line radius-5 mt-4 float-left']) ?>
 			<?= Html::submitButton('Salvar', ['class' => 'btn btn-primary mt-4']) ?>
 		</div>
@@ -153,7 +152,5 @@ use yii\widgets\ActiveForm;
 </div>
 
 <?php
-
 	$this->registerCssFile("@web/css/cadastrar-instituicao.css");
-
 ?>

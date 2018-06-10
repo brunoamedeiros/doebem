@@ -105,24 +105,11 @@ class InstituicaoController extends Controller
         $model->scenario = 'insert-photo-upload';
 
         if ($model->load($post) && $model->validate()) {
-
             $login = strtolower(str_replace(" ", "_", $model->nome));
             $model->login = $login;
             $model->senha = Yii::$app->getSecurity()->generateRandomString(8);
 
             $model->save();
-
-//            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
-//
-//            foreach ($redesSociais as $key => $value) {
-//              $sociais = new InstituicaoRedeSocial();
-//
-//              $sociais->id_instituicao = $model->id_instituicao;
-//              $sociais->nome = $key;
-//              $sociais->url = $value;
-//
-//              $sociais->save();
-//            }
 
             return $this->redirect(['index', 'id' => $model->id_instituicao]);
         }
@@ -146,20 +133,6 @@ class InstituicaoController extends Controller
         $model->scenario = 'update-photo-upload';
 
         if ($model->load($post) && $model->validate()) {
-
-//            $redesSociais = array_combine($post['redes-socias'], $post['value-_redes-sociais']);
-//
-//            foreach ($redesSociais as $key => $value) {
-//              $sociais = new InstituicaoRedeSocial();
-//              $sociais->load($post);
-//
-//              $sociais->id_instituicao = $model->id_instituicao;
-//              $sociais->nome = $key;
-//              $sociais->url = $value;
-//
-//              $sociais->save();
-//            }
-
             if($model->save()) {
               return $this->redirect(['doacao/index']);
             }
