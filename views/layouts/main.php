@@ -52,35 +52,28 @@ AppAsset::register($this);
 
 		<?php else: ?>
 
-		<?php
-	    $controller = Yii::$app->controller;
-	    $default_controller = Yii::$app->defaultRoute;
-	    $isHome = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? true : false;
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-			if($isHome): ?>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#instituicoes-parceiras">Instituições parceiras</a>
+          </li>
 
-	      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="navbar-toggler-icon"></span>
-	      </button>
+          <li class="nav-item">
+            <a class="nav-link" href="#sobre-nos">Sobre nós</a>
+          </li>
 
-	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	        <ul class="navbar-nav mr-auto">
-	          <li class="nav-item">
-	            <a class="nav-link" href="#instituicoes-parceiras">Instituições parceiras</a>
-	          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#equipe">Equipe</a>
+          </li>
+        </ul>
 
-	          <li class="nav-item">
-	            <a class="nav-link" href="#sobre-nos">Sobre nós</a>
-	          </li>
+        <?= \app\widgets\Login\Login::widget() ?>
 
-	          <li class="nav-item">
-	            <a class="nav-link" href="#equipe">Equipe</a>
-	          </li>
-	        </ul>
 			<?php endif; ?>
-
-      <?= \app\widgets\Login\Login::widget() ?>
-    <?php endif; ?>
 
 	</nav>
 </div>

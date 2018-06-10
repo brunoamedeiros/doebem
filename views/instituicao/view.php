@@ -49,12 +49,12 @@ $this->title = 'Visualizar dados';
                             </b>
                         </h5>
 
-                        <p class="text-truncate"><?= $proj->descricao ?></p>
-
-		                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 text-center">
-			                    Conheça!
-		                    </a>
+                        <?= $proj->descricao ?>
                     </div>
+
+                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 text-center">
+                        Conheça!
+                    </a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -83,7 +83,7 @@ $this->title = 'Visualizar dados';
 
             <p>
                 <i class="material-icons">email</i>
-	              <a href="mailto:<?= $model->email ?>"><?= $model->email ?></a>
+                <?= $model->email ?>
             </p>
 
             <?php if(sizeof($redesSociais) > 0): ?>

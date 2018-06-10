@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
 	      <div class="my-3">
-          <?= $form->field($model, 'descricao')->textarea(['rows' => 6, 'id' => 'mytextarea']) ?>
+          <?= $form->field($model, 'descricao')->textarea(['rows' => 6]) ?>
 	      </div>
 
 		    <div class="row">
