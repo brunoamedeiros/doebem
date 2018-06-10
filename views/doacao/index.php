@@ -20,20 +20,20 @@ $this->title = 'Doacoes';
 				<h3 class="style-text-primary style-color-blue-02"><?= $instituicao->nome ?></h3>
 			</a>
 
-			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" class="btn btn-outline-primary">
+			<a href="<?= \yii\helpers\Url::to(['instituicao/update', 'id' => $instituicao->id]) ?>" class="btn style-btn-line radius-5 btn-sm col-sm-12 col-lg-3 col-md-2 px-0">
 				Editar meus dados
 			</a>
 		</div>
 	</div>
 
 	<div class="row justify-content-between mt-3 margin-top-50 col-12 p0">
-		<div class="col-lg-10 col-md-10 col-sm-12">
+		<div class="col-lg-10 col-md-10 col-sm-12 float-left">
 			<h4 class="style-text-secondary style-color-blue-03 margin-bottom-20">
 				Meus projetos
 			</h4>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-12">
-			<?= Html::a('Cadastrar nova', ['create'], ['class' => 'btn btn-outline-primary']) ?>
+			<?= Html::a('Cadastrar novo', ['create'], ['class' => 'btn btn-outline-primary']) ?>
 		</div>
 	</div>
 
@@ -56,20 +56,17 @@ $this->title = 'Doacoes';
 						'buttons' => [
 							'view' => function($url, $model) {
 							  return Html::a('<i class="material-icons">remove_red_eye</i>',
-								  ['view', 'id' => $model->id_doacao], ['class' => '',
-											  'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Visualizar"]);
+								  ['view', 'id' => $model->id_doacao], ['class' => '']);
 							},
 							'update' => function($url, $model) {
 							  return Html::a('<i class="material-icons">mode_edit</i>',
-								  ['update', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao], ['class' => '',
-                    'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Editar"]);
+								  ['update', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao], ['class' => '']);
 							},
 							'delete' => function($url, $model) {
 							  return Html::a('<i class="material-icons">delete</i>',
 								  ['delete', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao],
 								  [
 									  'class' => '',
-										  'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Excluir",
 									  'data' => [
 										  'confirm' => 'Você realmente deseja deletar este projeto?',
 										  'method' => 'post',
@@ -78,8 +75,7 @@ $this->title = 'Doacoes';
 							},
 							'resultado' => function($url, $model) {
                 return Html::a('<i class="material-icons">star</i>',
-                    ['resultado/index', 'id_doacao' => $model->id_doacao], ['class' => '',
-                        'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Cadastrar Resultados"]);
+                    ['resultado/index', 'id_doacao' => $model->id_doacao], ['class' => '']);
               },
 						]
 					],

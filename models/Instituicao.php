@@ -24,9 +24,13 @@ use yii\web\UploadedFile;
  * @property string $video
  * @property integer $perfil
  * @property string $vinculo_api
- *
  * @property Doacao[] $doacaos
  * @property InstituicaoRedeSocial $instituicaoRedeSocial
+ * 
+ * @property string $instagram
+ * @property string $facebook
+ * @property string $twitter
+ * @property string $youtube
  */
 class Instituicao extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -47,7 +51,7 @@ class Instituicao extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['nome', 'cnpj', 'descricao', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'vinculo_api'], 'required'],
-            [['descricao'], 'string'],
+            [['descricao', 'instagram', 'facebook', 'youtube', 'twitter'], 'string'],
             [['email'], 'email'],
             [['perfil'], 'integer'],
             [['nome', 'cnpj', 'email', 'telefone', 'endereco', 'bairro', 'cep', 'login', 'senha', 'imagem', 'video', 'vinculo_api'], 'string', 'max' => 255],
@@ -78,6 +82,10 @@ class Instituicao extends \yii\db\ActiveRecord implements IdentityInterface
             'video' => 'Vídeo',
             'perfil' => 'Perfil',
             'vinculo_api' => 'Token PagSeguro',
+            'facebook' => 'Facebook',
+            'twiter' => 'Twiter',
+            'youtube' => 'Youtube',
+            'instagram' => 'Instagram',
         ];
     }
 

@@ -77,10 +77,12 @@ AppAsset::register($this);
 	            <a class="nav-link" href="#equipe">Equipe</a>
 	          </li>
 	        </ul>
-			<?php endif; ?>
-
-      <?= \app\widgets\Login\Login::widget() ?>
+      
     <?php endif; ?>
+
+        <?= \app\widgets\Login\Login::widget() ?>
+
+			<?php endif; ?>
 
 	</nav>
 </div>

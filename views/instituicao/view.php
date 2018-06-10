@@ -49,12 +49,12 @@ $this->title = 'Visualizar dados';
                             </b>
                         </h5>
 
-                        <p class="text-truncate"><?= $proj->descricao ?></p>
-
-		                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 text-center">
-			                    Conheça!
-		                    </a>
+                        <?= $proj->descricao ?>
                     </div>
+
+                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 text-center">
+                        Conheça!
+                    </a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -83,17 +83,44 @@ $this->title = 'Visualizar dados';
 
             <p>
                 <i class="material-icons">email</i>
-	              <a href="mailto:<?= $model->email ?>"><?= $model->email ?></a>
+                <?= $model->email ?>
             </p>
 
-            <?php if(sizeof($redesSociais) > 0): ?>
-                <?php foreach ($redesSociais as $sociais): ?>
-                   <!-- <a class="d-block mt-3" href="https://<?= $sociais->nome ?>.com/<?= $sociais->url ?>" target="_blank">
-                        <span class="socicon-<?= $sociais->nome ?>"></span>
-                        <span><?= $sociais->url ?></span>
-                    </a> -->
-                <?php endforeach; ?>
-            <?php endif;?>
+            <?php if(isset($model->facebook)): ?>
+                <p>
+                <img src="<?= Yii::getAlias('@web') ?>/imagens/facebook.png" width="20px">
+                    <a href="<?= $model->facebook ?>">
+                        Facebook
+                    </a>
+                </p>
+            <?php endif; ?>
+
+            <?php if(isset($model->instagram)): ?>
+                <p>
+                    <img src="<?= Yii::getAlias('@web') ?>/imagens/isntagram.png" width="20px">
+                    <a href="<?= $model->instagram ?>">
+                        Instagram
+                    </a>
+                </p>
+            <?php endif; ?>
+
+            <?php if(isset($model->twitter)): ?>
+                <p>
+                    <img src="<?= Yii::getAlias('@web') ?>/imagens/twitter.png" width="20px">
+                    <a href="<?= $model->twitter ?>">
+                        Twitter
+                    </a>
+                </p>
+            <?php endif; ?>
+
+            <?php if(isset($model->youtube)): ?>
+                <p>
+                    <img src="<?= Yii::getAlias('@web') ?>/imagens/youtube.png" width="20px">
+                    <a href="<?= $model->youtube ?>">
+                        Youtube
+                    </a>
+                </p>
+            <?php endif; ?>
         </div>
 
         <div class="infos-local col-lg-6 col-md-6 col-sm-12 float-right p0" id="mapa">
