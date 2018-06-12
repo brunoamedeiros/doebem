@@ -271,22 +271,10 @@ function retornaComponenteitem(item) {
         '</div>';
 }
 
-// function editaItem() {
-//     var btn = $(".js-btn-edit");
-
-
-    //btn.on('click', function(){
-        //console.log($(this));
-    //});
-//
-//     btn.on('click', function(){
-//         console.log($(this));
-//     });
-// }
-
 $('.carousel').carousel();
 
 tinymce.init({
     selector: '#mytextarea',
-    language: 'pt_BR'
+    language: 'pt_BR',
+    plugins: "link"
 });

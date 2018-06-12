@@ -36,7 +36,7 @@ AppAsset::register($this);
 		</a>
 
 			<?php if (!Yii::$app->user->isGuest): ?>
-				<div class="usuario-logado style-color-white col-sm-12 col-md-3">
+				<div class="usuario-logado style-color-white">
 					Olá, <?= Yii::$app->user->identity->nome; ?>
 				</div>
 
