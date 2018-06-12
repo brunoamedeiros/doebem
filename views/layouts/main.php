@@ -31,7 +31,7 @@ AppAsset::register($this);
 
 <div class="home-banner">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-		<a class="navbar-brand" href="<?= Yii::$app->homeUrl ?>">
+		<a class="navbar-brand mb-2 mb-md-0" href="<?= Yii::$app->homeUrl ?>">
 			<img src="<?= Yii::getAlias('@web') ?>/imagens/logo.png" alt="">
 		</a>
 
@@ -52,18 +52,19 @@ AppAsset::register($this);
 
 		<?php else: ?>
 
-		<?php
-	    $controller = Yii::$app->controller;
-	    $default_controller = Yii::$app->defaultRoute;
-	    $isHome = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? true : false;
+			<?php
+		    $controller = Yii::$app->controller;
+		    $default_controller = Yii::$app->defaultRoute;
+		    $isHome = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? true : false;
+	    ?>
 
-			if($isHome): ?>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-	      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="navbar-toggler-icon"></span>
-	      </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<?php if($isHome): ?>
 	        <ul class="navbar-nav mr-auto">
 	          <li class="nav-item">
 	            <a class="nav-link" href="#instituicoes-parceiras">Instituições parceiras</a>
@@ -77,9 +78,10 @@ AppAsset::register($this);
 	            <a class="nav-link" href="#equipe">Equipe</a>
 	          </li>
 	        </ul>
-			<?php endif; ?>
+				<?php endif; ?>
 
-      <?= \app\widgets\Login\Login::widget() ?>
+				<?= \app\widgets\Login\Login::widget() ?>
+			</div>
     <?php endif; ?>
 
 	</nav>
