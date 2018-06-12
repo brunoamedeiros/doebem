@@ -86,7 +86,7 @@ $this->title = $model->nome;
 	              <a href="mailto:<?= $model->email ?>"><?= $model->email ?></a>
             </p>
 
-            <?php if(sizeof($model->facebook)): ?>
+            <?php if(!empty($model->facebook)): ?>
                 <p>
                 <img src="<?= Yii::getAlias('@web') ?>/imagens/facebook.png" width="20px">
                     <a target="_blank" href="http://www.facebook.com/"<?= $model->facebook ?>">
@@ -95,7 +95,7 @@ $this->title = $model->nome;
                 </p>
             <?php endif; ?>
 
-            <?php if(sizeof($model->instagram)): ?>
+            <?php if(!empty($model->instagram)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/isntagram.png" width="20px">
                     <a target="_blank" href="http://www.instagram.com/"<?= $model->instagram ?>">
@@ -104,7 +104,7 @@ $this->title = $model->nome;
                 </p>
             <?php endif; ?>
 
-            <?php if(sizeof($model->twitter)): ?>
+            <?php if(!empty($model->twitter)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/twitter.png" width="20px">
                     <a target="_blank" href="http://www.twitter.com/"<?= $model->twitter ?>">
@@ -113,7 +113,7 @@ $this->title = $model->nome;
                 </p>
             <?php endif; ?>
 
-            <?php if(sizeof($model->youtube)): ?>
+            <?php if(!empty($model->youtube)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/youtube.png" width="20px">
                     <a  target="_blank" href="http://www.youtube.com/"<?= $model->youtube ?>">
