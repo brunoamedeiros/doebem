@@ -468,3 +468,14 @@ body .home-banner .navbar {
 .hide {
 	display: none;
 }
+
+.btn-outline-primary {
+    border: 1px solid #44b5fe !important;
+    color: #44b5fe !important;
+}
+
+.btn-outline-primary:hover {
+    background: #44b5fe;
+	color: white !important;
+	text-decoration: underline;
+}
