@@ -105,10 +105,6 @@ use yii\widgets\ActiveForm;
 				</div>
 
 				<div class="col-lg-4">
-          			<?= $form->field($model, 'video')->textInput(['maxlength' => true, "placeholder" => "Apenas link do youtube"]) ?>
-				</div>
-
-				<div class="col-lg-4">
           			<?= $form->field($model, 'vinculo_api')->textInput(['maxlength' => true]) ?>
 
 					<div class="invalid-feedback">
