@@ -39,7 +39,9 @@ $this->title = $model->nome;
             <?php foreach ($projetosModel as $proj): ?>
                 <div class="col-12 media clear-both align-items-center mt-3">
                     <div class="md-auto col-lg-2 col-md-3 col-sm-12 hoverflow-hidden">
-                        <img class="mr-3 nosso-projeto__img mx-auto" src="<?= Yii::getAlias('@web') ?>/uploads/<?= $proj->imagem_perfil ?>" alt="<?= $proj->titulo ?>" width="100px">
+	                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>">
+	                      <img class="mr-3 nosso-projeto__img mx-auto" src="<?= Yii::getAlias('@web') ?>/uploads/<?= $proj->imagem_perfil ?>" alt="<?= $proj->titulo ?>" width="100px">
+	                    </a>
                     </div>
 
                     <div class="media-body col-lg-9 col-md-9 col-sm-12 float-left">

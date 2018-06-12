@@ -12,8 +12,11 @@ $this->title = 'Projeto Doe Bem';
 <div class="jumbotron jumbotron-fluid gradient-bg">
 	<div class="container text-center">
 		<h1 class="display-4 style-main-text style-color-white">
+			DoeBem!
+		</h1>
+		<h1 class="display-4 style-main-text style-color-white">
 			<b>
-				Nos ajude a continuar <br>ajudando
+				Nos ajude a continuar ajudando
 			</b>
 		</h1>
 
@@ -71,7 +74,9 @@ $this->title = 'Projeto Doe Bem';
 					<?php foreach ($instituicoes as $instituicao): ?>
 						<div class="instituicoes-parceiras__instituicao col-lg-4 col-md-4">
 							<div class="instituicao-content">
-								<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" class="img-fluid" alt="...">
+								<a href="<?= \yii\helpers\Url::to(['instituicao/view', 'id' => $instituicao->id_instituicao]) ?>">
+									<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" class="img-fluid" alt="...">
+								</a>
 								
 								<p class="style-color-blue-03">
 									<?= $instituicao->nome ?>
