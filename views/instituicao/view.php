@@ -47,9 +47,7 @@ $this->title = $model->nome;
                             <b>
                                 <?= $proj->titulo ?>
                             </b>
-                        </h5>
-
-                        <div class="text-truncate"><?= $proj->descricao ?></div>
+                        </h5>                       
 
 		                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 text-center">
 			                    Conheça!
