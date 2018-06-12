@@ -128,17 +128,17 @@ use yii\widgets\ActiveForm;
 			</div>
 
 			<div class="col-12">
-				<?= $form->field($model, 'facebook')->textInput(['maxlength' => true, "placeholder" => "Aplenas o link do seu perfil"]) ?>
+				<?= $form->field($model, 'facebook')->textInput(['maxlength' => true, "placeholder" => "Apenas o link do seu perfil"]) ?>
 			</div>
 		</div>
 
 		<div class="form-group col-sm-6 redes-sociais p0 float-left">
 			<div class="col-12">
-				<?= $form->field($model, 'youtube')->textInput(['maxlength' => true, "placeholder" => "Aplenas o link do seu canal"]) ?>
+				<?= $form->field($model, 'youtube')->textInput(['maxlength' => true, "placeholder" => "Apenas o link do seu canal"]) ?>
 			</div>
 
 			<div class="col-12">
-				<?= $form->field($model, 'twitter')->textInput(['maxlength' => true, "placeholder" => "Aplenas o link do seu perfil"]) ?>
+				<?= $form->field($model, 'twitter')->textInput(['maxlength' => true, "placeholder" => "Apenas o link do seu perfil"]) ?>
 			</div>
 		</div>
 

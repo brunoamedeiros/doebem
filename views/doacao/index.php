@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Doacoes';
+$this->title = 'Painel Administrativo';
 ?>
 <div class="col-lg-8 col-md-11 mx-auto content mx-auto">
 	<div class="row">

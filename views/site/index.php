@@ -110,7 +110,7 @@ $this->title = 'Projeto Doe Bem';
 			<br>
 
 			<p>
-				Os integrantes do time envolvido na idealização e desenvolvimento do projeto DoeBem,
+				Os integrantes do time envolvidos na idealização e desenvolvimento do projeto DoeBem,
 				cada integrante teve uma função especifica em todas as etapas do projeto, visando sempre a qualidade do 
 				desenvolvimento em cada etapa. 
 			</p>

@@ -8,9 +8,7 @@ use yii\widgets\DetailView;
 /* @var $instituicao app\models\Instituicao */
 /* @var $contribuicoes app\models\Contribuicao */
 
-$this->title = 'Detalhes do projeto';
-// $this->params['breadcrumbs'][] = ['label' => 'Doacaos', 'url' => ['index']];
-// $this->params['breadcrumbs'][] = $this->title;
+$this->title = $model->titulo;
 ?>
 
 <div class="img-capa">

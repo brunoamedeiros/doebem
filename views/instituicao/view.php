@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Instituicao */
 
-$this->title = 'Visualizar dados';
+$this->title = $model->nome;
 ?>
 <div class="col-lg-7 col-md-11 mx-auto content">
     <div class="perfil col-12 p0">  
@@ -49,7 +49,7 @@ $this->title = 'Visualizar dados';
                             </b>
                         </h5>
 
-                        <p class="text-truncate"><?= $proj->descricao ?></p>
+                        <div class="text-truncate"><?= $proj->descricao ?></div>
 
 		                    <a href="<?= \yii\helpers\Url::to(['doacao/view', 'id' => $proj->id_doacao]) ?>" class="style-btn-line col-3 text-center">
 			                    Conheça!
@@ -86,37 +86,37 @@ $this->title = 'Visualizar dados';
 	              <a href="mailto:<?= $model->email ?>"><?= $model->email ?></a>
             </p>
 
-            <?php if(isset($model->facebook)): ?>
+            <?php if(sizeof($model->facebook)): ?>
                 <p>
                 <img src="<?= Yii::getAlias('@web') ?>/imagens/facebook.png" width="20px">
-                    <a href="<?= $model->facebook ?>">
+                    <a target="_blank" href="http://www.facebook.com/"<?= $model->facebook ?>">
                         Facebook
                     </a>
                 </p>
             <?php endif; ?>
 
-            <?php if(isset($model->instagram)): ?>
+            <?php if(sizeof($model->instagram)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/isntagram.png" width="20px">
-                    <a href="<?= $model->instagram ?>">
+                    <a target="_blank" href="http://www.instagram.com/"<?= $model->instagram ?>">
                         Instagram
                     </a>
                 </p>
             <?php endif; ?>
 
-            <?php if(isset($model->twitter)): ?>
+            <?php if(sizeof($model->twitter)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/twitter.png" width="20px">
-                    <a href="<?= $model->twitter ?>">
+                    <a target="_blank" href="http://www.twitter.com/"<?= $model->twitter ?>">
                         Twitter
                     </a>
                 </p>
             <?php endif; ?>
 
-            <?php if(isset($model->youtube)): ?>
+            <?php if(sizeof($model->youtube)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/youtube.png" width="20px">
-                    <a href="<?= $model->youtube ?>">
+                    <a  target="_blank" href="http://www.youtube.com/"<?= $model->youtube ?>">
                         Youtube
                     </a>
                 </p>
