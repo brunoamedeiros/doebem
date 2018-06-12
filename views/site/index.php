@@ -134,7 +134,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/celio.jpg'); background-size: contain">
 						<div class="time-img">
 						</div>
 
@@ -168,7 +168,7 @@ $this->title = 'Projeto Doe Bem';
 				</div>
 
 				<div class="time-pessoa col col-lg-3 col-sm-6 col-md-3">
-					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/instituicao-01.png');">
+					<div class="time-content" style="background:url('<?= Yii::getAlias('@web') ?>/imagens/mateus.jpg'); background-size: contain">
 						<div class="time-img">
 						</div>
 

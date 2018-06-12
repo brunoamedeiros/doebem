@@ -25,9 +25,9 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-</head>
+</head>  
 <body>
-<?php $this->beginBody() ?>
+<?php $this->beginBody() ?>     
 
 <div class="home-banner">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
@@ -35,22 +35,28 @@ AppAsset::register($this);
 			<img src="<?= Yii::getAlias('@web') ?>/imagens/logo.png" alt="">
 		</a>
 
-		<?php if (!Yii::$app->user->isGuest): ?>
-			<div class="float-right style-color-white">
-				Olá, <?= Yii::$app->user->identity->nome; ?>
-        <?= Html::a('Painel Administrativo', ['doacao/index'], ['class' => 'radius-5 ml-3 btn btn-sm mb-2 style-btn-line-white animation-style']) ?>
-			</div>
+			<?php if (!Yii::$app->user->isGuest): ?>
+				<div class="usuario-logado style-color-white col-sm-12 col-md-3">
+					Olá, <?= Yii::$app->user->identity->nome; ?>
+				</div>
 
-			<?=
-      Html::beginForm(['/site/logout'], 'post')
-      . Html::submitButton(
-          'Sair',
-          ['class' => 'radius-5 btn mb-2 style-btn-line-white animation-style float-right']
-      )
-      . Html::endForm()
-			?>
+				<?=
+					Html::beginForm(['/site/logout'], 'post',['class' => 'form-logout']);
+				?>
 
-		<?php else: ?>
+				<?=
+					Html::a('Painel Administrativo', ['doacao/index'], ['class' => 'btn-adm radius-5 btn style-btn-line-white animation-style mr20 col-sm-8 '])
+				?>
+
+				<?= 
+					Html::submitButton(
+							'Sair',
+							['class' => 'radius-5 btn mb-2 style-btn-line-white animation-style float-right col-sm-12 col-md-3 btn-sair']
+					)
+					. Html::endForm()
+				?>
+
+			<?php else: ?>
 
 		<?php
 	    $controller = Yii::$app->controller;
