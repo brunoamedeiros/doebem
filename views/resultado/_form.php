@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
 
 		<div class="row">
 			<div class="form-group col-sm-12">
-        <?= $form->field($model, 'descricao')->textarea(['rows' => 3]) ?>
+        <?= $form->field($model, 'descricao')->textInput(['class' => 'form-control']) ?>
 
 				<div class="invalid-feedback">
 					Por favor, insira uma descrição.

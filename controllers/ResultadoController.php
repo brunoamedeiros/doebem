@@ -90,7 +90,7 @@ class ResultadoController extends Controller
     {
         $model = new Resultado();
         $doacao = Doacao::find()->where(['id_doacao' => $id_doacao])->one();
-
+        $model->scenario = 'insert-photo-upload';
         $model->id_doacao = $doacao->id_doacao;
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -118,9 +118,10 @@ class ResultadoController extends Controller
     {
         $model = $this->findModel($id_resultado, $id_doacao);
         $doacao = $model->getDoacao()->one();
+        $model->scenario = 'update-photo-upload';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_resultado' => $model->id_resultado, 'id_doacao' => $model->id_doacao]);
+          return $this->redirect(['index', 'id_doacao' => $model->id_doacao]);
         }
 
         return $this->render('update', [

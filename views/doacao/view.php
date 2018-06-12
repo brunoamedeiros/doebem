@@ -71,7 +71,7 @@ $this->title = $model->titulo;
 								</p>
 
 								<?php if(sizeof($resultados) > 0): ?>
-									<button type="button" class="btn btn-primary col-sm-12 col-md-3" data-toggle="modal" data-target="#modal-resultados">
+									<button type="button" class="btn btn-primary col-sm-12 col-md-4" data-toggle="modal" data-target="#modal-resultados">
 										Ver resultados
 									</button>
 								<?php else: ?>
