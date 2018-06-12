@@ -287,5 +287,6 @@ function retornaComponenteitem(item) {
 $('.carousel').carousel();
 
 tinymce.init({
-    selector: '#mytextarea'
-  });
+    selector: '#mytextarea',
+    language: 'pt_BR'
+});
