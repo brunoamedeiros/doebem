@@ -50,17 +50,20 @@ $this->params['breadcrumbs'][] = $this->title;
 	                'buttons' => [
 	                    'view' => function($url, $model) {
 	                      return Html::a('<i class="material-icons">remove_red_eye</i>',
-	                          ['doacao/view', 'id' => $model->id_doacao], ['class' => '']);
+	                          ['doacao/view', 'id' => $model->id_doacao], ['class' => '',
+                                'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Visualizar"]);
 	                    },
 	                    'update' => function($url, $model) {
 	                      return Html::a('<i class="material-icons">mode_edit</i>',
-	                          ['update', 'id_doacao' => $model->id_doacao, 'id_resultado' => $model->id_resultado], ['class' => '']);
+	                          ['update', 'id_doacao' => $model->id_doacao, 'id_resultado' => $model->id_resultado], ['class' => '',
+                                'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Editar"]);
 	                    },
 	                    'delete' => function($url, $model) {
 	                      return Html::a('<i class="material-icons">delete</i>',
 	                          ['delete', 'id_doacao' => $model->id_doacao, 'id_resultado' => $model->id_resultado],
 	                          [
 	                              'class' => '',
+		                            'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Excluir",
 	                              'data' => [
 	                                  'confirm' => 'Você realmente deseja deletar este projeto?',
 	                                  'method' => 'post',
