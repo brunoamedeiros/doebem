@@ -12,7 +12,7 @@ $this->title = $model->titulo;
 ?>
 
 <div class="img-capa">
-	<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $model->imagem_capa ?>" class="img-fluid" alt="Responsive image">
+	<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $model->imagem_capa ?>" alt="<?= $model->titulo ?>">
 </div>
 
 <main class="col-lg-8 col-md-11 mx-auto content detalhes-necessidade">

@@ -87,7 +87,7 @@ $this->title = $model->nome;
             <?php if(!empty($model->facebook)): ?>
                 <p>
                 <img src="<?= Yii::getAlias('@web') ?>/imagens/facebook.png" width="20px">
-                    <a target="_blank" href="http://www.facebook.com/"<?= $model->facebook ?>">
+                    <a target="_blank" href="http://www.facebook.com/<?= $model->facebook ?>">
                         Facebook
                     </a>
                 </p>
@@ -96,7 +96,7 @@ $this->title = $model->nome;
             <?php if(!empty($model->instagram)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/isntagram.png" width="20px">
-                    <a target="_blank" href="http://www.instagram.com/"<?= $model->instagram ?>">
+                    <a target="_blank" href="http://www.instagram.com/<?= $model->instagram ?>">
                         Instagram
                     </a>
                 </p>
@@ -105,7 +105,7 @@ $this->title = $model->nome;
             <?php if(!empty($model->twitter)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/twitter.png" width="20px">
-                    <a target="_blank" href="http://www.twitter.com/"<?= $model->twitter ?>">
+                    <a target="_blank" href="http://www.twitter.com/<?= $model->twitter ?>">
                         Twitter
                     </a>
                 </p>
@@ -114,7 +114,7 @@ $this->title = $model->nome;
             <?php if(!empty($model->youtube)): ?>
                 <p>
                     <img src="<?= Yii::getAlias('@web') ?>/imagens/youtube.png" width="20px">
-                    <a  target="_blank" href="http://www.youtube.com/"<?= $model->youtube ?>">
+                    <a  target="_blank" href="http://www.youtube.com/<?= $model->youtube ?>">
                         Youtube
                     </a>
                 </p>
