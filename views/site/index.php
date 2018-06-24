@@ -36,15 +36,15 @@ $this->title = 'Projeto Doe Bem';
 				<div class="passo-quadro col-lg-4 col-sm-4">
 					<div class="passo-quadro__content">
 						<img src="<?= Yii::getAlias('@web') ?>/imagens/img-conheca.png" alt="">
-						<p class="style-color-yellow-02 passo-titlo">Conheça</p>
-						<p>Conheça as instituições parceiras da DoeBem e seus projetos</p>
+						<p class="style-color-yellow-02 passo-titlo">Instituições</p>
+						<p>A DoeBem trabalha para que instituições locais possam ter um meio de divulgação de seus projetos</p>
 					</div>
 				</div>
 
 				<div class="passo-quadro col-lg-4 col-sm-4">
 					<div class="passo-quadro__content">
 						<img src="<?= Yii::getAlias('@web') ?>/imagens/voluntarie-se.png" alt="img-01">
-						<p class="style-color-green-02 passo-titlo">voluntarie-se</p>
+						<p class="style-color-green-02 passo-titlo">Contribuições</p>
 						<p>Todo tipo de contribuição para as instituições parceiras são bem vindas</p>
 					</div>
 				</div>
@@ -52,8 +52,8 @@ $this->title = 'Projeto Doe Bem';
 				<div class="passo-quadro col-lg-4 col-sm-4">
 					<div class="passo-quadro__content">
 						<img src="<?= Yii::getAlias('@web') ?>/imagens/doe.png" alt="img-01">
-						<p class="style-color-pink-02 passo-titlo">Doe</p>
-						<p>Ajude as instituições a continuar mantendo seus projetos sociais</p>
+						<p class="style-color-pink-02 passo-titlo">Doeações</p>
+						<p>Sua doação ajuda as instituições a continuar mantendo seus projetos sociais</p>
 					</div>
 				</div>
 			</div>

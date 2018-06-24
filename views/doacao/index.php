@@ -36,7 +36,7 @@ $this->title = 'Painel Administrativo';
 			<?= Html::a('Cadastrar novo', ['create'], ['class' => 'btn btn-outline-primary']) ?>
 		</div>
 	</div>
-
+	
 	<div class="row">
 		<div class="col-sm-12 table-responsive">
 			<?= GridView::widget([
