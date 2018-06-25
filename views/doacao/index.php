@@ -11,7 +11,7 @@ $this->title = 'Painel Administrativo';
 ?>
 <div class="col-lg-8 col-md-11 mx-auto content mx-auto">
 	<div class="row">
-		<div class="col-lg-2 col-md-2 col-sm-12 text-center">
+			<div class="col-lg-2 col-md-2 col-sm-12 text-center">
 			<img src="<?= Yii::getAlias('@web') ?>/uploads/<?= $instituicao->imagem ?>" alt="..." class="img-thumbnail">
 		</div>
 
@@ -50,23 +50,25 @@ $this->title = 'Painel Administrativo';
 		
 				'columns' => [
 					'titulo',
+					'valor',
+					'valor_arrecadado',
 					[
 						'class' => 'yii\grid\ActionColumn',
 						'template' => '{view} {update} {delete} {resultado}',
 						'buttons' => [
 							'view' => function($url, $model) {
 							  return Html::a('<i class="material-icons">remove_red_eye</i>',
-								  ['view', 'id' => $model->id_doacao], ['class' => '',
+								  ['view', 'id' => $model['id_doacao']], ['class' => '',
 											  'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Visualizar"]);
 							},
 							'update' => function($url, $model) {
 							  return Html::a('<i class="material-icons">mode_edit</i>',
-								  ['update', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao], ['class' => '',
+								  ['update', 'id_doacao' => $model['id_doacao'], 'id_instituicao' => $model['id_instituicao']], ['class' => '',
                     'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Editar"]);
 							},
 							'delete' => function($url, $model) {
 							  return Html::a('<i class="material-icons">delete</i>',
-								  ['delete', 'id_doacao' => $model->id_doacao, 'id_instituicao' => $model->id_instituicao],
+								  ['delete', 'id_doacao' => $model['id_doacao'], 'id_instituicao' => $model['id_instituicao']],
 								  [
 									  'class' => '',
 										  'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Excluir",
@@ -78,7 +80,7 @@ $this->title = 'Painel Administrativo';
 							},
 							'resultado' => function($url, $model) {
                 return Html::a('<i class="material-icons">star</i>',
-                    ['resultado/index', 'id_doacao' => $model->id_doacao], ['class' => '',
+                    ['resultado/index', 'id_doacao' => $model['id_doacao']], ['class' => '',
                         'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => "Cadastrar Resultados"]);
               },
 						]
