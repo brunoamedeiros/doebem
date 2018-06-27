@@ -10,6 +10,7 @@ use Yii;
 use app\models\Doacao;
 use app\models\Instituicao;
 use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -58,10 +59,52 @@ class DoacaoController extends Controller
     {
         $instituicao = Yii::$app->user->identity;
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => Doacao::find()->where(['id_instituicao' => $instituicao->getId()]),
-        ]);
+        $doacao = [];
+        $doacoes = [];
+        $doacoes_query = Doacao::find()->where(['id_instituicao' => $instituicao->getId()])->all();
+        
+        
+        foreach($doacoes_query as $d) {
+            $doacao['id_doacao'] = $d->id_doacao;
+            $doacao['id_instituicao'] = $d->id_instituicao;
+            $doacao['titulo'] = $d->titulo;
+            $doacao['descricao'] = $d->descricao;
+            $doacao['imagem_perfil'] = $d->imagem_perfil;
+            $doacao['video'] = $d->video;
+            $doacao['imagem_capa'] = $d->imagem_capa;
 
+            $itens = Item::find()->where(['id_doacao' => $d->id_doacao])->all();
+            $valor_itens = 0;
+
+            foreach ($itens as $i) {
+                $valor_itens = $valor_itens + $i->valor;
+            }
+
+            $doacao['valor'] = $valor_itens;
+
+            $cont = Contribuicao::find()->where(['id_doacao' => $d->id_doacao])->all();
+            
+            $valor_cont = 0;
+
+            foreach($cont as $c) {
+                $valor_cont = $valor_cont + $c->valor;
+            }
+
+            $doacao['valor_arrecadado'] = $valor_cont;
+            
+            $doacoes[] = $doacao;
+        };  
+
+        // var_dump($doacoes);
+        // die();
+
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $doacoes,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+        
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'instituicao' => $instituicao

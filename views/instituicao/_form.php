@@ -120,21 +120,21 @@ use yii\widgets\ActiveForm;
 
 		<div class="form-group col-sm-6 redes-sociais p0 float-left">
 			<div class="col-12">
-				<?= $form->field($model, 'instagram')->textInput(['maxlength' => true, "placeholder" => "Apenas link do seu perfil"]) ?>
+				<?= $form->field($model, 'instagram')->textInput(['maxlength' => true, "placeholder" => "Apenas o perfil encontrado no fim do link"]) ?>
 			</div>
 
 			<div class="col-12">
-				<?= $form->field($model, 'facebook')->textInput(['maxlength' => true, "placeholder" => "Apenas o link do seu perfil"]) ?>
+				<?= $form->field($model, 'facebook')->textInput(['maxlength' => true, "placeholder" => "Apenas o perfil encontrado no fim do link"]) ?>
 			</div>
 		</div>
 
 		<div class="form-group col-sm-6 redes-sociais p0 float-left">
 			<div class="col-12">
-				<?= $form->field($model, 'youtube')->textInput(['maxlength' => true, "placeholder" => "Apenas o link do seu canal"]) ?>
+				<?= $form->field($model, 'youtube')->textInput(['maxlength' => true, "placeholder" => "Apenas o pefil no fim do link. Ex: channel/UCuuLmIQNt-YGYuYziOh"]) ?>
 			</div>
 
 			<div class="col-12">
-				<?= $form->field($model, 'twitter')->textInput(['maxlength' => true, "placeholder" => "Apenas o link do seu perfil"]) ?>
+				<?= $form->field($model, 'twitter')->textInput(['maxlength' => true, "placeholder" => "Apenas o perfil encontrado no fim do link"]) ?>
 			</div>
 		</div>
 
