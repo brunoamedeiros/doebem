@@ -32,7 +32,7 @@ AppAsset::register($this);
 <div class="home-banner">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
 		<a class="navbar-brand mb-2 mb-md-0" href="<?= Yii::$app->homeUrl ?>">
-			<img src="<?= Yii::getAlias('@web') ?>/imagens/logo.png" alt="">
+			<img src="<?= Yii::getAlias('@web') ?>/imagens/logo.png" alt="DoeBem">
 		</a>
 
 			<?php if (!Yii::$app->user->isGuest): ?>
@@ -94,6 +94,13 @@ AppAsset::register($this);
 </div>
 
 <?= $content ?>
+
+<?php if (!Yii::$app->user->isGuest): ?>
+	<footer class="col-12">
+		<i class="material-icons mr-1">help</i>
+		<a href="<?= Yii::getAlias('@web') ?>/manual/manual_instrucoes.pdf" download class="small">Como posso utilizar o DoeBem?</a>
+	</footer>
+<?php endif; ?>
 
 <?php $this->endBody() ?>
 </body>

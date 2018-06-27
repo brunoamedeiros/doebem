@@ -507,3 +507,11 @@ body .home-banner .navbar {
 	min-height: 200px;
     max-width: 200px;
 }
+
+/* FOOTER */
+footer {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+}
